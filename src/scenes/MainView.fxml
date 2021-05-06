@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="1024.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="$CONTROLLER_NAME$">
+   <children>
+      <VBox alignment="TOP_CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <HBox alignment="CENTER" prefHeight="180.0" prefWidth="1440.0" spacing="80.0" style="-fx-background-color: black;">
+               <children>
+                  <Label text="iMat" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="Pacifico Regular" size="80.0" />
+                     </font>
+                  </Label>
+                  <Button mnemonicParsing="false" prefHeight="90.0" prefWidth="600.0" style="-fx-background-color: white; -fx-background-radius: 100;">
+                     <font>
+                        <Font size="60.0" />
+                     </font>
+                     <graphic>
+                        <Label text="Mjölk, banan, …" textFill="#00000080">
+                           <font>
+                              <Font size="52.0" />
+                           </font>
+                        </Label>
+                     </graphic>
+                  </Button>
+                  <Button mnemonicParsing="false" style="-fx-background-radius: 100;">
+                     <graphic>
+                        <ImageView fitHeight="90.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true" scaleX="1.2" scaleY="1.2">
+                           <image>
+                              <Image url="@../../resources/resources/imat/imat/user_icons/hjordis_profile.jpeg" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button mnemonicParsing="false" prefHeight="90.0" prefWidth="220.0" style="-fx-background-color: white; -fx-background-radius: 100;" text="70:-">
+                     <font>
+                        <Font size="47.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="90.0" prefWidth="1440.0" spacing="600.0" style="-fx-background-color: #C0FFF7;">
+               <children>
+                  <HBox alignment="CENTER" spacing="100.0">
+                     <children>
+                        <Button mnemonicParsing="false" style="-fx-background-color: transparent;" text="Inköpslistor">
+                           <font>
+                              <Font size="40.0" />
+                           </font>
+                        </Button>
+                        <Button mnemonicParsing="false" style="-fx-background-color: transparent;" text="Gillade varor">
+                           <font>
+                              <Font size="40.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <Button mnemonicParsing="false" style="-fx-background-color: transparent;" text="Hjälp">
+                     <font>
+                        <Font size="40.0" />
+                     </font>
+                  </Button>
+               </children></HBox>
+            <HBox alignment="CENTER" VBox.vgrow="ALWAYS">
+               <children>
+                <AnchorPane maxWidth="360.0" minHeight="0.0" minWidth="0.0" prefHeight="754.0" prefWidth="0.0" style="-fx-background-color: white;" HBox.hgrow="ALWAYS">
+                     <children>
+                        <VBox alignment="TOP_CENTER" layoutX="165.0" layoutY="80.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Label text="Katalog">
+                                 <font>
+                                    <Font size="59.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets top="50.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <ListView prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                                 <VBox.margin>
+                                    <Insets bottom="50.0" left="50.0" right="50.0" />
+                                 </VBox.margin>
+                              </ListView>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <VBox alignment="TOP_CENTER" spacing="30.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Label text="Välkommen Hjördis!">
+                                 <font>
+                                    <Font size="63.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets top="50.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Separator prefWidth="200.0">
+                                 <padding>
+                                    <Insets left="50.0" right="50.0" />
+                                 </padding>
+                              </Separator>
+                              <AnchorPane VBox.vgrow="ALWAYS">
+                                 <children>
+                                    <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <Label text="Kampanjvaror">
+                                             <font>
+                                                <Font name="System Bold" size="50.0" />
+                                             </font>
+                                          </Label>
+                                          <FlowPane prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
+                                       </children>
+                                    </VBox>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="50.0" left="50.0" right="50.0" />
+                                 </VBox.margin>
+                              </AnchorPane>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
