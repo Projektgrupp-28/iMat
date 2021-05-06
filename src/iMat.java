@@ -9,6 +9,7 @@ public class iMat {
         System.out.println(product.getName() + " kostar " + (int)product.getPrice() + "kr");
 
 
+
         System.out.println(dataHandler.getCustomer().getFirstName());
     }
 }
