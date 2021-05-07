@@ -15,11 +15,11 @@
 <?import javafx.scene.shape.Polygon?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.iMatController">
+<AnchorPane prefHeight="1024.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.iMatController">
    <children>
-      <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox alignment="TOP_CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: black;">
+            <HBox alignment="CENTER" prefHeight="180.0" prefWidth="1440.0" spacing="80.0" style="-fx-background-color: black;">
                <children>
                   <Label text="iMat" textAlignment="CENTER" textFill="WHITE">
                      <font>
@@ -54,7 +54,7 @@
                   </Button>
                </children>
             </HBox>
-            <StackPane prefHeight="150.0" prefWidth="200.0">
+            <StackPane prefHeight="150.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                <children>
                   <VBox>
                      <children>
@@ -83,7 +83,7 @@
                         </HBox>
                         <HBox alignment="CENTER">
                            <children>
-                              <AnchorPane maxWidth="360.0" minHeight="0.0" minWidth="0.0" prefHeight="754.0" prefWidth="0.0" style="-fx-background-color: white;" HBox.hgrow="ALWAYS">
+                            <AnchorPane maxWidth="360.0" minHeight="0.0" minWidth="0.0" prefHeight="754.0" prefWidth="0.0" style="-fx-background-color: white;" HBox.hgrow="ALWAYS">
                                  <children>
                                     <VBox alignment="TOP_CENTER" layoutX="165.0" layoutY="80.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                        <children>
@@ -104,7 +104,7 @@
                                     </VBox>
                                  </children>
                               </AnchorPane>
-                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" style="-fx-background-color: #E0E0E0;" HBox.hgrow="ALWAYS">
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" style="-fx-background-color: #E0E0E0;" HBox.hgrow="ALWAYS">
                                  <children>
                                     <VBox alignment="TOP_CENTER" spacing="30.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                        <children>
@@ -190,6 +190,7 @@
                   </AnchorPane>
                </children>
             </StackPane>
-         </children></VBox>
+         </children>
+      </VBox>
    </children>
 </AnchorPane>
