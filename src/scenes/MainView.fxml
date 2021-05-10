@@ -13,14 +13,13 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Polygon?>
 
-
-<AnchorPane prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.iMatController">
+<AnchorPane prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.iMatController">
    <children>
       <VBox alignment="TOP_CENTER" prefHeight="500.0" prefWidth="700.0">
          <children>
             <HBox alignment="CENTER_LEFT" prefHeight="80.0" prefWidth="700.0" spacing="40.0" style="-fx-background-color: black;">
                <children>
-                  <Label alignment="CENTER_RIGHT" prefHeight="21.0" prefWidth="81.0" text="iMat" textFill="#fffdfd" />
+                  <Label fx:id="test" alignment="CENTER_RIGHT" prefHeight="21.0" prefWidth="81.0" text="iMat" textFill="#fffdfd" />
                   <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="320.0" style="-fx-background-radius: 40; -fx-background-color: white;">
                      <graphic>
                         <Label prefHeight="17.0" prefWidth="111.0" text="Mjölk, banan, ..." />
@@ -36,7 +35,58 @@
             </HBox>
             <StackPane prefHeight="420.0" prefWidth="700.0">
                <children>
-                  <AnchorPane prefHeight="420.0" prefWidth="700.0" style="-fx-background-color: rgba(0,0,0,0.5);">
+                  <VBox prefHeight="420.0" prefWidth="700.0">
+                     <children>
+                        <HBox alignment="CENTER" prefHeight="45.0" prefWidth="700.0" spacing="360.0" style="-fx-background-color: #C0FFF7;">
+                           <children>
+                              <HBox alignment="CENTER" prefHeight="45.0" prefWidth="208.0" spacing="40.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" style="-fx-background-color: transparent;" text="Inköpslistor" />
+                                    <Button mnemonicParsing="false" style="-fx-background-color: transparent;" text="Gillade varor" />
+                                 </children>
+                              </HBox>
+                              <Button mnemonicParsing="false" style="-fx-background-color: transparent;" text="Hjälp" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="375.0" prefWidth="700.0">
+                           <children>
+                              <AnchorPane prefHeight="375.0" prefWidth="180.0" style="-fx-background-color: white;">
+                                 <children>
+                                    <VBox alignment="TOP_CENTER" prefHeight="375.0" prefWidth="180.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <Label style="-fx-background-color: white;" text="Katalog">
+                                             <VBox.margin>
+                                                <Insets top="30.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                          <ListView prefHeight="250.0" prefWidth="180.0" />
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane prefHeight="375.0" prefWidth="520.0">
+                                 <children>
+                                    <VBox alignment="TOP_CENTER" prefHeight="375.0" prefWidth="520.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <Label prefHeight="17.0" prefWidth="116.0" style="-fx-background-color: transparent;" text="Välkommen Hjördis!">
+                                             <VBox.margin>
+                                                <Insets top="30.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                          <Separator prefWidth="520.0">
+                                             <padding>
+                                                <Insets left="50.0" right="50.0" />
+                                             </padding>
+                                          </Separator>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <AnchorPane prefHeight="375.0" prefWidth="700.0" style="-fx-background-color: rgba(0,0,0,0.5);">
                      <children>
                         <AnchorPane layoutX="230.0" prefHeight="250.0" prefWidth="350.0" style="-fx-background-color: white; -fx-background-radius: 30;">
                            <children>
@@ -77,57 +127,6 @@
                         </AnchorPane>
                      </children>
                   </AnchorPane>
-                  <VBox prefHeight="420.0" prefWidth="700.0">
-                     <children>
-                        <HBox alignment="CENTER" prefHeight="45.0" prefWidth="700.0" spacing="360.0" style="-fx-background-color: #C0FFF7;">
-                           <children>
-                              <HBox alignment="CENTER" prefHeight="45.0" prefWidth="208.0" spacing="40.0">
-                                 <children>
-                                    <Button mnemonicParsing="false" style="-fx-background-color: transparent;" text="Inköpslistor" />
-                                    <Button mnemonicParsing="false" style="-fx-background-color: transparent;" text="Gillade varor" />
-                                 </children>
-                              </HBox>
-                              <Button mnemonicParsing="false" style="-fx-background-color: transparent;" text="Hjälp" />
-                           </children>
-                        </HBox>
-                        <HBox prefHeight="375.0" prefWidth="700.0">
-                           <children>
-                              <AnchorPane prefHeight="375.0" prefWidth="180.0" style="-fx-background-color: white;">
-                                 <children>
-                                    <VBox alignment="TOP_CENTER" prefHeight="375.0" prefWidth="180.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                       <children>
-                                          <Label style="-fx-background-color: white;" text="Katalog">
-                                             <VBox.margin>
-                                                <Insets top="30.0" />
-                                             </VBox.margin>
-                                          </Label>
-                                          <ListView prefHeight="250.0" prefWidth="180.0" />
-                                       </children>
-                                    </VBox>
-                                 </children>
-                              </AnchorPane>
-                              <AnchorPane prefHeight="375.0" prefWidth="520.0" style="-fx-background-color: white;">
-                                 <children>
-                                    <VBox alignment="TOP_CENTER" prefHeight="375.0" prefWidth="520.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                       <children>
-                                          <Label prefHeight="17.0" prefWidth="116.0" style="-fx-background-color: transparent;" text="Välkommen Hjördis!">
-                                             <VBox.margin>
-                                                <Insets top="30.0" />
-                                             </VBox.margin>
-                                          </Label>
-                                          <Separator prefWidth="520.0">
-                                             <padding>
-                                                <Insets left="50.0" right="50.0" />
-                                             </padding>
-                                          </Separator>
-                                       </children>
-                                    </VBox>
-                                 </children>
-                              </AnchorPane>
-                           </children>
-                        </HBox>
-                     </children>
-                  </VBox>
                </children>
             </StackPane>
          </children>

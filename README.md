@@ -1,4 +1,4 @@
-# iMat
+# application.iMat
 **En näthandelsbutik för äldre.**
 
 För ett antal år sedan fanns det flera mataffärer som erbjöd möjligheten att göra matinköp via nätet. Man gick in på en hemsida, valde vad man ville ha, betalade och fick sen antingen hämta varorna färdigpackade i affären eller så fick man dem hemkörda. Billigt och enkelt. Efter att denna typ av tjänst i princip försvunnit i flera år är den nu tillbaka och mer aktuell än någonsin. De flesta stora livsmedelskedjor arbetar på att vinna kampen om onlinekunderna.
