@@ -5,15 +5,17 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import se.chalmers.cse.dat216.project.Product;
 
 /**
- * This class represents the product cards including the FXML-elements added in ProductCard.fxml.
- * It builds from iMat Mini's ProductPanel class.
+ * This class represents a product card including the FXML-elements added in ProductCard.fxml.
+ * It builds from iMat Mini's ProductPanel class. It extends AnchorPane since it needs to represent
+ * a node.
  * @author Philip Winsnes
  */
 
-public class ProductCard {
+public class ProductCard extends AnchorPane {
 
     @FXML ImageView productImage;
     @FXML Label productName;

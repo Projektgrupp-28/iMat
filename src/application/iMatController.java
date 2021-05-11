@@ -3,6 +3,8 @@ package application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.TextArea;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import se.chalmers.cse.dat216.project.*;
 
@@ -19,6 +21,9 @@ public class iMatController implements Initializable, ShoppingCartListener {
 
     /** FXML-elements **/
     @FXML FlowPane promotionProductsFlowPane;
+    @FXML TextArea searchField;
+    @FXML AnchorPane accountPane;
+    @FXML AnchorPane homePane;
 
 
 
@@ -27,7 +32,7 @@ public class iMatController implements Initializable, ShoppingCartListener {
 
 
     /**
-     * Wrapper class that handles some functions.
+     * Wrapper class that handles some backend functionalities.
      */
     private final Model model = Model.getInstance();
 
@@ -43,9 +48,9 @@ public class iMatController implements Initializable, ShoppingCartListener {
         model.getShoppingCart().addShoppingCartListener(this);
 
         updateProductList(model.getProducts());
-        updateBottomPanel();
+        //updateBottomPanel();
 
-        setupAccountPane();
+        //setupAccountPane();
     }
 
 
@@ -85,17 +90,17 @@ public class iMatController implements Initializable, ShoppingCartListener {
         model.clearShoppingCart();
     }
 
+    // TODO: Look over this commented function
+    /* We won't need this.
     /**
      * Purchases the order after e.g. a button tap.
      * @param event is the action event.
-     */
     @FXML
     private void handleBuyItemsAction(ActionEvent event) {
         model.placeOrder();
         costLabel.setText("Köpet klart!");
     }
-
-
+    */
 
 
 
@@ -123,7 +128,7 @@ public class iMatController implements Initializable, ShoppingCartListener {
      * Opens the account view.
      */
     public void openAccountView() {
-        updateAccountPanel();
+        //updateAccountPanel();
         accountPane.toFront();
     }
 
@@ -131,8 +136,8 @@ public class iMatController implements Initializable, ShoppingCartListener {
      * Closes the account view.
      */
     public void closeAccountView() {
-        updateCreditCard();
-        shopPane.toFront();
+        //updateCreditCard();
+        homePane.toFront();
     }
 
 
@@ -148,7 +153,7 @@ public class iMatController implements Initializable, ShoppingCartListener {
      */
     @Override
     public void shoppingCartChanged(CartEvent evt) {
-        updateBottomPanel();
+        //updateBottomPanel();
     }
 
     /**
@@ -156,24 +161,27 @@ public class iMatController implements Initializable, ShoppingCartListener {
      * @param products is the given product list.
      */
     private void updateProductList(List<Product> products) {
-        productsFlowPane.getChildren().clear();
+        promotionProductsFlowPane.getChildren().clear();
         for (Product product : products) {
-            productsFlowPane.getChildren().add(new ProductPanel(product));
+            promotionProductsFlowPane.getChildren().add(new ProductCard(product));
         }
     }
 
+    // TODO: Fix commented functions
+
+    /* We might do something out of this one later.
     /**
      * Updates the bottom panel which updates the status bar of the shopping cart.
-     */
     private void updateBottomPanel() {
         ShoppingCart shoppingCart = model.getShoppingCart();
         itemsLabel.setText("Antal varor: " + shoppingCart.getItems().size());
         costLabel.setText("Kostnad: " + String.format("%.2f",shoppingCart.getTotal()));
     }
+    */
 
+    /* We might do something out of this one later.
     /**
      * Updates the account panel/information with the entered information.
-     */
     private void updateAccountPanel() {
         CreditCard card = model.getCreditCard();
 
@@ -188,10 +196,11 @@ public class iMatController implements Initializable, ShoppingCartListener {
 
         purchasesLabel.setText(model.getNumberOfOrders()+ " tidigare inköp hos iMat");
     }
+    */
 
+    /* We might do something out of this one later.
     /**
      * Updates the credit card information with the entered information.
-     */
     private void updateCreditCard() {
         CreditCard card = model.getCreditCard();
 
@@ -209,10 +218,11 @@ public class iMatController implements Initializable, ShoppingCartListener {
 
         card.setVerificationCode(Integer.parseInt(cvcField.getText()));
     }
+    */
 
+    /* We might do something out of this one later.
     /**
      * Setups the account pane.
-     */
     private void setupAccountPane() {
         cardTypeCombo.getItems().addAll(model.getCardTypes());
 
@@ -220,5 +230,6 @@ public class iMatController implements Initializable, ShoppingCartListener {
 
         yearCombo.getItems().addAll(model.getYears());
     }
+    */
 
 }
