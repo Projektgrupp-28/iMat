@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Polygon?>
 
-<AnchorPane prefHeight="500.0" prefWidth="700.0" stylesheets="@../styling/styling.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.iMatController">
+<AnchorPane prefHeight="500.0" prefWidth="700.0" stylesheets="@../styling/styling.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.iMatController">
    <children>
       <VBox alignment="TOP_CENTER" prefHeight="500.0" prefWidth="700.0">
          <children>
@@ -24,7 +24,16 @@
                   <Label id="iMatLogo" fx:id="test" alignment="CENTER_RIGHT" prefHeight="55.0" prefWidth="76.0" text="iMat" textAlignment="CENTER" textFill="#fffdfd" />
                   <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="320.0" style="-fx-background-radius: 40; -fx-background-color: white;">
                      <graphic>
-                        <TextArea fx:id="searchField" prefHeight="200.0" prefWidth="352.0" promptText="Mjölk, Banan, …" style="-fx-background-color: transparent; -fx-border-color: transparent;" styleClass="font-smaller" />
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                           <children>
+                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../resources/resources/imat/imat/icons/search.png" />
+                                 </image>
+                              </ImageView>
+                              <TextArea prefHeight="42.0" prefWidth="268.0" />
+                           </children>
+                        </HBox>
                      </graphic>
                   </Button>
                   <ImageView fitHeight="50.0" fitWidth="50.0" onMouseClicked="#openAccountView" pickOnBounds="true" preserveRatio="true">
@@ -32,24 +41,93 @@
                         <Image url="@../../resources/resources/imat/imat/user_icons/hjordis_profile.jpeg" />
                      </image>
                   </ImageView>
-                  <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="95.0" style="-fx-background-radius: 40; -fx-background-color: white;" styleClass="font-normal" text="70:-" />
+                  <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="95.0" style="-fx-background-radius: 40; -fx-background-color: white;" styleClass="font-normal" text="70:-">
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../resources/resources/imat/imat/icons/shopping_cart.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
                </children>
             </HBox>
             <StackPane prefHeight="420.0" prefWidth="700.0">
                <children>
+                  <AnchorPane fx:id="accountPane" prefHeight="375.0" prefWidth="700.0" style="-fx-background-color: rgba(0,0,0,0.5);">
+                     <children>
+                        <AnchorPane layoutX="230.0" prefHeight="250.0" prefWidth="350.0" style="-fx-background-color: white; -fx-background-radius: 30;">
+                           <children>
+                              <Polygon fill="WHITE" layoutX="277.0" layoutY="-28.0" points="-25.65715789794922, 40.00000762939453, 21.709062576293945, 40.00000762939453, -1.8182098865509033, 14.888275146484375" stroke="BLACK" strokeType="INSIDE" style="-fx-stroke: transparent;" AnchorPane.topAnchor="-20.0" />
+                              <HBox prefHeight="200.0" prefWidth="300.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+                                 <children>
+                                    <VBox prefHeight="200.0" prefWidth="150.0">
+                                       <children>
+                                          <Label styleClass="font-larger" text="Min profil">
+                                             <VBox.margin>
+                                                <Insets top="10.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                          <ListView prefHeight="200.0" prefWidth="150.0" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+                                       <children>
+                                          <ImageView fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                                             <VBox.margin>
+                                                <Insets left="5.0" />
+                                             </VBox.margin>
+                                             <image>
+                                                <Image url="@../../resources/resources/imat/imat/user_icons/hjordis_profile.jpeg" />
+                                             </image>
+                                          </ImageView>
+                                          <Label alignment="CENTER" prefHeight="17.0" prefWidth="52.0" style="-fx-background-color: white;" styleClass="font-normal" text="Byt bild">
+                                             <VBox.margin>
+                                                <Insets top="10.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <Button mnemonicParsing="false" onAction="#closeAccountView" styleClass="font-normal" text="Stäng" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
                   <AnchorPane fx:id="homePane">
                      <children>
                         <VBox prefHeight="420.0" prefWidth="700.0">
                            <children>
-                              <HBox alignment="CENTER" prefHeight="45.0" prefWidth="700.0" spacing="360.0" style="-fx-background-color: #C0FFF7;">
+                              <HBox alignment="CENTER" prefHeight="45.0" prefWidth="700.0" spacing="280.0" style="-fx-background-color: #C0FFF7;">
                                  <children>
-                                    <HBox alignment="CENTER" prefHeight="45.0" prefWidth="249.0" spacing="40.0">
+                                    <HBox alignment="CENTER" prefHeight="45.0" prefWidth="312.0" spacing="40.0">
                                        <children>
-                                          <Button mnemonicParsing="false" style="-fx-background-color: transparent;" styleClass="font-normal" text="Inköpslistor" />
-                                          <Button mnemonicParsing="false" style="-fx-background-color: transparent;" styleClass="font-normal" text="Gillade varor" />
+                                          <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="126.0" style="-fx-background-color: transparent;" styleClass="font-normal" text="Inköpslistor">
+                                             <graphic>
+                                                <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../../resources/resources/imat/imat/icons/list.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic></Button>
+                                          <Button mnemonicParsing="false" prefHeight="29.0" prefWidth="144.0" style="-fx-background-color: transparent;" styleClass="font-normal" text="Gillade varor">
+                                             <graphic>
+                                                <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../../resources/resources/imat/imat/icons/heart.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic></Button>
                                        </children>
                                     </HBox>
-                                    <Button mnemonicParsing="false" style="-fx-background-color: transparent;" styleClass="font-normal" text="Hjälp" />
+                                    <Button mnemonicParsing="false" prefHeight="29.0" prefWidth="88.0" style="-fx-background-color: transparent;" styleClass="font-normal" text="Hjälp">
+                                       <graphic>
+                                          <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../resources/resources/imat/imat/icons/help.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic></Button>
                                  </children>
                               </HBox>
                               <HBox prefHeight="375.0" prefWidth="700.0" style="-fx-background-color: #E0E0E0;">
@@ -99,47 +177,6 @@
                               </HBox>
                            </children>
                         </VBox>
-                     </children>
-                  </AnchorPane>
-                  <AnchorPane fx:id="accountPane" prefHeight="375.0" prefWidth="700.0" style="-fx-background-color: rgba(0,0,0,0.5);">
-                     <children>
-                        <AnchorPane layoutX="230.0" prefHeight="250.0" prefWidth="350.0" style="-fx-background-color: white; -fx-background-radius: 30;">
-                           <children>
-                              <Polygon fill="WHITE" layoutX="277.0" layoutY="-28.0" points="-25.65715789794922, 40.00000762939453, 21.709062576293945, 40.00000762939453, -1.8182098865509033, 14.888275146484375" stroke="BLACK" strokeType="INSIDE" style="-fx-stroke: transparent;" AnchorPane.topAnchor="-20.0" />
-                              <HBox prefHeight="200.0" prefWidth="300.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
-                                 <children>
-                                    <VBox prefHeight="200.0" prefWidth="150.0">
-                                       <children>
-                                          <Label styleClass="font-larger" text="Min profil">
-                                             <VBox.margin>
-                                                <Insets top="10.0" />
-                                             </VBox.margin>
-                                          </Label>
-                                          <ListView prefHeight="200.0" prefWidth="150.0" />
-                                       </children>
-                                    </VBox>
-                                    <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
-                                       <children>
-                                          <ImageView fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
-                                             <VBox.margin>
-                                                <Insets left="5.0" />
-                                             </VBox.margin>
-                                             <image>
-                                                <Image url="@../../resources/resources/imat/imat/user_icons/hjordis_profile.jpeg" />
-                                             </image>
-                                          </ImageView>
-                                          <Label alignment="CENTER" prefHeight="17.0" prefWidth="52.0" style="-fx-background-color: white;" styleClass="font-normal" text="Byt bild">
-                                             <VBox.margin>
-                                                <Insets top="10.0" />
-                                             </VBox.margin>
-                                          </Label>
-                                       </children>
-                                    </VBox>
-                                    <Button mnemonicParsing="false" onAction="#closeAccountView" styleClass="font-normal" text="Stäng" />
-                                 </children>
-                              </HBox>
-                           </children>
-                        </AnchorPane>
                      </children>
                   </AnchorPane>
                </children>
