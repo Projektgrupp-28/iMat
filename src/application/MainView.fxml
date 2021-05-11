@@ -154,6 +154,13 @@
                                                    <VBox.margin>
                                                       <Insets top="30.0" />
                                                    </VBox.margin>
+                                                   <graphic>
+                                                      <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../../resources/resources/imat/imat/icons/help.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </graphic>
                                                 </Label>
                                                 <Separator prefWidth="520.0">
                                                    <padding>
