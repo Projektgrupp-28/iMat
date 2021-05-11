@@ -36,9 +36,9 @@ public class ProductCard extends AnchorPane {
     private final static double kImageRatio = 0.75;
 
     public ProductCard(Product product) {
-        this.product = product;
-        this.productImage.setImage(new Image(product.getImageName()));
-        this.productName.setText(product.getName());
+        //this.product = product;
+        //this.productImage.setImage(new Image(product.getImageName()));
+        //this.productName.setText(product.getName());
     }
 
     /**
