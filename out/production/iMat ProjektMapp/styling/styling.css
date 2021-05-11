@@ -1,16 +1,16 @@
 #iMatLogo {
-     -fx-font-size: 75px;
+     -fx-font-size: 30px;
      -fx-font-family: "Pacifico";
  }
 
 .font-larger {
-     -fx-font-size: 52;
+     -fx-font-size: 20;
      -fx-font-weight: bold;
      -fx-font-family: "Lato";
 }
 
 .font-normal {
-     -fx-font-size: 35;
+     -fx-font-size: 20;
      -fx-font-family: "Lato";
 }
 

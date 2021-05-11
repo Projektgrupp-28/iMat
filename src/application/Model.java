@@ -91,23 +91,23 @@ public class Model {
         // shoppingCart.addProduct(p);
     }
 
+    // TODO: Fix methods.
+    /* This methods will be useful later.
     /**
      * Returns the accepted card types for payment.
      * @return a list of available card types.
-     */
     public List<String> getCardTypes() {
         return availableCardTypes;
     }
 
-    // I don't know what this method does. // Philip.
     public List<String> getMonths() {
         return months;
     }
 
-    // I don't know what this method does. // Philip.
     public List<String> getYears() {
         return years;
     }
+    */
 
     // I don't know what this method does. // Philip.
     public CreditCard getCreditCard() {

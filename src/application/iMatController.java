@@ -59,7 +59,7 @@ public class iMatController implements Initializable, ShoppingCartListener {
 
 
 
-    // Mark: Shop pane actions
+    // Mark: Home pane actions
     /**
      * Opens the account view from e.g. a button tap.
      * @param event is the action event.
