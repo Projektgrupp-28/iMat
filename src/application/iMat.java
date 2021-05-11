@@ -5,8 +5,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import se.chalmers.cse.dat216.project.IMatDataHandler;
 
+/**
+ * This class is responsible for the executable start method that runs the application.
+ * @author Philip Winsnes
+ */
 
 public class iMat extends Application {
 
@@ -15,7 +18,7 @@ public class iMat extends Application {
         Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
             @Override
             public void run() {
-                IMatDataHandler.getInstance().shutDown();
+                Model.getInstance().shutDown();
             }
         }));
     }
@@ -23,28 +26,9 @@ public class iMat extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("/scenes/MainView.fxml"));
-        stage.setTitle("application.iMat");
+        stage.setTitle("iMat");
         stage.setScene(new Scene(root));
         stage.show();
     }
-
-    /*
-    List<Product> productList;
-    @FXML
-    ListView<application.ProductCard> listView;
-
-    public static void main(String[] args) {
-        launch(args);
-
-        IMatDataHandler dataHandler = IMatDataHandler.getInstance();
-        Product product = dataHandler.getProduct(2);
-        System.out.println(product.getName() + " kostar " + (int)product.getPrice() + "kr");
-
-        System.out.println(dataHandler.getCustomer().getFirstName());
-        System.out.println("Test William");
-    }
-
-
-     */
 
 }
