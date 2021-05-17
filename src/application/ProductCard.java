@@ -2,11 +2,13 @@ package application;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import se.chalmers.cse.dat216.project.Product;
+import java.io.IOException;
 
 /**
  * This class represents a product card including the FXML-elements added in ProductCard.fxml.
@@ -36,9 +38,19 @@ public class ProductCard extends AnchorPane {
     private final static double kImageRatio = 0.75;
 
     public ProductCard(Product product) {
-        //this.product = product;
-        //this.productImage.setImage(new Image(product.getImageName()));
-        //this.productName.setText(product.getName());
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/application/ProductCard.fxml"));
+        fxmlLoader.setRoot(this);
+        fxmlLoader.setController(this);
+
+        try {
+            fxmlLoader.load();
+        } catch (IOException exception) {
+            throw new RuntimeException(exception);
+        }
+
+        this.product = product;
+        this.productImage.setImage(new Image("resources/imat/imat/images/" + product.getImageName()));
+        this.productName.setText(product.getName()); // Sätter titel
     }
 
     /**

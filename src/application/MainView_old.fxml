@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" stylesheets="@../styling/styling.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.iMatController">
+   <children>
+      <VBox alignment="TOP_CENTER" prefHeight="500.0" prefWidth="700.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <HBox alignment="CENTER" prefHeight="80.0" spacing="40.0" style="-fx-background-color: black;" VBox.vgrow="NEVER">
+               <children>
+                  <Label id="iMatLogo" fx:id="test" alignment="CENTER_RIGHT" prefHeight="40.0" text="iMat" textAlignment="CENTER" textFill="#fffdfd" HBox.hgrow="ALWAYS">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Label>
+                  <HBox alignment="CENTER" prefHeight="40.0" spacing="10.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="300.0" style="-fx-background-radius: 40; -fx-background-color: white;">
+                           <graphic>
+                              <HBox alignment="CENTER" spacing="10.0">
+                                 <children>
+                                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@icons/search.png" />
+                                       </image>
+                                       <HBox.margin>
+                                          <Insets left="20.0" />
+                                       </HBox.margin>
+                                    </ImageView>
+                                    <TextField prefHeight="40.0" promptText="Mjölk, banan, ..." styleClass="font-normal" stylesheets="@../styling/searchfield.css" HBox.hgrow="ALWAYS" />
+                                 </children>
+                              </HBox>
+                           </graphic>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#openAccountView" prefHeight="40.0" stylesheets="@../styling/profilebutton.css">
+                           <graphic>
+                              <HBox alignment="CENTER" spacing="5.0">
+                                 <children>
+                                    <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@icons/profile.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Label styleClass="font-normal" stylesheets="@../styling/styling.css" text="Min profil" textFill="WHITE" />
+                                 </children>
+                              </HBox>
+                           </graphic>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <Button graphicTextGap="10.0" mnemonicParsing="false" prefHeight="40.0" style="-fx-background-radius: 40; -fx-background-color: white;" styleClass="font-larger">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <graphic>
+                        <HBox alignment="CENTER" spacing="5.0">
+                           <children>
+                              <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@icons/shopping_cart.png" />
+                                 </image>
+                              </ImageView>
+                              <HBox alignment="TOP_CENTER" spacing="2.0">
+                                 <children>
+                                    <Label styleClass="font-larger" text="8 888">
+                                       <HBox.margin>
+                                          <Insets top="3.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <Label styleClass="font-normal" text="55">
+                                       <font>
+                                          <Font size="1.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets top="1.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <Label alignment="CENTER" contentDisplay="BOTTOM" styleClass="font-larger" text=":-">
+                                       <HBox.margin>
+                                          <Insets bottom="5.0" left="1.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </HBox>
+                     </graphic>
+                  </Button>
+               </children>
+               <padding>
+                  <Insets left="30.0" right="30.0" />
+               </padding>
+            </HBox>
+            <StackPane prefHeight="420.0" prefWidth="700.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <AnchorPane fx:id="accountPane" prefHeight="375.0" prefWidth="700.0" style="-fx-background-color: rgba(0,0,0,0.5);">
+                     <children>
+                        <AnchorPane layoutX="230.0" prefHeight="250.0" prefWidth="350.0" style="-fx-background-color: white; -fx-background-radius: 30;">
+                           <children>
+                              <HBox prefHeight="200.0" prefWidth="300.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+                                 <children>
+                                    <VBox prefHeight="200.0" prefWidth="150.0">
+                                       <children>
+                                          <Label styleClass="font-larger" text="Min profil">
+                                             <VBox.margin>
+                                                <Insets top="10.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                          <ListView prefHeight="200.0" prefWidth="150.0" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+                                       <children>
+                                          <ImageView fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                                             <VBox.margin>
+                                                <Insets left="5.0" />
+                                             </VBox.margin>
+                                             <image>
+                                                <Image url="@../../resources/resources/imat/imat/user_icons/hjordis_profile.jpeg" />
+                                             </image>
+                                          </ImageView>
+                                          <Label alignment="CENTER" prefHeight="17.0" prefWidth="52.0" style="-fx-background-color: white;" styleClass="font-normal" text="Byt bild">
+                                             <VBox.margin>
+                                                <Insets top="10.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <Button mnemonicParsing="false" onAction="#closeAccountView" styleClass="font-normal" text="Stäng" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="homePane" StackPane.alignment="CENTER">
+                     <children>
+                        <VBox prefHeight="420.0" prefWidth="700.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane style="-fx-background-color: #C0FFF7;">
+                                 <children>
+                                    <HBox alignment="CENTER" prefHeight="45.0" prefWidth="330.0" spacing="50.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: transparent;" styleClass="font-normal" text="Inköpslistor">
+                                             <graphic>
+                                                <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@icons/list.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic>
+                                          </Button>
+                                          <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: transparent;" styleClass="font-normal" text="Gillade varor">
+                                             <graphic>
+                                                <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@icons/heart.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic>
+                                          </Button>
+                                       </children>
+                                    </HBox>
+                                    <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" style="-fx-background-color: transparent;" styleClass="font-normal" text="Hjälp" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0">
+                                       <graphic>
+                                          <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@icons/help.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                 </children>
+                              </AnchorPane>
+                              <HBox alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" prefHeight="375.0" prefWidth="700.0" style="-fx-background-color: #E0E0E0;" VBox.vgrow="ALWAYS">
+                                 <children>
+                                    <AnchorPane prefHeight="375.0" prefWidth="180.0" style="-fx-background-color: white;" HBox.hgrow="NEVER">
+                                       <children>
+                                          <VBox alignment="TOP_CENTER" prefHeight="375.0" prefWidth="180.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                             <children>
+                                                <Label style="-fx-background-color: white;" styleClass="font-larger" text="Katalog">
+                                                   <VBox.margin>
+                                                      <Insets top="30.0" />
+                                                   </VBox.margin>
+                                                </Label>
+                                                <ListView fx:id="categoriesList" fixedCellSize="50.0" prefHeight="250.0" prefWidth="180.0" stylesheets="@../styling/listview.css" VBox.vgrow="ALWAYS">
+                                                   <VBox.margin>
+                                                      <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+                                                   </VBox.margin></ListView>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </AnchorPane>
+                                    <ScrollPane fitToWidth="true" hbarPolicy="NEVER" stylesheets="@../styling/scrollpane.css" vbarPolicy="ALWAYS" HBox.hgrow="ALWAYS">
+                                      <content>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0">
+                                             <children>
+                                                <VBox alignment="TOP_CENTER" prefHeight="375.0" prefWidth="520.0" spacing="25.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <children>
+                                                      <Label alignment="CENTER" prefHeight="42.0" prefWidth="179.0" styleClass="font-normal" text="Välkommen Hjördis!" textAlignment="CENTER">
+                                                         <VBox.margin>
+                                                            <Insets top="30.0" />
+                                                         </VBox.margin>
+                                                      </Label>
+                                                      <Separator prefWidth="520.0">
+                                                         <padding>
+                                                            <Insets left="50.0" right="50.0" />
+                                                         </padding>
+                                                      </Separator>
+                                                      <VBox prefHeight="500.0" prefWidth="400.0" VBox.vgrow="ALWAYS">
+                                                         <children>
+                                                            <Label styleClass="font-larger" text="Kampanjvaror" />
+                                                            <FlowPane id="flowPane" fx:id="promotionProductsFlowPane" hgap="10.0" rowValignment="TOP" styleClass="flow-pane" stylesheets="@../styling/flowpane.css" vgap="10.0">
+                                                               <padding>
+                                                                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                                               </padding>
+                                                            </FlowPane>
+                                                         </children>
+                                                         <VBox.margin>
+                                                            <Insets left="50.0" right="50.0" />
+                                                         </VBox.margin>
+                                                      </VBox>
+                                                      <VBox layoutX="60.0" layoutY="112.0" prefHeight="500.0" prefWidth="400.0">
+                                                         <children>
+                                                            <Label styleClass="font-larger" text="Ofta köpta" />
+                                                            <FlowPane id="flowPane" fx:id="oftenPurchasedFlowPane" hgap="10.0" rowValignment="TOP" styleClass="flow-pane" stylesheets="@../styling/flowpane.css" vgap="10.0">
+                                                               <padding>
+                                                                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                                               </padding>
+                                                            </FlowPane>
+                                                         </children>
+                                                         <VBox.margin>
+                                                            <Insets left="50.0" right="50.0" />
+                                                         </VBox.margin>
+                                                      </VBox>
+                                                      <VBox layoutX="60.0" layoutY="444.0" prefHeight="500.0" prefWidth="400.0">
+                                                         <children>
+                                                            <Label styleClass="font-larger" text="Alla varor" />
+                                                            <FlowPane id="flowPane" fx:id="allProductsFlowPane" hgap="10.0" rowValignment="TOP" styleClass="flow-pane" stylesheets="@../styling/flowpane.css" vgap="10.0">
+                                                               <padding>
+                                                                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                                               </padding>
+                                                            </FlowPane>
+                                                         </children>
+                                                         <VBox.margin>
+                                                            <Insets bottom="50.0" left="50.0" right="50.0" />
+                                                         </VBox.margin>
+                                                      </VBox>
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </AnchorPane>
+                                      </content>
+                                    </ScrollPane>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </StackPane>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

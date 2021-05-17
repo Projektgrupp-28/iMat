@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 /**
  * This class is responsible for the executable start method that runs the application.
@@ -26,8 +27,14 @@ public class iMat extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("/application/MainView.fxml"));
+        initStage(stage, root);
+    }
+
+    private void initStage(Stage stage, Parent root) {
         stage.setTitle("iMat");
         stage.setScene(new Scene(root));
+        stage.setMinWidth(800);
+        stage.setMinHeight(650);
         stage.show();
     }
 
