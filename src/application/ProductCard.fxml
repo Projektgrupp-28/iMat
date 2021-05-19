@@ -2,16 +2,22 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<fx:root prefHeight="250.0" prefWidth="150.0" style="-fx-background-radius: 25; -fx-background-color: white;" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root onMouseEntered="#onMouseEntered" onMouseExited="#onMouseExit" prefHeight="250.0" prefWidth="150.0" style="-fx-background-radius: 25; -fx-background-color: white;" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
     <children>
       <VBox alignment="CENTER" layoutX="14.0" layoutY="14.0" spacing="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-              <ImageView fx:id="productImage" fitHeight="75.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
+              <ImageView fx:id="productImage" fitHeight="75.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../resources/resources/imat/imat/images/product_64.jpg" />
+               </image>
+            </ImageView>
               <Label fx:id="productName" text="Mellanmjök">
                   <font>
                       <Font size="18.0" />
@@ -26,5 +32,24 @@
               <Button mnemonicParsing="false" onAction="#handleAddAction" stylesheets="@../styling/productCardButton.css" text="Lägg till" />
          </children>
       </VBox>
+      <HBox fx:id="buttonGroup" alignment="CENTER" layoutX="37.5" layoutY="10.0" spacing="5.0" visible="false">
+         <children>
+            <ImageView fx:id="likeButton" fitHeight="20.0" fitWidth="20.0" onMouseClicked="#likeItem" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@icons/heart.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="hideButton" fitHeight="25.0" fitWidth="25.0" onMouseClicked="#hideItem" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@icons/hide.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="addToListButton" fitHeight="20.0" fitWidth="20.0" onMouseClicked="#addItemToList" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@icons/add_to_list.png" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
     </children>
 </fx:root>
