@@ -1,0 +1,15 @@
+
+
+
+.button {
+    -fx-background-color: rgba(0, 201, 8, 0.75);
+    -fx-background-radius: 50;
+    -fx-text-fill: white;
+    -fx-padding: 2 27 2 27;
+    -fx-font-family: 'Lato';
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+}
+.button:hover {
+    -fx-background-color: rgba(0, 250, 8, 0.75);
+}

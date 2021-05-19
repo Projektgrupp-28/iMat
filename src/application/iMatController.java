@@ -5,6 +5,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
@@ -13,11 +14,14 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Paint;
+import javafx.scene.shape.Circle;
 import se.chalmers.cse.dat216.project.*;
 
 import java.math.RoundingMode;
 import java.net.URL;
 import java.text.NumberFormat;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -30,6 +34,8 @@ public class iMatController implements Initializable, ShoppingCartListener {
 
     /** FXML-elements **/
     @FXML private BorderPane mainPane;
+    @FXML private BorderPane shoppingCartBorderPane;
+    @FXML private AnchorPane shoppingCartLayerPane;
 
     @FXML private TextArea searchField;
     @FXML private AnchorPane accountPane;
@@ -40,12 +46,29 @@ public class iMatController implements Initializable, ShoppingCartListener {
     @FXML private Label lowSum;
     @FXML private Label cartSumSymbol;
     // @FXML private HBox cartSum;
+    @FXML private Circle shoppingPaneCircleGuide1;
+    @FXML private Circle shoppingPaneCircleGuide2;
+    @FXML private Circle shoppingPaneCircleGuide3;
+    @FXML private Circle shoppingPaneCircleGuide4;
+    private Circle shoppingPaneCircleGuideReserved = new Circle(); // This circle is not shown but needed for indexing.
 
     /** Instances **/
     private FxmlLoader fxmlLoader = new FxmlLoader();
     private String previousSelectedCategory;
     ObservableList observableCategoriesList = FXCollections.observableArrayList();
     ObservableList observableProfileList = FXCollections.observableArrayList();
+
+    Pane shoppingCart = fxmlLoader.getPage("ShoppingCart");
+    Pane shoppingCartDeliveryOptions1 = fxmlLoader.getPage("ShoppingCartDeliveryOptions1");
+    Pane shoppingCartDeliveryOptions2 = fxmlLoader.getPage("ShoppingCartDeliveryOptions2");
+    Pane shoppingCartPaymentOptions = fxmlLoader.getPage("ShoppingCartPaymentOptions");
+    Pane shoppingCartThanksForPurchasing = fxmlLoader.getPage("ShoppingCartThanksForPurchasing");
+
+    Pane homePage = fxmlLoader.getPage("Home");
+
+    List<Pane> shoppingCartViews = new ArrayList<>();
+
+    List<Circle> shoppingPaneCircleGuides = new ArrayList<>();
 
     /**
      * Wrapper class that handles some backend functionalities.
@@ -121,8 +144,11 @@ public class iMatController implements Initializable, ShoppingCartListener {
         model.getShoppingCart().clear();
         loadCategoriesList();
         loadProfileList();
+        initShoppingCart();
         goHome();
     }
+
+
 
     private void updateSumLabels() {
         Double totalPrice = model.getShoppingCart().getTotal();
@@ -157,8 +183,7 @@ public class iMatController implements Initializable, ShoppingCartListener {
     }
 
     public void goHome() {
-        Pane view = fxmlLoader.getPage("Home");
-        mainPane.setCenter(view);
+        mainPane.setCenter(homePage);
         closeAccountView();
         categoriesList.getSelectionModel().clearSelection();
     }
@@ -257,6 +282,19 @@ public class iMatController implements Initializable, ShoppingCartListener {
         mainPane.toFront();
     }
 
+
+
+
+    public void openShoppingCart() {
+        shoppingCartLayerPane.toFront();
+        shoppingCartBorderPane.setCenter(shoppingCartViews.get(0));
+        fillCircleGuide(shoppingPaneCircleGuide1);
+    }
+
+    public void closeShoppingCart() {
+        mainPane.toFront();
+    }
+
     // Mark: Shopping pane methods
     /**
      * Updates the bottom panel whenever a change have been made to the shopping cart.
@@ -265,6 +303,70 @@ public class iMatController implements Initializable, ShoppingCartListener {
     @Override
     public void shoppingCartChanged(CartEvent evt) {
         updateSumLabels();
+    }
+
+    private void initShoppingCart() {
+        initShoppingPanes();
+        initShoppingGuideCircles();
+    }
+
+    private void initShoppingPanes() {
+        shoppingCartViews.add(shoppingCart);
+        shoppingCartViews.add(shoppingCartDeliveryOptions1);
+        shoppingCartViews.add(shoppingCartDeliveryOptions2);
+        shoppingCartViews.add(shoppingCartPaymentOptions);
+        shoppingCartViews.add(shoppingCartThanksForPurchasing);
+    }
+
+    private void initShoppingGuideCircles() {
+        shoppingPaneCircleGuides.add(shoppingPaneCircleGuide1);
+        shoppingPaneCircleGuides.add(shoppingPaneCircleGuide2);
+        shoppingPaneCircleGuides.add(shoppingPaneCircleGuide3);
+        shoppingPaneCircleGuides.add(shoppingPaneCircleGuide4);
+        shoppingPaneCircleGuides.add(shoppingPaneCircleGuideReserved); // This one does not show but are need for indexing.
+    }
+
+    private int getCurrentShoppingPaneIndex() {
+        Node thisPane = shoppingCartBorderPane.getCenter();
+        return shoppingCartViews.indexOf(thisPane);
+    }
+
+    private void fillCircleGuide(Circle circle) {
+        circle.setFill(Paint.valueOf("blue"));
+    }
+
+    private void unfillCircleGuide(Circle circle) {
+        circle.setFill(Paint.valueOf("grey"));
+    }
+
+    @FXML
+    public void loadNextShoppingPanel() {
+        int thisPanelIndex = getCurrentShoppingPaneIndex();
+        if (thisPanelIndex < shoppingCartViews.size()-1) {
+            // The last shopping pane are not selected.
+
+            // Fill circles
+            unfillCircleGuide(shoppingPaneCircleGuides.get(thisPanelIndex));
+            fillCircleGuide(shoppingPaneCircleGuides.get(thisPanelIndex + 1));
+
+            // Update the view.
+            shoppingCartBorderPane.setCenter(shoppingCartViews.get(thisPanelIndex + 1));
+        }
+    }
+
+    @FXML
+    public void loadPreviousShoppingPanel() {
+        int thisPanelIndex = getCurrentShoppingPaneIndex();
+        if (thisPanelIndex > 0) {
+            // The first shopping pane are not selected.
+
+            // Fill circles
+            unfillCircleGuide(shoppingPaneCircleGuides.get(thisPanelIndex));
+            fillCircleGuide(shoppingPaneCircleGuides.get(thisPanelIndex - 1));
+
+            // Update the view
+            shoppingCartBorderPane.setCenter(shoppingCartViews.get(thisPanelIndex - 1));
+        }
     }
 
     // TODO: Fix commented functions
