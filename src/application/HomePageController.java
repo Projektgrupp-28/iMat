@@ -36,7 +36,10 @@ public class HomePageController implements Initializable {
          */
 
         for (int i = 0; i < 3; i++) {
-            promotionProductsFlowPane.getChildren().add(new ProductCard(products.get(i)));
+            //model.addToHiddenProductList(products.get(i));
+            if(!model.getHiddenProductList().contains(products.get(i))) {
+                promotionProductsFlowPane.getChildren().add(new ProductCard(products.get(i)));
+            }
         }
 
         oftenPurchasedFlowPane.getChildren().clear();
@@ -46,13 +49,16 @@ public class HomePageController implements Initializable {
         }
          */
         for (int i = 4; i < 7; i++) {
-            oftenPurchasedFlowPane.getChildren().add(new ProductCard(products.get(i)));
+            if(!model.getHiddenProductList().contains(products.get(i))) {
+                oftenPurchasedFlowPane.getChildren().add(new ProductCard(products.get(i)));
+            }
         }
 
         allProductsFlowPane.getChildren().clear();
         for (Product product : products) {
-            allProductsFlowPane.getChildren().add(new ProductCard(product));
+            if(!model.getHiddenProductList().contains(product)) {
+                allProductsFlowPane.getChildren().add(new ProductCard(product));
+            }
         }
     }
-
 }
