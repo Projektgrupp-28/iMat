@@ -1,0 +1,7 @@
+.text-field .content {
+   -fx-background-color: white;
+}
+.text-field  {
+    -fx-background-color: white;
+    -fx-font-alignment: center;
+}
