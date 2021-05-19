@@ -1,0 +1,31 @@
+
+
+.nextButton {
+    -fx-background-color: rgb(100, 181, 246);
+    -fx-background-radius: 3;
+    -fx-text-fill: white;
+    -fx-padding: 2 11 2 11;
+    -fx-font-family: 'Lato';
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+}
+.nextButton:hover {
+    -fx-background-color: rgb(90, 163, 255);
+}
+
+.backButton {
+    -fx-background-color: white;
+    -fx-background-radius: 3;
+    -fx-text-fill: rgba(0, 0, 0, 0.6);
+    -fx-padding: 1 7 2 7;
+    -fx-font-family: 'Lato';
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-border-color: rgba(0, 0, 0, 0.5);
+    -fx-border-width: 2 2 2 2;
+    -fx-border-radius: 3;
+}
+.backButton:hover {
+    -fx-background-color: rgba(0, 0, 0, 0.1);
+    -fx-text-fill: rgba(0, 0, 0, 0.5);
+}
