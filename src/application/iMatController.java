@@ -64,6 +64,8 @@ public class iMatController implements Initializable, ShoppingCartListener {
     Pane shoppingCartPaymentOptions = fxmlLoader.getPage("ShoppingCartPaymentOptions");
     Pane shoppingCartThanksForPurchasing = fxmlLoader.getPage("ShoppingCartThanksForPurchasing");
 
+    Pane homePage = fxmlLoader.getPage("Home");
+
     List<Pane> shoppingCartViews = new ArrayList<>();
 
     List<Circle> shoppingPaneCircleGuides = new ArrayList<>();
@@ -181,8 +183,7 @@ public class iMatController implements Initializable, ShoppingCartListener {
     }
 
     public void goHome() {
-        Pane view = fxmlLoader.getPage("Home");
-        mainPane.setCenter(view);
+        mainPane.setCenter(homePage);
         closeAccountView();
         categoriesList.getSelectionModel().clearSelection();
     }
