@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<fx:root prefHeight="250.0" prefWidth="150.0" style="-fx-background-radius: 25; -fx-background-color: white;" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root prefHeight="250.0" prefWidth="150.0" style="-fx-background-radius: 25; -fx-background-color: white;" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
     <children>
       <VBox alignment="CENTER" layoutX="14.0" layoutY="14.0" spacing="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -23,7 +23,7 @@
                       <Font name="System Bold" size="13.0" />
                   </font>
             </Label>
-              <Button mnemonicParsing="false" onAction="#handleAddAction" text="Lägg till" />
+              <Button mnemonicParsing="false" onAction="#handleAddAction" stylesheets="@../styling/productCardButton.css" text="Lägg till" />
          </children>
       </VBox>
     </children>
