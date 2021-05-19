@@ -2,7 +2,10 @@ package application;
 
 import javafx.scene.image.Image;
 import se.chalmers.cse.dat216.project.*;
+
+import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
 
 /**
  * Wrapper around the IMatDataHandler. The idea is that it might be useful to
@@ -15,6 +18,8 @@ public class Model {
 
     private static Model model;
     private IMatDataHandler iMatDataHandler;
+    private iMatController iMatController;
+    private List<Product> hiddenProductList = new ArrayList<>();
 
     /**
      * To be used instead of the constructor.
@@ -156,4 +161,30 @@ public class Model {
         iMatDataHandler.shutDown();
     }
 
+    /**
+     *
+     * Adds product to hiddenProductList
+     */
+    public void addToHiddenProductList(Product p) {
+        if(!hiddenProductList.contains(p)) {
+            hiddenProductList.add(p);
+        }
+        else { System.out.println(p + " is already hidden"); }
+    }
+
+    /**
+     *
+     * Removes product from hiddenProductList
+     */
+    public void removeFromHiddenProductList(Product p) {
+        if(hiddenProductList.contains(p)) { hiddenProductList.remove(p); }
+        else { System.out.println("Can't remove something that isn't already in the list");}
+    }
+    /**
+     *
+     * Returns hiddenProductList
+     */
+    public List<Product> getHiddenProductList() {
+        return hiddenProductList;
+    }
 }

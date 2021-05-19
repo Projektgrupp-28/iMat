@@ -7,6 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 import se.chalmers.cse.dat216.project.Product;
 import java.io.IOException;
 
@@ -23,7 +24,7 @@ public class ProductCard extends AnchorPane {
     @FXML Label productName;
     @FXML Label priceLabel;
     @FXML Label ecoLabel;
-
+    @FXML HBox buttonGroup;
     /**
      * Wrapper class of the data handler that holds some backend functionalities.
      */
@@ -63,4 +64,32 @@ public class ProductCard extends AnchorPane {
         model.addToShoppingCart(product);
     }
 
+    @FXML
+    private void onMouseEntered() {
+        //buttonGroup.setOpacity(1);
+        buttonGroup.setVisible(true);
+    }
+
+    @FXML
+    private void onMouseExit() {
+        //buttonGroup.setOpacity(0);
+        buttonGroup.setVisible(false);
+    }
+
+    @FXML
+    private void likeItem() {
+        System.out.println(product.getName() + " liked");
+    }
+
+    @FXML
+    private void hideItem() {
+        //System.out.println(product.getName() + " hidden");
+        model.addToHiddenProductList(product);
+        System.out.println(model.getHiddenProductList());
+    }
+
+    @FXML
+    private void addItemToList() {
+        System.out.println(product.getName() + " added to list");
+    }
 }
