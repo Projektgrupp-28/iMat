@@ -36,6 +36,7 @@ public class iMatController implements Initializable, ShoppingCartListener {
     @FXML private BorderPane mainPane;
     @FXML private BorderPane shoppingCartBorderPane;
     @FXML private AnchorPane shoppingCartLayerPane;
+    @FXML private AnchorPane wizardPanelView;
 
     @FXML private TextArea searchField;
     @FXML private AnchorPane accountPane;
@@ -53,7 +54,7 @@ public class iMatController implements Initializable, ShoppingCartListener {
     private Circle shoppingPaneCircleGuideReserved = new Circle(); // This circle is not shown but needed for indexing.
 
     /** Instances **/
-    private FxmlLoader fxmlLoader = new FxmlLoader();
+    protected FxmlLoader fxmlLoader = new FxmlLoader();
     private String previousSelectedCategory;
     ObservableList observableCategoriesList = FXCollections.observableArrayList();
     ObservableList observableProfileList = FXCollections.observableArrayList();
@@ -67,7 +68,6 @@ public class iMatController implements Initializable, ShoppingCartListener {
     Pane homePage = fxmlLoader.getPage("Home");
 
     List<Pane> shoppingCartViews = new ArrayList<>();
-
     List<Circle> shoppingPaneCircleGuides = new ArrayList<>();
 
     /**
@@ -281,9 +281,6 @@ public class iMatController implements Initializable, ShoppingCartListener {
         //updateCreditCard();
         mainPane.toFront();
     }
-
-
-
 
     public void openShoppingCart() {
         shoppingCartLayerPane.toFront();
