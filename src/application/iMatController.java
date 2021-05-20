@@ -239,7 +239,7 @@ public class iMatController implements Initializable, ShoppingCartListener {
      */
     private void loadCategoriesList() {
         observableCategoriesList.removeAll();
-        observableCategoriesList.addAll("Mejeri", "Chark", "Frukt", "Godis", "Snacks");
+        observableCategoriesList.addAll("Bageri", "Dryck", "Frukt & Grönt", "Fisk & Skaldjur", "Godis & Snacks", "Kött", "Mejeri", "Skafferi");
         categoriesList.getItems().addAll(observableCategoriesList);
     }
 

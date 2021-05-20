@@ -15,7 +15,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" stylesheets="@../styling/styling.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.iMatController">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" stylesheets="@../styling/styling.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.iMatController">
    <children>
       <StackPane prefHeight="150.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -181,16 +181,16 @@
                   </VBox>
                </top>
                <left>
-                  <VBox alignment="TOP_CENTER" prefHeight="375.0" prefWidth="180.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+                  <VBox alignment="TOP_CENTER" prefHeight="375.0" prefWidth="190.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
                      <children>
                         <Label styleClass="font-larger" text="Katalog">
                            <VBox.margin>
                               <Insets top="30.0" />
                            </VBox.margin>
                         </Label>
-                        <ListView fx:id="categoriesList" fixedCellSize="50.0" onMouseClicked="#displayCategoryFromList" prefHeight="250.0" prefWidth="180.0" styleClass="font-normal" stylesheets="@../styling/listview.css" VBox.vgrow="ALWAYS">
+                        <ListView fx:id="categoriesList" fixedCellSize="50.0" onMouseClicked="#displayCategoryFromList" styleClass="font-normal" stylesheets="@../styling/listview.css" VBox.vgrow="ALWAYS">
                            <VBox.margin>
-                              <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+                              <Insets bottom="25.0" left="25.0" right="25.0" top="15.0" />
                            </VBox.margin>
                         </ListView>
                      </children>
