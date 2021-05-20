@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" stylesheets="@../styling/styling.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox prefHeight="420.0" prefWidth="700.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <HBox alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" prefHeight="375.0" prefWidth="700.0" style="-fx-background-color: #E0E0E0;" VBox.vgrow="ALWAYS">
+               <children>
+                  <AnchorPane prefHeight="375.0" prefWidth="180.0" style="-fx-background-color: white;" HBox.hgrow="NEVER" />
+                  <ScrollPane fitToWidth="true" hbarPolicy="NEVER" prefHeight="600.0" prefWidth="991.0" vbarPolicy="ALWAYS" HBox.hgrow="ALWAYS">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0">
+                           <children>
+                              <VBox alignment="TOP_CENTER" prefHeight="375.0" prefWidth="520.0" spacing="25.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <Label alignment="CENTER" prefHeight="42.0" prefWidth="179.0" styleClass="font-normal" text="Välkommen Hjördis!" textAlignment="CENTER">
+                                       <VBox.margin>
+                                          <Insets top="30.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Separator prefWidth="520.0">
+                                       <padding>
+                                          <Insets left="50.0" right="50.0" />
+                                       </padding>
+                                    </Separator>
+                                    <VBox prefHeight="500.0" prefWidth="400.0" VBox.vgrow="ALWAYS">
+                                       <children>
+                                          <Label styleClass="font-larger" text="Kampanjvaror" />
+                                          <FlowPane id="flowPane" fx:id="promotionProductsFlowPane" hgap="10.0" rowValignment="TOP" styleClass="flow-pane" stylesheets="@../styling/flowpane.css" vgap="10.0">
+                                             <padding>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                             </padding>
+                                          </FlowPane>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets left="50.0" right="50.0" />
+                                       </VBox.margin>
+                                    </VBox>
+                                    <VBox layoutX="60.0" layoutY="112.0" prefHeight="500.0" prefWidth="400.0">
+                                       <children>
+                                          <Label styleClass="font-larger" text="Ofta köpta" />
+                                          <FlowPane id="flowPane" fx:id="oftenPurchasedFlowPane" hgap="10.0" rowValignment="TOP" styleClass="flow-pane" stylesheets="@../styling/flowpane.css" vgap="10.0">
+                                             <padding>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                             </padding>
+                                          </FlowPane>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets left="50.0" right="50.0" />
+                                       </VBox.margin>
+                                    </VBox>
+                                    <VBox layoutX="60.0" layoutY="444.0" prefHeight="500.0" prefWidth="400.0">
+                                       <children>
+                                          <Label styleClass="font-larger" text="Alla varor" />
+                                          <FlowPane id="flowPane" fx:id="allProductsFlowPane" hgap="10.0" rowValignment="TOP" vgap="10.0">
+                                             <padding>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                             </padding>
+                                          </FlowPane>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets bottom="50.0" left="50.0" right="50.0" />
+                                       </VBox.margin>
+                                    </VBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </ScrollPane>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
