@@ -6,6 +6,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -29,7 +30,20 @@
                       <Font name="System Bold" size="13.0" />
                   </font>
             </Label>
-              <Button mnemonicParsing="false" onAction="#handleAddAction" stylesheets="@../styling/productCardButton.css" text="Lägg till" />
+            <StackPane prefHeight="22.0" prefWidth="150.0">
+               <children>
+                  <AnchorPane fx:id="buttonRestore" disable="true" prefHeight="200.0" prefWidth="200.0" visible="false">
+                     <children>
+                        <Button alignment="CENTER" contentDisplay="CENTER" layoutX="22.0" mnemonicParsing="false" onAction="#restoreHiddenItem" prefHeight="23.2" prefWidth="104.0" styleClass="button2" stylesheets="@../styling/productCardButton.css" text="Återställ" textAlignment="CENTER" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="buttonAdd" prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                          <Button alignment="CENTER" contentDisplay="CENTER" layoutX="22.0" mnemonicParsing="false" onAction="#handleAddAction" styleClass="button1" stylesheets="@../styling/productCardButton.css" text="Lägg till" textAlignment="CENTER" />
+                     </children>
+                  </AnchorPane>
+               </children>
+            </StackPane>
          </children>
       </VBox>
       <HBox fx:id="buttonGroup" alignment="CENTER" layoutX="37.5" layoutY="10.0" spacing="5.0" visible="false">

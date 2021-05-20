@@ -9,7 +9,7 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class HomePageController implements Initializable {
+public class HomePageController implements Initializable, HiddenProductListener {
 
     @FXML private FlowPane promotionProductsFlowPane;
     @FXML private FlowPane oftenPurchasedFlowPane;
@@ -20,6 +20,7 @@ public class HomePageController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         updateProductList(model.getProducts());
+        model.addHiddenProductListener(this);
     }
 
     /**
@@ -36,7 +37,6 @@ public class HomePageController implements Initializable {
          */
 
         for (int i = 0; i < 3; i++) {
-            //model.addToHiddenProductList(products.get(i));
             if(!model.getHiddenProductList().contains(products.get(i))) {
                 promotionProductsFlowPane.getChildren().add(new ProductCard(products.get(i)));
             }
@@ -60,5 +60,10 @@ public class HomePageController implements Initializable {
                 allProductsFlowPane.getChildren().add(new ProductCard(product));
             }
         }
+    }
+
+    @Override
+    public void hiddenProductChanged() {
+        updateProductList(model.getProducts());
     }
 }

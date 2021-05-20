@@ -25,6 +25,8 @@ public class ProductCard extends AnchorPane {
     @FXML Label priceLabel;
     @FXML Label ecoLabel;
     @FXML HBox buttonGroup;
+    @FXML AnchorPane buttonAdd;
+    @FXML AnchorPane buttonRestore;
     /**
      * Wrapper class of the data handler that holds some backend functionalities.
      */
@@ -52,6 +54,19 @@ public class ProductCard extends AnchorPane {
         this.product = product;
         this.productImage.setImage(new Image("resources/imat/imat/images/" + product.getImageName()));
         this.productName.setText(product.getName()); // Sätter titel
+
+        if(isHidden()){
+            buttonAdd.setVisible(false);
+            buttonAdd.setDisable(true);
+            buttonRestore.setVisible(true);
+            buttonRestore.setDisable(false);
+        }
+        else {
+            buttonAdd.setVisible(true);
+            buttonAdd.setDisable(false);
+            buttonRestore.setVisible(false);
+            buttonRestore.setDisable(true);
+        }
     }
 
     /**
@@ -66,14 +81,12 @@ public class ProductCard extends AnchorPane {
 
     @FXML
     private void onMouseEntered() {
-        //buttonGroup.setOpacity(1);
-        buttonGroup.setVisible(true);
+        if(!isHidden()) { buttonGroup.setVisible(true); }
     }
 
     @FXML
     private void onMouseExit() {
-        //buttonGroup.setOpacity(0);
-        buttonGroup.setVisible(false);
+        if(!isHidden()) { buttonGroup.setVisible(false); }
     }
 
     @FXML
@@ -89,7 +102,16 @@ public class ProductCard extends AnchorPane {
     }
 
     @FXML
+    private void restoreHiddenItem() {
+        model.removeFromHiddenProductList(product);
+    }
+    @FXML
     private void addItemToList() {
         System.out.println(product.getName() + " added to list");
+    }
+
+    private Boolean isHidden() {
+        if(model.getHiddenProductList().contains(product)){ return true; }
+        else { return false; }
     }
 }
