@@ -59,15 +59,15 @@ public class iMatController implements Initializable, ShoppingCartListener {
 
     protected FxmlLoader fxmlLoader = new FxmlLoader();
 
-    Pane shoppingCart = fxmlLoader.getPage("ShoppingCart");
-    Pane shoppingCartDeliveryOptions1 = fxmlLoader.getPage("ShoppingCartDeliveryOptions1");
-    Pane shoppingCartDeliveryOptions2 = fxmlLoader.getPage("ShoppingCartDeliveryOptions2");
-    Pane shoppingCartPaymentOptions = fxmlLoader.getPage("ShoppingCartPaymentOptions");
-    Pane shoppingCartThanksForPurchasing = fxmlLoader.getPage("ShoppingCartThanksForPurchasing");
+    Pane shoppingCart = fxmlLoader.getPage("shoppingcart/ShoppingCart");
+    Pane shoppingCartDeliveryOptions1 = fxmlLoader.getPage("shoppingcart/ShoppingCartDeliveryOptions1");
+    Pane shoppingCartDeliveryOptions2 = fxmlLoader.getPage("shoppingcart/ShoppingCartDeliveryOptions2");
+    Pane shoppingCartPaymentOptions = fxmlLoader.getPage("shoppingcart/ShoppingCartPaymentOptions");
+    Pane shoppingCartThanksForPurchasing = fxmlLoader.getPage("shoppingcart/ShoppingCartThanksForPurchasing");
 
     Pane homePage = fxmlLoader.getPage("Home");
 
-    Pane wizardPane = fxmlLoader.getPage("WizardWindow");
+    Pane wizardPane = fxmlLoader.getPage("wizard/WizardWindow");
 
     List<Pane> shoppingCartViews = new ArrayList<>();
     List<Circle> shoppingPaneCircleGuides = new ArrayList<>();
@@ -103,7 +103,8 @@ public class iMatController implements Initializable, ShoppingCartListener {
             homePagePane.setCenter(view);
         } else {
             // A new category have been chosen. Show that category.
-            view = fxmlLoader.getPage(getSelectedCategory());
+            //view = fxmlLoader.getPage("categories/" + getSelectedCategory());
+            view = fxmlLoader.getPage("categories/Category");
             homePagePane.setCenter(view);
         }
         previousSelectedCategory = getSelectedCategory();
