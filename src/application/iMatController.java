@@ -12,7 +12,6 @@ import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
@@ -33,10 +32,10 @@ import java.util.ResourceBundle;
 public class iMatController implements Initializable, ShoppingCartListener {
 
     /** FXML-elements **/
-    @FXML private BorderPane mainPane;
+    @FXML private BorderPane overlayPane;
+    @FXML private BorderPane homePagePane;
     @FXML private BorderPane shoppingCartBorderPane;
     @FXML private AnchorPane shoppingCartLayerPane;
-    @FXML private AnchorPane wizardPanelView;
 
     @FXML private TextArea searchField;
     @FXML private AnchorPane accountPane;
@@ -54,10 +53,11 @@ public class iMatController implements Initializable, ShoppingCartListener {
     private Circle shoppingPaneCircleGuideReserved = new Circle(); // This circle is not shown but needed for indexing.
 
     /** Instances **/
-    protected FxmlLoader fxmlLoader = new FxmlLoader();
     private String previousSelectedCategory;
     ObservableList observableCategoriesList = FXCollections.observableArrayList();
     ObservableList observableProfileList = FXCollections.observableArrayList();
+
+    protected FxmlLoader fxmlLoader = new FxmlLoader();
 
     Pane shoppingCart = fxmlLoader.getPage("ShoppingCart");
     Pane shoppingCartDeliveryOptions1 = fxmlLoader.getPage("ShoppingCartDeliveryOptions1");
@@ -66,6 +66,8 @@ public class iMatController implements Initializable, ShoppingCartListener {
     Pane shoppingCartThanksForPurchasing = fxmlLoader.getPage("ShoppingCartThanksForPurchasing");
 
     Pane homePage = fxmlLoader.getPage("Home");
+
+    Pane wizardPane = fxmlLoader.getPage("WizardWindow");
 
     List<Pane> shoppingCartViews = new ArrayList<>();
     List<Circle> shoppingPaneCircleGuides = new ArrayList<>();
@@ -98,11 +100,11 @@ public class iMatController implements Initializable, ShoppingCartListener {
             // Same selection have been made. Return home.
             categoriesList.getSelectionModel().clearSelection();
             view = fxmlLoader.getPage("Home");
-            mainPane.setCenter(view);
+            homePagePane.setCenter(view);
         } else {
             // A new category have been chosen. Show that category.
             view = fxmlLoader.getPage(getSelectedCategory());
-            mainPane.setCenter(view);
+            homePagePane.setCenter(view);
         }
         previousSelectedCategory = getSelectedCategory();
     }
@@ -127,7 +129,7 @@ public class iMatController implements Initializable, ShoppingCartListener {
         }
         profileList.getSelectionModel().clearSelection();
         categoriesList.getSelectionModel().clearSelection();
-        mainPane.setCenter(view);
+        homePagePane.setCenter(view);
         closeAccountView();
     }
 
@@ -183,10 +185,18 @@ public class iMatController implements Initializable, ShoppingCartListener {
     }
 
     public void goHome() {
-        mainPane.setCenter(homePage);
+        homePagePane.setCenter(homePage);
         closeAccountView();
         categoriesList.getSelectionModel().clearSelection();
     }
+
+    public void runWizard() {
+        System.out.println("Hello");
+        overlayPane.toFront();
+        overlayPane.setCenter(wizardPane);
+    }
+
+
 
     // Mark: Home pane actions
     /**
@@ -279,7 +289,7 @@ public class iMatController implements Initializable, ShoppingCartListener {
      */
     public void closeAccountView() {
         //updateCreditCard();
-        mainPane.toFront();
+        homePagePane.toFront();
     }
 
     public void openShoppingCart() {
@@ -289,7 +299,7 @@ public class iMatController implements Initializable, ShoppingCartListener {
     }
 
     public void closeShoppingCart() {
-        mainPane.toFront();
+        homePagePane.toFront();
     }
 
     // Mark: Shopping pane methods
