@@ -1,0 +1,13 @@
+.button {
+    -fx-background-color: rgba(196, 196, 196, 1);
+    -fx-background-radius: 8;
+    -fx-text-fill: black;
+    -fx-padding: 2 2 2 2;
+    -fx-font-family: 'Lato';
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+}
+.button:hover {
+    -fx-background-color: rgba(100, 181, 246, 1);
+
+}
