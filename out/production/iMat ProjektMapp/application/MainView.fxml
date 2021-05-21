@@ -15,10 +15,10 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" stylesheets="@../styling/styling.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.iMatController">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" stylesheets="@../styling/styling.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.iMatController">
    <children>
       <BorderPane fx:id="overlayPane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-      <StackPane>
+      <StackPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <AnchorPane fx:id="accountPane" onMouseClicked="#closeAccountView" prefHeight="501.0" prefWidth="800.0" style="-fx-background-color: rgba(0,0,0,0.75);">
                <children>

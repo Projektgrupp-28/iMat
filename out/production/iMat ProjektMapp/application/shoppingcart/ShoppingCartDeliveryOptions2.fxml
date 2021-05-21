@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="600.0" stylesheets="@../../styling/deliveryChoiceButton.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="46.0" layoutY="28.0" text="Leveransalternativ">
+         <font>
+            <Font name="Lato Bold" size="28.0" />
+         </font>
+      </Label>
+      <Label layoutX="120.0" layoutY="74.0" prefHeight="25.0" prefWidth="70.0" text="Välj dag">
+         <font>
+            <Font name="Lato Bold" size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="390.0" layoutY="74.0" prefHeight="26.0" prefWidth="111.0" text="Leveranstid">
+         <font>
+            <Font name="Lato Bold" size="17.0" />
+         </font>
+      </Label>
+      <Button layoutX="25.0" layoutY="107.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="70.0">
+         <graphic>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Label alignment="TOP_CENTER" contentDisplay="CENTER" text="Måndag" />
+                  <Label alignment="TOP_CENTER" contentDisplay="CENTER" text="8">
+                     <font>
+                        <Font name="System Bold" size="17.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+         </graphic>
+      </Button>
+      <Button layoutX="110.0" layoutY="107.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="70.0">
+         <graphic>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Label alignment="TOP_CENTER" contentDisplay="CENTER" text="Måndag" />
+                  <Label alignment="TOP_CENTER" contentDisplay="CENTER" text="8">
+                     <font>
+                        <Font name="System Bold" size="17.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+         </graphic>
+      </Button>
+      <Button layoutX="195.0" layoutY="107.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="70.0">
+         <graphic>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Label alignment="TOP_CENTER" contentDisplay="CENTER" text="Måndag" />
+                  <Label alignment="TOP_CENTER" contentDisplay="CENTER" text="8">
+                     <font>
+                        <Font name="System Bold" size="17.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+         </graphic>
+      </Button>
+      <Button layoutX="25.0" layoutY="169.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="70.0">
+         <graphic>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Label alignment="TOP_CENTER" contentDisplay="CENTER" text="Måndag" />
+                  <Label alignment="TOP_CENTER" contentDisplay="CENTER" text="8">
+                     <font>
+                        <Font name="System Bold" size="17.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+         </graphic>
+      </Button>
+      <Button layoutX="110.0" layoutY="169.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="70.0">
+         <graphic>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Label alignment="TOP_CENTER" contentDisplay="CENTER" text="Måndag" />
+                  <Label alignment="TOP_CENTER" contentDisplay="CENTER" text="8">
+                     <font>
+                        <Font name="System Bold" size="17.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+         </graphic>
+      </Button>
+      <Button layoutX="195.0" layoutY="169.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="70.0">
+         <graphic>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Label alignment="TOP_CENTER" contentDisplay="CENTER" text="Måndag" />
+                  <Label alignment="TOP_CENTER" contentDisplay="CENTER" text="8">
+                     <font>
+                        <Font name="System Bold" size="17.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+         </graphic>
+      </Button>
+      <Button layoutX="25.0" layoutY="231.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="70.0">
+         <graphic>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Label alignment="TOP_CENTER" contentDisplay="CENTER" text="Måndag" />
+                  <Label alignment="TOP_CENTER" contentDisplay="CENTER" text="8">
+                     <font>
+                        <Font name="System Bold" size="17.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+         </graphic>
+      </Button>
+      <Button layoutX="328.0" layoutY="107.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="70.0">
+         <graphic>
+            <Label text="11-13">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+         </graphic>
+      </Button>
+      <Button layoutX="413.0" layoutY="107.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="70.0">
+         <graphic>
+            <Label text="11-13">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+         </graphic>
+      </Button>
+      <Button layoutX="498.0" layoutY="107.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="70.0">
+         <graphic>
+            <Label text="11-13">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+         </graphic>
+      </Button>
+      <Button layoutX="328.0" layoutY="169.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="70.0">
+         <graphic>
+            <Label text="11-13">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+         </graphic>
+      </Button>
+      <Button layoutX="413.0" layoutY="169.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="70.0">
+         <graphic>
+            <Label text="11-13">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+         </graphic>
+      </Button>
+      <Button layoutX="533.0" layoutY="30.0" mnemonicParsing="false">
+         <graphic>
+            <ImageView fitHeight="26.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icons/close.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+   </children>
+   <opaqueInsets>
+      <Insets />
+   </opaqueInsets>
+</AnchorPane>
