@@ -71,6 +71,7 @@ public class WizardController implements Initializable {
         }
     }
 
+    @FXML
     private void close() {
         System.out.println("Closed!");
     }
