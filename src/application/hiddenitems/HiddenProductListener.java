@@ -1,4 +1,4 @@
-package application;
+package application.hiddenitems;
 
 import se.chalmers.cse.dat216.project.CartEvent;
 

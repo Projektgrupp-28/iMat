@@ -45,7 +45,7 @@ public class iMatController implements Initializable, ShoppingCartListener {
     @FXML private Label highSum;
     @FXML private Label lowSum;
     @FXML private Label cartSumSymbol;
-    // @FXML private HBox cartSum;
+
     @FXML private Circle shoppingPaneCircleGuide1;
     @FXML private Circle shoppingPaneCircleGuide2;
     @FXML private Circle shoppingPaneCircleGuide3;
@@ -67,7 +67,9 @@ public class iMatController implements Initializable, ShoppingCartListener {
 
     Pane homePage = fxmlLoader.getPage("Home");
 
-    Pane wizardPane = fxmlLoader.getPage("wizard/WizardWindow");
+    Pane wizardPane;
+
+    Pane categoryPane;
 
     List<Pane> shoppingCartViews = new ArrayList<>();
     List<Circle> shoppingPaneCircleGuides = new ArrayList<>();
@@ -81,7 +83,7 @@ public class iMatController implements Initializable, ShoppingCartListener {
         return categoriesList.getSelectionModel().getSelectedItem();
     }
 
-    public String getSelectedFromProfileList() {
+    public String getSelectedProfileOption() {
         return profileList.getSelectionModel().getSelectedItem();
     }
 
@@ -91,7 +93,6 @@ public class iMatController implements Initializable, ShoppingCartListener {
 
     @FXML
     private void displayCategoryFromList(MouseEvent event) {
-        Pane view;
         if (getSelectedCategory() == null || getSelectedCategory().isEmpty()) {
             // Nothing is selected. Return home.
             categoriesList.getSelectionModel().clearSelection();
@@ -99,13 +100,12 @@ public class iMatController implements Initializable, ShoppingCartListener {
         } else if (getSelectedCategory() == getPreviousSelectedCategory()) {
             // Same selection have been made. Return home.
             categoriesList.getSelectionModel().clearSelection();
-            view = fxmlLoader.getPage("Home");
-            homePagePane.setCenter(view);
+            goHome();
         } else {
             // A new category have been chosen. Show that category.
-            //view = fxmlLoader.getPage("categories/" + getSelectedCategory());
-            view = fxmlLoader.getPage("categories/Category");
-            homePagePane.setCenter(view);
+            model.setSelectedCategoryName(getSelectedCategory());
+            System.out.println("Showing: " + getSelectedCategory());
+            goToCategory();
         }
         previousSelectedCategory = getSelectedCategory();
     }
@@ -113,12 +113,12 @@ public class iMatController implements Initializable, ShoppingCartListener {
     @FXML
     private void displayFromProfileList(MouseEvent event) {
         Pane view = new Pane();
-        switch (getSelectedFromProfileList()) {
+        switch (getSelectedProfileOption()) {
             case "Orderhistorik":
                 view = fxmlLoader.getPage("Orders");
                 break;
             case "Dolda varor":
-                view = fxmlLoader.getPage("HiddenItems");
+                view = fxmlLoader.getPage("hiddenitems/HiddenItems");
                 break;
             case "Leveransinformation":
                 view = fxmlLoader.getPage("DeliveryOptions");
@@ -128,6 +128,7 @@ public class iMatController implements Initializable, ShoppingCartListener {
                 break;
             default: System.out.println("Unrecognizable selection");
         }
+        model.setSelectedProfileOption(getSelectedProfileOption());
         profileList.getSelectionModel().clearSelection();
         categoriesList.getSelectionModel().clearSelection();
         homePagePane.setCenter(view);
@@ -192,9 +193,14 @@ public class iMatController implements Initializable, ShoppingCartListener {
     }
 
     public void runWizard() {
-        System.out.println("Hello");
+        wizardPane = fxmlLoader.getPage("wizard/WizardWindow");
         overlayPane.toFront();
         overlayPane.setCenter(wizardPane);
+    }
+
+    public void goToCategory() {
+        categoryPane = fxmlLoader.getPage("categories/Category");
+        homePagePane.setCenter(categoryPane);
     }
 
 
@@ -266,7 +272,6 @@ public class iMatController implements Initializable, ShoppingCartListener {
         profileList.getItems().addAll(observableProfileList);
     }
 
-    // Mark: Account pane actions
     /**
      * Closes the account view after e.g. a button tap.
      * @param event is the action event.
