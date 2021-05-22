@@ -1,5 +1,6 @@
 package application;
 
+import application.hiddenitems.HiddenProductListener;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.FlowPane;
@@ -49,7 +50,7 @@ public class HomePageController implements Initializable, HiddenProductListener 
         }
          */
         for (int i = 4; i < 7; i++) {
-            if(!model.getHiddenProductList().contains(products.get(i))) {
+            if (!model.getHiddenProductList().contains(products.get(i))) {
                 oftenPurchasedFlowPane.getChildren().add(new ProductCard(products.get(i)));
             }
         }

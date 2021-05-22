@@ -1,12 +1,12 @@
 package application;
 
+import application.hiddenitems.HiddenProductListener;
 import javafx.scene.image.Image;
 import se.chalmers.cse.dat216.project.*;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.ResourceBundle;
 
 /**
  * Wrapper around the IMatDataHandler. The idea is that it might be useful to
@@ -18,6 +18,8 @@ import java.util.ResourceBundle;
 public class Model {
 
     private static Model model;
+    private ListObject catalogList = new ListObject();
+    private ListObject profileList = new ListObject();
     private IMatDataHandler iMatDataHandler;
     private iMatController iMatController;
     private List<Product> hiddenProductList = new ArrayList<>();
@@ -55,6 +57,11 @@ public class Model {
      * @return the given product.
      */
     public Product getProduct(int idNbr) { return iMatDataHandler.getProduct(idNbr);}
+
+
+    public List<Product> getProducts(ProductCategory pc) {
+        return iMatDataHandler.getProducts(pc);
+    }
 
     /**
      * For searching products.
@@ -186,6 +193,7 @@ public class Model {
         }
         else { System.out.println("Can't remove something that isn't already in the list");}
     }
+
     /**
      *
      * Returns hiddenProductList
@@ -203,19 +211,6 @@ public class Model {
         this.hiddenProductListenersList.remove(hpl);
     }
 
-    /*
-    public void fireShoppingCartChanged(ShoppingItem item, boolean addEvent) {
-        CartEvent evt = new CartEvent(this);
-        evt.setShoppingItem(item);
-        evt.setAddEvent(addEvent);
-        Iterator var4 = this.listeners.iterator();
-
-        while(var4.hasNext()) {
-            ShoppingCartListener scl = (ShoppingCartListener)var4.next();
-            scl.shoppingCartChanged(evt);
-        }
-
-    }*/
     public void fireHiddenProductChanged() {
         Iterator var = this.hiddenProductListenersList.iterator();
 
@@ -226,4 +221,21 @@ public class Model {
         }
         System.out.println("hidden product changed");
     }
+
+    public String getSelectedCategoryName() {
+        return catalogList.getSelectedListName();
+    }
+
+    public void setSelectedCategoryName(String categoryName) {
+        catalogList.setSelectedListName(categoryName);
+    }
+
+    public String getSelectedProfileOption() {
+        return profileList.getSelectedListName();
+    }
+
+    public void setSelectedProfileOption(String profileOption) {
+        profileList.setSelectedListName(profileOption);
+    }
+
 }
