@@ -1,10 +1,10 @@
 .button1 {
-    -fx-background-color: rgba(0, 201, 8, 0.75);
+    -fx-background-color: rgba(0, 201, 8, 1);
     -fx-background-radius: 50;
     -fx-text-fill: white;
     -fx-padding: 2 27 2 27;
     -fx-font-family: 'Lato';
-    -fx-font-size: 13px;
+    -fx-font-size: 15px;
     -fx-font-weight: bold;
 }
 .button1:hover {
@@ -17,7 +17,7 @@
     -fx-text-fill: white;
     -fx-padding: 2 27 2 27;
     -fx-font-family: 'Lato';
-    -fx-font-size: 13px;
+    -fx-font-size: 15px;
     -fx-font-weight: bold;
 }
 .button2:hover {
