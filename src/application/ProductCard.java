@@ -21,6 +21,9 @@ import java.io.IOException;
 public class ProductCard extends AnchorPane {
 
     @FXML ImageView productImage;
+    @FXML ImageView likeButton;
+    @FXML ImageView hideButton;
+    @FXML ImageView addToListButton;
     @FXML Label productName;
     @FXML Label priceLabel;
     @FXML Label ecoLabel;
@@ -81,7 +84,13 @@ public class ProductCard extends AnchorPane {
 
     @FXML
     private void onMouseEntered() {
-        if(!isHidden()) { buttonGroup.setVisible(true); }
+        if(!isHidden()) {
+            buttonGroup.setVisible(true);
+            if(model.getFavourites().contains(product)){
+                likeButton.setImage(new Image(getClass().getClassLoader().getResourceAsStream("application/icons/heart_red.png")));
+            }
+            updateHideButton();
+        }
     }
 
     @FXML
@@ -91,7 +100,13 @@ public class ProductCard extends AnchorPane {
 
     @FXML
     private void likeItem() {
-        System.out.println(product.getName() + " liked");
+        if(!model.getFavourites().contains(product)){
+            model.addFavourite(product);
+        }
+        else {
+            model.removeFavourite(product);
+        }
+        updateHideButton();
     }
 
     @FXML
@@ -113,5 +128,21 @@ public class ProductCard extends AnchorPane {
     private Boolean isHidden() {
         if(model.getHiddenProductList().contains(product)){ return true; }
         else { return false; }
+    }
+
+    private void updateHideButton() {
+        boolean toggle;
+
+        if(model.getFavourites().contains(product)){
+            likeButton.setImage(new Image(getClass().getClassLoader().getResourceAsStream("application/icons/heart_red.png")));
+            toggle = true;
+        }
+        else {
+            likeButton.setImage(new Image(getClass().getClassLoader().getResourceAsStream("application/icons/heart.png")));
+            toggle = false;
+        }
+
+        hideButton.setVisible(!toggle);
+        hideButton.setDisable(toggle);
     }
 }

@@ -12,7 +12,7 @@
 }
 
 .button2 {
-    -fx-background-color: rgba(255, 0, 0, 0.75);
+    -fx-background-color: rgba(255, 0, 0, 1);
     -fx-background-radius: 50;
     -fx-text-fill: white;
     -fx-padding: 2 27 2 27;

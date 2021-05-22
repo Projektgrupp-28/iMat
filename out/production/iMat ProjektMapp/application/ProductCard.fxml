@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<fx:root onMouseEntered="#onMouseEntered" onMouseExited="#onMouseExit" prefHeight="250.0" prefWidth="150.0" style="-fx-background-radius: 25; -fx-background-color: white;" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseEntered="#onMouseEntered" onMouseExited="#onMouseExit" prefHeight="250.0" prefWidth="150.0" style="-fx-background-radius: 25; -fx-background-color: white;" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
     <children>
       <VBox alignment="CENTER" layoutX="14.0" layoutY="14.0" spacing="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -30,37 +30,37 @@
                       <Font name="System Bold" size="13.0" />
                   </font>
             </Label>
-            <StackPane prefHeight="22.0" prefWidth="150.0">
+            <StackPane>
                <children>
-                  <AnchorPane fx:id="buttonRestore" disable="true" prefHeight="200.0" prefWidth="200.0" visible="false">
+                  <AnchorPane fx:id="buttonRestore" disable="true" visible="false" StackPane.alignment="CENTER">
                      <children>
-                        <Button alignment="CENTER" contentDisplay="CENTER" layoutX="22.0" mnemonicParsing="false" onAction="#restoreHiddenItem" prefHeight="23.2" prefWidth="104.0" styleClass="button2" stylesheets="@../styling/productCardButton.css" text="Återställ" textAlignment="CENTER" />
+                        <Button alignment="CENTER" contentDisplay="CENTER" layoutX="22.0" mnemonicParsing="false" onAction="#restoreHiddenItem" prefHeight="23.2" prefWidth="104.0" styleClass="button2" stylesheets="@../styling/productCardButton.css" text="Återställ" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0" />
                      </children>
                   </AnchorPane>
-                  <AnchorPane fx:id="buttonAdd" prefHeight="200.0" prefWidth="200.0">
+                  <AnchorPane fx:id="buttonAdd" StackPane.alignment="CENTER">
                      <children>
-                          <Button alignment="CENTER" contentDisplay="CENTER" layoutX="22.0" mnemonicParsing="false" onAction="#handleAddAction" styleClass="button1" stylesheets="@../styling/productCardButton.css" text="Lägg till" textAlignment="CENTER" />
+                          <Button alignment="CENTER" contentDisplay="CENTER" layoutX="22.0" mnemonicParsing="false" onAction="#handleAddAction" styleClass="button1" stylesheets="@../styling/productCardButton.css" text="Lägg till" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0" />
                      </children>
                   </AnchorPane>
                </children>
             </StackPane>
          </children>
       </VBox>
-      <HBox fx:id="buttonGroup" alignment="CENTER" layoutX="37.5" layoutY="10.0" spacing="5.0" visible="false">
+      <HBox fx:id="buttonGroup" alignment="CENTER" layoutX="37.5" layoutY="10.0" spacing="10.0" visible="false" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="15.0">
          <children>
-            <ImageView fx:id="likeButton" fitHeight="20.0" fitWidth="20.0" onMouseClicked="#likeItem" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="likeButton" fitHeight="15.0" fitWidth="15.0" onMouseClicked="#likeItem" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@icons/heart.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="hideButton" fitHeight="25.0" fitWidth="25.0" onMouseClicked="#hideItem" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@icons/hide.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="addToListButton" fitHeight="20.0" fitWidth="20.0" onMouseClicked="#addItemToList" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="addToListButton" fitHeight="15.0" fitWidth="15.0" onMouseClicked="#addItemToList" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@icons/add_to_list.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="hideButton" fitHeight="20.0" fitWidth="20.0" onMouseClicked="#hideItem" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@icons/hide.png" />
                </image>
             </ImageView>
          </children>
