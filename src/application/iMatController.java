@@ -143,6 +143,7 @@ public class iMatController implements Initializable, ShoppingCartListener {
         profileList.getSelectionModel().clearSelection();
         categoriesList.getSelectionModel().clearSelection();
         homePagePane.setCenter(view);
+        if (likePageIsShown) { closeLikedItems(); }
         closeAccountView();
     }
 
@@ -202,6 +203,7 @@ public class iMatController implements Initializable, ShoppingCartListener {
         closeAccountView();
         categoriesList.getSelectionModel().clearSelection();
         lastLoadedPane = homePage;
+        if (likePageIsShown) { closeLikedItems(); }
     }
 
     public void runWizard() {
@@ -213,20 +215,29 @@ public class iMatController implements Initializable, ShoppingCartListener {
     public void goToCategory() {
         lastLoadedPane = categoryPane = fxmlLoader.getPage("categories/Category");
         homePagePane.setCenter(categoryPane);
+        if (likePageIsShown) { closeLikedItems(); }
     }
 
    public void goToLikedItems() {
         if (likePageIsShown) {
-            homePagePane.setCenter(lastLoadedPane);
-            likePageIsShown = false;
-            gilladeVarorIkon.setImage(new Image(getClass().getClassLoader().getResourceAsStream("application/icons/heart.png")));
+            closeLikedItems();
         }
         else {
-            likedItemsPane = fxmlLoader.getPage("likeditems/LikedItems");
-            homePagePane.setCenter(likedItemsPane);
-            likePageIsShown = true;
-            gilladeVarorIkon.setImage(new Image(getClass().getClassLoader().getResourceAsStream("application/icons/heart_red.png")));
+            openLikedItems();
         }
+   }
+
+   private void closeLikedItems() {
+       homePagePane.setCenter(lastLoadedPane);
+       likePageIsShown = false;
+       gilladeVarorIkon.setImage(new Image(getClass().getClassLoader().getResourceAsStream("application/icons/heart.png")));
+   }
+
+   private void openLikedItems() {
+       likedItemsPane = fxmlLoader.getPage("likeditems/LikedItems");
+       homePagePane.setCenter(likedItemsPane);
+       likePageIsShown = true;
+       gilladeVarorIkon.setImage(new Image(getClass().getClassLoader().getResourceAsStream("application/icons/heart_red.png")));
    }
 
     // Mark: Home pane actions
