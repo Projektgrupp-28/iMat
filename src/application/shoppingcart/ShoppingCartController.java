@@ -5,6 +5,8 @@ import application.Model;
 import application.ProductCard;
 import application.iMatController;
 import com.sun.javafx.image.impl.ByteRgba;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
@@ -12,6 +14,7 @@ import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
@@ -48,6 +51,7 @@ public class ShoppingCartController implements Initializable, ShoppingCartListen
     @FXML private Button closeButton;
     @FXML private ImageView blueChevron;
     @FXML private Label pageTitle;
+
     private Circle shoppingPaneCircleGuideReserved = new Circle(); // This circle is not shown but needed for indexing.
 
     List<String> titles = new ArrayList<>();
@@ -78,9 +82,6 @@ public class ShoppingCartController implements Initializable, ShoppingCartListen
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        System.out.println("Hello from init in shopping");
-
-        System.out.println("helllo awdfadfadsfadfa" + model.getProduct(1).getName());
         initShoppingCart();
 
         titles.add("Kundvagn");
@@ -90,7 +91,7 @@ public class ShoppingCartController implements Initializable, ShoppingCartListen
         titles.add("");
         pageTitle.setText("Kundvagn");
 
-
+        shoppingCartBorderPane.setOnMouseClicked(Event::consume);
         closeButton.setVisible(false);
         backButton.setVisible(false);
 
@@ -142,8 +143,8 @@ public class ShoppingCartController implements Initializable, ShoppingCartListen
     }
 
     @FXML
-    public void lightboxPressed() {
-        //Do nothing
+    public void outsideClicked() {
+        iMatController.closeOverlayWindow();
     }
 
     @FXML

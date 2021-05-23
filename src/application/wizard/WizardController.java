@@ -2,6 +2,7 @@ package application.wizard;
 
 import application.FxmlLoader;
 import application.iMatController;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -9,6 +10,7 @@ import javafx.scene.Node;
 import javafx.scene.layout.Border;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -45,6 +47,7 @@ public class WizardController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         initWizardPanes();
         contentPane.setCenter(wizardStart);
+        contentPane.setOnMouseClicked(Event::consume);
     }
 
     private int getCurrentWindowIndex() {

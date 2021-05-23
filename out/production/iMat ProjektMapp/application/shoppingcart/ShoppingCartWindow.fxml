@@ -12,9 +12,9 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="shoppingCartLayerPane" onMouseClicked="#closeButtonPressed" style="-fx-background-color: rgba(0,0,0,0.75);" stylesheets="@../../styling/shoppingCartStyle.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.shoppingcart.ShoppingCartController">
+<AnchorPane fx:id="shoppingCartLayerPane" onMouseClicked="#outsideClicked" style="-fx-background-color: rgba(0,0,0,0.75);" stylesheets="@../../styling/shoppingCartStyle.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.shoppingcart.ShoppingCartController">
    <children>
-      <BorderPane fx:id="shoppingCartBorderPane" layoutX="186.0" layoutY="56.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#lightboxPressed" prefHeight="390.0" prefWidth="600.0" style="-fx-background-color: white; -fx-background-radius: 25;" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0">
+      <BorderPane fx:id="shoppingCartBorderPane" layoutX="186.0" layoutY="56.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" pickOnBounds="false" prefHeight="390.0" prefWidth="600.0" style="-fx-background-color: white; -fx-background-radius: 25;" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0">
          <bottom>
             <VBox alignment="TOP_CENTER" prefHeight="90.0" prefWidth="600.0" BorderPane.alignment="TOP_CENTER">
                <children>
