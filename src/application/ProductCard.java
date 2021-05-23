@@ -9,6 +9,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import se.chalmers.cse.dat216.project.Product;
+
+import java.awt.*;
 import java.io.IOException;
 import java.math.RoundingMode;
 import java.text.NumberFormat;
@@ -33,6 +35,7 @@ public class ProductCard extends AnchorPane {
     @FXML private ImageView addToListButton;
     @FXML private Label highSum;
     @FXML private Label lowSum;
+    @FXML private AnchorPane ecoLabelAnchorPane;
 
     /**
      * Wrapper class of the data handler that holds some backend functionalities.
@@ -57,8 +60,13 @@ public class ProductCard extends AnchorPane {
         this.product = product;
         this.productImage.setImage(model.getImage(product));
         this.productName.setText(product.getName());
-
+        priceLabel.setText(String.format("%.2f", product.getPrice()) + " " + product.getUnit());
         updateSumLabels(product.getPrice());
+
+        if (!product.isEcological()) {
+            ecoLabel.setText("");
+            ecoLabelAnchorPane.setVisible(false);
+        }
 
         checkIfHidden();
 
