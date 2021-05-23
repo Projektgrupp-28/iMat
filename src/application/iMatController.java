@@ -50,27 +50,15 @@ public class iMatController implements Initializable, ShoppingCartListener {
     @FXML private Label lowSum;
     @FXML private Label cartSumSymbol;
     @FXML private Rectangle headerDim;
-    // @FXML private HBox cartSum;
-    @FXML
-    ShoppingCartController shoppingCartController;
-
-    @FXML private Circle shoppingPaneCircleGuide1;
-    @FXML private Circle shoppingPaneCircleGuide2;
-    @FXML private Circle shoppingPaneCircleGuide3;
-    @FXML private Circle shoppingPaneCircleGuide4;
 
     @FXML private ImageView gilladeVarorIkon;
     @FXML private ImageView listIkon;
-
-    private Circle shoppingPaneCircleGuideReserved = new Circle(); // This circle is not shown but needed for indexing.
 
     /** Instances **/
     private String previousSelectedCategory;
     ObservableList observableCategoriesList = FXCollections.observableArrayList();
     ObservableList observableProfileList = FXCollections.observableArrayList();
     private boolean likePageIsShown = false;
-
-    private FxmlLoader fxmlLoader = new FxmlLoader();
 
     private FxmlLoader fxmlLoader = new FxmlLoader();
 
