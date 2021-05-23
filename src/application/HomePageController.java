@@ -1,6 +1,7 @@
 package application;
 
 import application.hiddenitems.HiddenProductListener;
+import application.likeditems.LikedProductListener;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.FlowPane;
@@ -10,7 +11,7 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class HomePageController implements Initializable, HiddenProductListener {
+public class HomePageController implements Initializable, HiddenProductListener, LikedProductListener {
 
     @FXML private FlowPane promotionProductsFlowPane;
     @FXML private FlowPane oftenPurchasedFlowPane;
@@ -22,6 +23,7 @@ public class HomePageController implements Initializable, HiddenProductListener 
     public void initialize(URL url, ResourceBundle resourceBundle) {
         updateProductList(model.getProducts());
         model.addHiddenProductListener(this);
+        model.addlikedProductListener(this);
     }
 
     /**
@@ -66,5 +68,11 @@ public class HomePageController implements Initializable, HiddenProductListener 
     @Override
     public void hiddenProductChanged() {
         updateProductList(model.getProducts());
+    }
+
+    @Override
+    public void productUnliked() {
+        //updateProductList(model.getProducts());
+        System.out.println("removed from homepage");
     }
 }

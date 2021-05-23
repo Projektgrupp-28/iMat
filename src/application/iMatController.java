@@ -9,6 +9,8 @@ import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
@@ -50,26 +52,35 @@ public class iMatController implements Initializable, ShoppingCartListener {
     @FXML private Circle shoppingPaneCircleGuide2;
     @FXML private Circle shoppingPaneCircleGuide3;
     @FXML private Circle shoppingPaneCircleGuide4;
+
+    @FXML private ImageView gilladeVarorIkon;
+    @FXML private ImageView listIkon;
+
     private Circle shoppingPaneCircleGuideReserved = new Circle(); // This circle is not shown but needed for indexing.
 
     /** Instances **/
     private String previousSelectedCategory;
     ObservableList observableCategoriesList = FXCollections.observableArrayList();
     ObservableList observableProfileList = FXCollections.observableArrayList();
+    private boolean likePageIsShown = false;
 
-    protected FxmlLoader fxmlLoader = new FxmlLoader();
+    private FxmlLoader fxmlLoader = new FxmlLoader();
 
-    Pane shoppingCart = fxmlLoader.getPage("shoppingcart/ShoppingCart");
-    Pane shoppingCartDeliveryOptions1 = fxmlLoader.getPage("shoppingcart/ShoppingCartDeliveryOptions1");
-    Pane shoppingCartDeliveryOptions2 = fxmlLoader.getPage("shoppingcart/ShoppingCartDeliveryOptions2");
-    Pane shoppingCartPaymentOptions = fxmlLoader.getPage("shoppingcart/ShoppingCartPaymentOptions");
-    Pane shoppingCartThanksForPurchasing = fxmlLoader.getPage("shoppingcart/ShoppingCartThanksForPurchasing");
+    private Pane shoppingCart = fxmlLoader.getPage("shoppingcart/ShoppingCart");
+    private Pane shoppingCartDeliveryOptions1 = fxmlLoader.getPage("shoppingcart/ShoppingCartDeliveryOptions1");
+    private Pane shoppingCartDeliveryOptions2 = fxmlLoader.getPage("shoppingcart/ShoppingCartDeliveryOptions2");
+    private Pane shoppingCartPaymentOptions = fxmlLoader.getPage("shoppingcart/ShoppingCartPaymentOptions");
+    private Pane shoppingCartThanksForPurchasing = fxmlLoader.getPage("shoppingcart/ShoppingCartThanksForPurchasing");
 
-    Pane homePage = fxmlLoader.getPage("Home");
+    private Pane homePage = fxmlLoader.getPage("Home");
 
-    Pane wizardPane;
+    private Pane wizardPane;
 
-    Pane categoryPane;
+    private Pane categoryPane;
+
+    private Pane likedItemsPane;
+
+    private Pane lastLoadedPane;
 
     List<Pane> shoppingCartViews = new ArrayList<>();
     List<Circle> shoppingPaneCircleGuides = new ArrayList<>();
@@ -115,16 +126,16 @@ public class iMatController implements Initializable, ShoppingCartListener {
         Pane view = new Pane();
         switch (getSelectedProfileOption()) {
             case "Orderhistorik":
-                view = fxmlLoader.getPage("Orders");
+                lastLoadedPane = view = fxmlLoader.getPage("Orders");
                 break;
             case "Dolda varor":
-                view = fxmlLoader.getPage("hiddenitems/HiddenItems");
+                lastLoadedPane = view = fxmlLoader.getPage("hiddenitems/HiddenItems");
                 break;
             case "Leveransinformation":
-                view = fxmlLoader.getPage("DeliveryOptions");
+                lastLoadedPane = view = fxmlLoader.getPage("DeliveryOptions");
                 break;
             case "Betalningssätt":
-                view = fxmlLoader.getPage("PaymentOptions");
+                lastLoadedPane = view = fxmlLoader.getPage("PaymentOptions");
                 break;
             default: System.out.println("Unrecognizable selection");
         }
@@ -132,6 +143,7 @@ public class iMatController implements Initializable, ShoppingCartListener {
         profileList.getSelectionModel().clearSelection();
         categoriesList.getSelectionModel().clearSelection();
         homePagePane.setCenter(view);
+        if (likePageIsShown) { closeLikedItems(); }
         closeAccountView();
     }
 
@@ -190,6 +202,8 @@ public class iMatController implements Initializable, ShoppingCartListener {
         homePagePane.setCenter(homePage);
         closeAccountView();
         categoriesList.getSelectionModel().clearSelection();
+        lastLoadedPane = homePage;
+        if (likePageIsShown) { closeLikedItems(); }
     }
 
     public void runWizard() {
@@ -199,11 +213,32 @@ public class iMatController implements Initializable, ShoppingCartListener {
     }
 
     public void goToCategory() {
-        categoryPane = fxmlLoader.getPage("categories/Category");
+        lastLoadedPane = categoryPane = fxmlLoader.getPage("categories/Category");
         homePagePane.setCenter(categoryPane);
+        if (likePageIsShown) { closeLikedItems(); }
     }
 
+   public void goToLikedItems() {
+        if (likePageIsShown) {
+            closeLikedItems();
+        }
+        else {
+            openLikedItems();
+        }
+   }
 
+   private void closeLikedItems() {
+       homePagePane.setCenter(lastLoadedPane);
+       likePageIsShown = false;
+       gilladeVarorIkon.setImage(new Image(getClass().getClassLoader().getResourceAsStream("application/icons/heart.png")));
+   }
+
+   private void openLikedItems() {
+       likedItemsPane = fxmlLoader.getPage("likeditems/LikedItems");
+       homePagePane.setCenter(likedItemsPane);
+       likePageIsShown = true;
+       gilladeVarorIkon.setImage(new Image(getClass().getClassLoader().getResourceAsStream("application/icons/heart_red.png")));
+   }
 
     // Mark: Home pane actions
     /**
