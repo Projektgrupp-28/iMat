@@ -1,6 +1,7 @@
 package application.wizard;
 
 import application.FxmlLoader;
+import application.iMatController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -21,6 +22,7 @@ public class WizardController implements Initializable {
 
     @FXML private BorderPane contentPane;
 
+    private application.iMatController iMatController = application.iMatController.getInstance();
     private Pane wizardStart = fxmlLoader.getPage("wizard/WizardStart");
     private Pane wizard1 = fxmlLoader.getPage("wizard/Wizard1");
     private Pane wizard2 = fxmlLoader.getPage("wizard/Wizard2");
@@ -73,7 +75,7 @@ public class WizardController implements Initializable {
 
     @FXML
     private void close() {
-        System.out.println("Closed!");
+        iMatController.closeOverlayWindow();
     }
 
 }
