@@ -13,7 +13,10 @@
         <content>
             <VBox spacing="10.0">
                 <children>
-                    <Label styleClass="font-larger" text="Gillade varor" />
+                    <Label styleClass="font-larger" text="Gillade varor">
+                     <VBox.margin>
+                        <Insets top="-20.0" />
+                     </VBox.margin></Label>
                     <FlowPane fx:id="likedFlowPane" hgap="10.0" prefHeight="380.0" prefWidth="580.0" vgap="10.0" VBox.vgrow="ALWAYS" />
                 </children>
                 <padding>

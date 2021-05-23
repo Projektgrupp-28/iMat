@@ -63,6 +63,7 @@ public class iMatController implements Initializable, ShoppingCartListener {
     ObservableList observableCategoriesList = FXCollections.observableArrayList();
     ObservableList observableProfileList = FXCollections.observableArrayList();
     private boolean likePageIsShown = false;
+    private boolean shoppingListIsShown = false;
 
     private FxmlLoader fxmlLoader = new FxmlLoader();
 
@@ -79,6 +80,8 @@ public class iMatController implements Initializable, ShoppingCartListener {
     private Pane categoryPane;
 
     private Pane likedItemsPane;
+
+    private Pane shoppingListPane;
 
     private Pane lastLoadedPane;
 
@@ -204,6 +207,7 @@ public class iMatController implements Initializable, ShoppingCartListener {
         categoriesList.getSelectionModel().clearSelection();
         lastLoadedPane = homePage;
         if (likePageIsShown) { closeLikedItems(); }
+        else if (shoppingListIsShown) { closeShoppingList(); }
     }
 
     public void runWizard() {
@@ -216,6 +220,7 @@ public class iMatController implements Initializable, ShoppingCartListener {
         lastLoadedPane = categoryPane = fxmlLoader.getPage("categories/Category");
         homePagePane.setCenter(categoryPane);
         if (likePageIsShown) { closeLikedItems(); }
+        else if (shoppingListIsShown) { closeShoppingList(); }
     }
 
    public void goToLikedItems() {
@@ -223,6 +228,7 @@ public class iMatController implements Initializable, ShoppingCartListener {
             closeLikedItems();
         }
         else {
+            if (shoppingListIsShown) { closeShoppingList(); }
             openLikedItems();
         }
    }
@@ -237,8 +243,31 @@ public class iMatController implements Initializable, ShoppingCartListener {
        likedItemsPane = fxmlLoader.getPage("likeditems/LikedItems");
        homePagePane.setCenter(likedItemsPane);
        likePageIsShown = true;
-       gilladeVarorIkon.setImage(new Image(getClass().getClassLoader().getResourceAsStream("application/icons/heart_red.png")));
+       gilladeVarorIkon.setImage(new Image(getClass().getClassLoader().getResourceAsStream("application/icons/heart_heavy_selected.png")));
    }
+
+   public void goToShoppingList() {
+       if (shoppingListIsShown) {
+           closeShoppingList();
+       }
+       else {
+           if (likePageIsShown) { closeLikedItems(); }
+           openShoppingList();
+       }
+   }
+
+    private void closeShoppingList() {
+        homePagePane.setCenter(lastLoadedPane);
+        shoppingListIsShown = false;
+        listIkon.setImage(new Image(getClass().getClassLoader().getResourceAsStream("application/icons/list.png")));
+    }
+
+    private void openShoppingList() {
+        shoppingListPane = fxmlLoader.getPage("shoppinglist/shoppingList");
+        homePagePane.setCenter(shoppingListPane);
+        shoppingListIsShown = true;
+        listIkon.setImage(new Image(getClass().getClassLoader().getResourceAsStream("application/icons/list_heavy_selected.png")));
+    }
 
     // Mark: Home pane actions
     /**

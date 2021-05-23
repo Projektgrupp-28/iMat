@@ -128,7 +128,7 @@ public class ProductCard extends AnchorPane {
 
     @FXML
     private void addItemToList() {
-        System.out.println(product.getName() + " added to list");
+        model.addProductToList(product);
     }
 
     private Boolean isHidden() {

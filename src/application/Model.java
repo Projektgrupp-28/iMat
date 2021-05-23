@@ -2,6 +2,8 @@ package application;
 
 import application.hiddenitems.HiddenProductListener;
 import application.likeditems.LikedProductListener;
+import application.shoppinglist.shoppingList;
+import javafx.fxml.FXML;
 import javafx.scene.image.Image;
 import se.chalmers.cse.dat216.project.*;
 
@@ -26,6 +28,8 @@ public class Model {
     private List<Product> hiddenProductList = new ArrayList<>();
     private ArrayList<HiddenProductListener> hiddenProductListenersList = new ArrayList();
     private ArrayList<LikedProductListener> likedProductListenersList = new ArrayList<>();
+    private List<shoppingList> shoppingListList = new ArrayList<>();
+    private int nrOfShoppingLists = 0;
     /**
      * To be used instead of the constructor.
      * Like singleton pattern.
@@ -266,5 +270,31 @@ public class Model {
             System.out.println("liked product changed in while loop");
         }
         System.out.println("liked product changed");
+    }
+
+    public void addProductToList(Product product) {
+        if(shoppingListList.isEmpty()){
+            createShoppingList(product);
+        }
+        else if (shoppingListList.get(0).getProductList().contains(product)) {
+            // Product already in list, do nothing
+        }
+        else {
+            shoppingListList.get(0).addProductToShoppingList(product);
+        }
+    }
+
+    public void createShoppingList(Product product) {
+        System.out.println("list created");
+        shoppingListList.add(new shoppingList(setShoppingListName(), product));
+    }
+
+    private String setShoppingListName() {
+        nrOfShoppingLists++;
+        return "Inköpslista " + nrOfShoppingLists;
+    }
+
+    public List<shoppingList> getShoppingListList() {
+        return shoppingListList;
     }
 }
