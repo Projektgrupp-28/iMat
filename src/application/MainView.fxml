@@ -149,16 +149,16 @@
                                  <children>
                                     <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: transparent;" styleClass="font-normal" text="Inköpslistor">
                                        <graphic>
-                                          <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                          <ImageView fx:id="listIkon" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
                                                 <Image url="@icons/list.png" />
                                              </image>
                                           </ImageView>
                                        </graphic>
                                     </Button>
-                                    <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: transparent;" styleClass="font-normal" text="Gillade varor">
+                                    <Button mnemonicParsing="false" onAction="#goToLikedItems" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: transparent;" styleClass="font-normal" text="Gillade varor">
                                        <graphic>
-                                          <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                          <ImageView fx:id="gilladeVarorIkon" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
                                                 <Image url="@icons/heart.png" />
                                              </image>

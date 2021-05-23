@@ -1,6 +1,7 @@
 package application;
 
 import application.hiddenitems.HiddenProductListener;
+import application.likeditems.LikedProductListener;
 import javafx.scene.image.Image;
 import se.chalmers.cse.dat216.project.*;
 
@@ -24,7 +25,7 @@ public class Model {
     private iMatController iMatController;
     private List<Product> hiddenProductList = new ArrayList<>();
     private ArrayList<HiddenProductListener> hiddenProductListenersList = new ArrayList();
-
+    private ArrayList<LikedProductListener> likedProductListenersList = new ArrayList<>();
     /**
      * To be used instead of the constructor.
      * Like singleton pattern.
@@ -238,4 +239,32 @@ public class Model {
         profileList.setSelectedListName(profileOption);
     }
 
+    public void addFavourite(Product product){
+        iMatDataHandler.addFavorite(product);
+    }
+
+    public void removeFavourite(Product product){
+        iMatDataHandler.removeFavorite(product);
+        fireLikedProductChanged();
+    }
+
+    public List<Product> getFavourites(){
+        return iMatDataHandler.favorites();
+    }
+
+    public void addlikedProductListener(LikedProductListener lpl) {
+        this.likedProductListenersList.add(lpl);
+        System.out.println("added listener");
+    }
+
+    public void fireLikedProductChanged() {
+        Iterator var = this.likedProductListenersList.iterator();
+
+        while(var.hasNext()) {
+            LikedProductListener lpl = (LikedProductListener)var.next();
+            lpl.productUnliked();
+            System.out.println("liked product changed in while loop");
+        }
+        System.out.println("liked product changed");
+    }
 }

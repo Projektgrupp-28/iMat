@@ -1,3 +1,5 @@
 # Default ignored files
+/libraries/
+/lib.xml
 /shelf/
 /workspace.xml
