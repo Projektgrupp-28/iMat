@@ -227,6 +227,7 @@ public class MainController implements Initializable, ShoppingCartListener {
         String searchTerm = searchField.getText();
         model.setCurrentSearchTerm(searchTerm);
         searchPane = fxmlLoader.getPage("Search");
+        lastLoadedPane = searchPane;
         homePagePane.setCenter(searchPane);
     }
 
