@@ -28,6 +28,9 @@ public class Model {
     private List<CategoryItem> categories = new ArrayList<>();
     private ArrayList<HiddenProductListener> hiddenProductListenersList = new ArrayList();
     private ArrayList<LikedProductListener> likedProductListenersList = new ArrayList<>();
+
+    private String currentSearchTerm;
+
     /**
      * To be used instead of the constructor.
      * Like singleton pattern.
@@ -316,5 +319,13 @@ public class Model {
             System.out.println("liked product changed in while loop");
         }
         System.out.println("liked product changed");
+    }
+
+    public void setCurrentSearchTerm(String searchTerm) {
+        currentSearchTerm = searchTerm;
+    }
+
+    public String getCurrentSearchTerm() {
+        return currentSearchTerm;
     }
 }

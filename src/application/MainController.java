@@ -10,6 +10,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -36,7 +37,7 @@ public class MainController implements Initializable, ShoppingCartListener {
     @FXML private BorderPane homePagePane;
     @FXML private BorderPane shoppingCartBorderPane;
     @FXML private AnchorPane shoppingCartLayerPane;
-    @FXML private TextArea searchField;
+    @FXML private TextField searchField;
     @FXML private AnchorPane accountPane;
     @FXML private AnchorPane homePane;
     @FXML private ListView<String> profileList;
@@ -63,6 +64,7 @@ public class MainController implements Initializable, ShoppingCartListener {
     private Pane lastLoadedPane;
     private Pane categoryLeftPanel;
     private Pane categoryCenterPanel;
+    private Pane searchPane;
 
     public String getSelectedProfileOption() {
         return profileList.getSelectionModel().getSelectedItem();
@@ -151,6 +153,7 @@ public class MainController implements Initializable, ShoppingCartListener {
     }
 
     public void goHome() {
+        searchField.clear();
         homePagePane.setCenter(homePage);
         closeAccountView();
         lastLoadedPane = homePage;
@@ -170,17 +173,10 @@ public class MainController implements Initializable, ShoppingCartListener {
     }
 
     public void showCategoryCenterView() {
+        searchField.clear();
         categoryCenterPanel = fxmlLoader.getPage("categories/CategoryCenterPanel");
         homePagePane.setCenter(categoryCenterPanel);
     }
-
-    /* TODO: FIX
-    public void goToCategory() {
-        lastLoadedPane = categoryPane = fxmlLoader.getPage("categories/CategoryCenterPanel");
-        homePagePane.setCenter(categoryPane);
-        if (likePageIsShown) { closeLikedItems(); }
-    }
-     */
 
    public void goToLikedItems() {
         if (likePageIsShown) {
@@ -224,13 +220,14 @@ public class MainController implements Initializable, ShoppingCartListener {
     /**
      * Proceeds the search action by updating the product list
      * with the matching products of the text from the search field.
-     * @param event is the action event.
      */
     @FXML
-    private void handleSearchAction(ActionEvent event) {
-        List<Product> matches = model.findProducts(searchField.getText());
-        // updateProductList(matches);
-        System.out.println("# matching products: " + matches.size());
+    private void handleSearchAction() {
+        System.out.println("Searched after " + searchField.getText());
+        String searchTerm = searchField.getText();
+        model.setCurrentSearchTerm(searchTerm);
+        searchPane = fxmlLoader.getPage("Search");
+        homePagePane.setCenter(searchPane);
     }
 
     /**
