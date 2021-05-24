@@ -1,15 +1,110 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: lightblue;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: -fx-background;" stylesheets="@../styling/paymentDeliveryInfo.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.DeliveryOptionsController">
    <children>
-      <Label layoutX="75.0" layoutY="158.0" text="Leverans" textFill="WHITE">
+      <Label layoutX="25.0" layoutY="48.0" prefHeight="25.0" prefWidth="70.0" text="Adress">
          <font>
-            <Font size="69.0" />
+            <Font name="Lato Bold" size="16.0" />
          </font>
       </Label>
+      <Label layoutX="25.0" layoutY="139.0" prefHeight="26.0" prefWidth="60.0" text="Postnr.">
+         <font>
+            <Font name="Lato Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="325.0" layoutY="48.0" prefHeight="25.0" prefWidth="70.0" text="Namn">
+         <font>
+            <Font name="Lato Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="163.0" layoutY="139.0" prefHeight="26.0" prefWidth="45.0" text="Stad">
+         <font>
+            <Font name="Lato Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="325.0" layoutY="140.0" prefHeight="25.0" prefWidth="70.0" text="Telefon">
+         <font>
+            <Font name="Lato Bold" size="16.0" />
+         </font>
+      </Label>
+      <Button layoutX="25.0" layoutY="78.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="250.0" style="-fx-background-radius: 40; -fx-background-color: white; -fx-border-color: black; -fx-border-radius: 40; -fx-border-width: 2;">
+         <graphic>
+            <HBox alignment="CENTER" spacing="10.0">
+               <children>
+                  <TextField fx:id="address" onKeyTyped="#addressChanged" prefHeight="40.0" promptText="Gatuadress" styleClass="font-normal" stylesheets="@../styling/searchfield.css" HBox.hgrow="ALWAYS" />
+               </children>
+            </HBox>
+         </graphic>
+      </Button>
+      <Button layoutX="325.0" layoutY="78.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="250.0" style="-fx-background-radius: 40; -fx-background-color: white; -fx-border-color: black; -fx-border-radius: 40; -fx-border-width: 2;">
+         <graphic>
+            <HBox alignment="CENTER" spacing="10.0">
+               <children>
+                  <TextField fx:id="name" onKeyTyped="#nameChanged" prefHeight="40.0" promptText="Kalle Svensson" styleClass="font-normal" stylesheets="@../styling/searchfield.css" HBox.hgrow="ALWAYS" />
+               </children>
+            </HBox>
+         </graphic>
+      </Button>
+      <Button layoutX="25.0" layoutY="170.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="112.0" style="-fx-background-radius: 40; -fx-background-color: white; -fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 40;">
+         <graphic>
+            <HBox alignment="CENTER" spacing="10.0">
+               <children>
+                  <TextField fx:id="zipcode" onKeyTyped="#zipcodeChanged" prefHeight="40.0" promptText="XXX XX" styleClass="font-normal" stylesheets="@../styling/searchfield.css" HBox.hgrow="ALWAYS" />
+               </children>
+            </HBox>
+         </graphic>
+      </Button>
+      <Button layoutX="163.0" layoutY="170.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="112.0" style="-fx-background-radius: 40; -fx-background-color: white; -fx-border-color: black; -fx-border-radius: 40; -fx-border-width: 2;">
+         <graphic>
+            <HBox alignment="CENTER" spacing="10.0">
+               <children>
+                  <TextField fx:id="city" onKeyTyped="#cityChanged" prefHeight="40.0" promptText="Göteborg" styleClass="font-normal" stylesheets="@../styling/searchfield.css" HBox.hgrow="ALWAYS" />
+               </children>
+            </HBox>
+         </graphic>
+      </Button>
+      <Button layoutX="325.0" layoutY="170.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="250.0" style="-fx-background-radius: 40; -fx-background-color: white; -fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 40;">
+         <graphic>
+            <HBox alignment="CENTER" spacing="10.0">
+               <children>
+                  <TextField fx:id="telephone" onKeyTyped="#telephoneChanged" prefHeight="40.0" promptText="XXX - XXX XX XX" styleClass="font-normal" stylesheets="@../styling/searchfield.css" HBox.hgrow="ALWAYS" />
+               </children>
+            </HBox>
+         </graphic>
+      </Button>
+      <ImageView fitHeight="16.0" fitWidth="26.0" layoutX="82.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@icons/help.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="16.0" fitWidth="17.0" layoutX="82.0" layoutY="145.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@icons/help.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="16.0" fitWidth="17.0" layoutX="200.0" layoutY="145.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@icons/help.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="saveButton" layoutX="480.0" layoutY="354.0" mnemonicParsing="false" onAction="#saveButtonPressed" styleClass="saveButton" text="    Spara    " />
+      <Button layoutX="25.0" layoutY="354.0" mnemonicParsing="false" onAction="#backButtonPressed" styleClass="backButton" text="Tillbaka">
+         <graphic>
+            <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@icons/chevron_left_grey.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
    </children>
 </AnchorPane>

@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.shoppingcart.PaymentController">
    <children>
       <Label layoutX="25.0" layoutY="48.0" prefHeight="26.0" prefWidth="112.0" text="Kortnummer">
          <font>
@@ -31,7 +31,7 @@
             <Font name="Lato Bold" size="16.0" />
          </font>
       </Label>
-      <Label layoutX="325.0" layoutY="140.0" prefHeight="25.0" prefWidth="70.0" text="Telefon">
+      <Label layoutX="325.0" layoutY="140.0" prefHeight="25.0" prefWidth="70.0" text="Kort typ">
          <font>
             <Font name="Lato Bold" size="16.0" />
          </font>
@@ -40,7 +40,7 @@
          <graphic>
             <HBox alignment="CENTER" spacing="10.0">
                <children>
-                  <TextField prefHeight="40.0" promptText="0000 0000 0000 0000" styleClass="font-normal" stylesheets="@../../styling/searchfield.css" HBox.hgrow="ALWAYS" />
+                  <TextField fx:id="cardNumber" onKeyTyped="#InformationChanged" prefHeight="40.0" promptText="0000 0000 0000 0000" styleClass="font-normal" stylesheets="@../../styling/searchfield.css" HBox.hgrow="ALWAYS" />
                </children>
             </HBox>
          </graphic>
@@ -49,7 +49,7 @@
          <graphic>
             <HBox alignment="CENTER" spacing="10.0">
                <children>
-                  <TextField prefHeight="40.0" promptText="Kalle Svensson" styleClass="font-normal" stylesheets="@../../styling/searchfield.css" HBox.hgrow="ALWAYS" />
+                  <TextField fx:id="name" onKeyTyped="#InformationChanged" prefHeight="40.0" promptText="Kalle Svensson" styleClass="font-normal" stylesheets="@../../styling/searchfield.css" HBox.hgrow="ALWAYS" />
                </children>
             </HBox>
          </graphic>
@@ -58,7 +58,7 @@
          <graphic>
             <HBox alignment="CENTER" spacing="10.0">
                <children>
-                  <TextField prefHeight="40.0" promptText="MM/ÅÅ" styleClass="font-normal" stylesheets="@../../styling/searchfield.css" HBox.hgrow="ALWAYS" />
+                  <TextField fx:id="date" onKeyTyped="#InformationChanged" prefHeight="40.0" promptText="MM/ÅÅ" styleClass="font-normal" stylesheets="@../../styling/searchfield.css" HBox.hgrow="ALWAYS" />
                </children>
             </HBox>
          </graphic>
@@ -67,7 +67,7 @@
          <graphic>
             <HBox alignment="CENTER" spacing="10.0">
                <children>
-                  <TextField prefHeight="40.0" promptText="XXX" styleClass="font-normal" stylesheets="@../../styling/searchfield.css" HBox.hgrow="ALWAYS" />
+                  <TextField fx:id="cvc" onKeyTyped="#InformationChanged" prefHeight="40.0" promptText="XXX" styleClass="font-normal" stylesheets="@../../styling/searchfield.css" HBox.hgrow="ALWAYS" />
                </children>
             </HBox>
          </graphic>
@@ -76,7 +76,7 @@
          <graphic>
             <HBox alignment="CENTER" spacing="10.0">
                <children>
-                  <TextField prefHeight="40.0" promptText="XXX - XXX XX XX" styleClass="font-normal" stylesheets="@../../styling/searchfield.css" HBox.hgrow="ALWAYS" />
+                  <TextField fx:id="cardType" onKeyTyped="#InformationChanged" prefHeight="40.0" promptText="Mastercard / Visa" styleClass="font-normal" stylesheets="@../../styling/searchfield.css" HBox.hgrow="ALWAYS" />
                </children>
             </HBox>
          </graphic>
