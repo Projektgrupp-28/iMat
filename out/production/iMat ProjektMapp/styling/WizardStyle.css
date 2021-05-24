@@ -6,7 +6,7 @@
     -fx-text-fill: white;
     -fx-padding: 2 11 2 11;
     -fx-font-family: 'Lato';
-    -fx-font-size: 13px;
+    -fx-font-size: 15px;
     -fx-font-weight: bold;
 }
 .nextButton:hover {
@@ -27,7 +27,7 @@
     -fx-text-fill: rgba(0, 0, 0, 0.6);
     -fx-padding: 1 7 2 7;
     -fx-font-family: 'Lato';
-    -fx-font-size: 13px;
+    -fx-font-size: 15px;
     -fx-font-weight: bold;
     -fx-border-color: rgba(0, 0, 0, 0.5);
     -fx-border-width: 2 2 2 2;
@@ -36,4 +36,9 @@
 .backButton:hover {
     -fx-background-color: rgba(0, 0, 0, 0.1);
     -fx-text-fill: rgba(0, 0, 0, 0.5);
+}
+
+.wizard_text {
+    -fx-font-size: 30;
+    -fx-font-family: "Lato";
 }

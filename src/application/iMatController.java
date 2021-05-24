@@ -54,6 +54,8 @@ public class iMatController implements Initializable, ShoppingCartListener {
     @FXML private ImageView gilladeVarorIkon;
     @FXML private ImageView listIkon;
 
+
+
     /** Instances **/
     private String previousSelectedCategory;
     ObservableList observableCategoriesList = FXCollections.observableArrayList();
@@ -200,6 +202,7 @@ public class iMatController implements Initializable, ShoppingCartListener {
     }
 
     public void runWizard() {
+
         wizardPane = fxmlLoader.getPage("wizard/WizardWindow");
         overlayPane.toFront();
         dimHeader();
