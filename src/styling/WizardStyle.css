@@ -13,6 +13,14 @@
     -fx-background-color: rgb(90, 163, 255);
 }
 
+.cornerCloseButton {
+    -fx-background-color: transparent;
+    -fx-background-radius: 40;
+}
+.cornerCloseButton:hover {
+    -fx-background-color: rgba(0, 0, 0, 0.1);
+}
+
 .backButton {
     -fx-background-color: white;
     -fx-background-radius: 3;

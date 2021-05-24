@@ -13,12 +13,15 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" stylesheets="@../styling/styling.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.iMatController">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" stylesheets="@../styling/styling.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainController">
    <children>
-      <BorderPane fx:id="overlayPane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <BorderPane fx:id="overlayPane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <Rectangle fx:id="headerDim" arcHeight="5.0" arcWidth="5.0" fill="#00000080" height="80.0" stroke="BLACK" strokeType="INSIDE" width="800.0" BorderPane.alignment="CENTER" />
+         </top></BorderPane>
       <StackPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <AnchorPane fx:id="accountPane" onMouseClicked="#closeAccountView" prefHeight="501.0" prefWidth="800.0" style="-fx-background-color: rgba(0,0,0,0.75);">
@@ -52,31 +55,6 @@
                   </AnchorPane>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="shoppingCartLayerPane" prefHeight="447.0" prefWidth="800.0" style="-fx-background-color: rgba(0,0,0,0.75);">
-               <children>
-                  <BorderPane fx:id="shoppingCartBorderPane" prefHeight="390.0" prefWidth="494.0" style="-fx-background-color: white; -fx-background-radius: 25;" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0">
-                     <bottom>
-                        <HBox alignment="CENTER" spacing="100.0">
-                           <children>
-                              <Button mnemonicParsing="false" onAction="#loadPreviousShoppingPanel" text="Tillbaks" />
-                              <HBox alignment="CENTER" spacing="10.0">
-                                 <children>
-                                    <Circle fx:id="shoppingPaneCircleGuide1" fill="#888888" radius="10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
-                                    <Circle fx:id="shoppingPaneCircleGuide2" fill="#888888" layoutX="20.0" layoutY="23.0" radius="10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
-                                    <Circle fx:id="shoppingPaneCircleGuide3" fill="#888888" layoutX="50.0" layoutY="23.0" radius="10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
-                                    <Circle fx:id="shoppingPaneCircleGuide4" fill="#888888" layoutX="80.0" layoutY="23.0" radius="10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
-                                 </children>
-                              </HBox>
-                              <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#loadNextShoppingPanel" text="Gå vidare" />
-                           </children>
-                           <BorderPane.margin>
-                              <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-                           </BorderPane.margin>
-                        </HBox>
-                     </bottom>
-                  </BorderPane>
-               </children>
-            </AnchorPane>
             <BorderPane fx:id="homePagePane" prefHeight="600.0" prefWidth="800.0">
                <top>
                   <VBox BorderPane.alignment="CENTER">
@@ -97,7 +75,7 @@
                                        <graphic>
                                           <HBox alignment="CENTER" spacing="10.0">
                                              <children>
-                                                <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                                <ImageView fitHeight="20.0" fitWidth="20.0" onMouseClicked="#handleSearchAction" pickOnBounds="true" preserveRatio="true">
                                                    <image>
                                                       <Image url="@icons/search.png" />
                                                    </image>
@@ -105,7 +83,7 @@
                                                       <Insets left="20.0" />
                                                    </HBox.margin>
                                                 </ImageView>
-                                                <TextField prefHeight="40.0" promptText="Mjölk, banan, ..." styleClass="font-normal" stylesheets="@../styling/searchfield.css" HBox.hgrow="ALWAYS" />
+                                                <TextField fx:id="searchField" onAction="#handleSearchAction" prefHeight="40.0" promptText="Mjölk, banan, ..." styleClass="font-normal" stylesheets="@../styling/searchfield.css" HBox.hgrow="ALWAYS" />
                                              </children>
                                           </HBox>
                                        </graphic>
@@ -225,22 +203,6 @@
                      </children>
                   </VBox>
                </top>
-               <left>
-                  <VBox alignment="TOP_CENTER" prefHeight="375.0" prefWidth="190.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
-                     <children>
-                        <Label styleClass="font-larger" text="Katalog">
-                           <VBox.margin>
-                              <Insets top="30.0" />
-                           </VBox.margin>
-                        </Label>
-                        <ListView fx:id="categoriesList" fixedCellSize="50.0" onMouseClicked="#displayCategoryFromList" styleClass="font-normal" stylesheets="@../styling/listview.css" VBox.vgrow="ALWAYS">
-                           <VBox.margin>
-                              <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
-                           </VBox.margin>
-                        </ListView>
-                     </children>
-                  </VBox>
-               </left>
             </BorderPane>
          </children>
       </StackPane>

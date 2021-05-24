@@ -1,17 +1,16 @@
 package application.wizard;
 
 import application.FxmlLoader;
+import application.MainController;
+import javafx.event.Event;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.layout.Border;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -21,6 +20,7 @@ public class WizardController implements Initializable {
 
     @FXML private BorderPane contentPane;
 
+    private MainController mainController = MainController.getInstance();
     private Pane wizardStart = fxmlLoader.getPage("wizard/WizardStart");
     private Pane wizard1 = fxmlLoader.getPage("wizard/Wizard1");
     private Pane wizard2 = fxmlLoader.getPage("wizard/Wizard2");
@@ -43,6 +43,7 @@ public class WizardController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         initWizardPanes();
         contentPane.setCenter(wizardStart);
+        contentPane.setOnMouseClicked(Event::consume);
     }
 
     private int getCurrentWindowIndex() {
@@ -73,7 +74,7 @@ public class WizardController implements Initializable {
 
     @FXML
     private void close() {
-        System.out.println("Closed!");
+        mainController.closeOverlayWindow();
     }
 
 }

@@ -13,44 +13,46 @@
 
 <fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseEntered="#onMouseEntered" onMouseExited="#onMouseExit" prefHeight="250.0" prefWidth="150.0" style="-fx-background-radius: 25; -fx-background-color: white;" stylesheets="@../styling/styling.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
     <children>
-      <VBox alignment="CENTER" layoutX="14.0" layoutY="14.0" spacing="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox alignment="BOTTOM_CENTER" layoutX="14.0" layoutY="14.0" spacing="8.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-              <ImageView fx:id="productImage" fitHeight="75.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+              <ImageView fx:id="productImage" fitHeight="80.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../resources/resources/imat/imat/images/product_64.jpg" />
                </image>
             </ImageView>
-              <Label fx:id="productName" text="Mellanmjölk">
+              <Label fx:id="productName" text="Mellanmjölk" textAlignment="CENTER" wrapText="true">
                   <font>
                       <Font name="Lato Black" size="18.0" />
                   </font>
               </Label>
-              <Label fx:id="priceLabel" text="437,50 per förpackning">
+              <Label fx:id="priceLabel" text="43 per förp">
                <font>
-                  <Font name="Lato-Light" size="10.0" />
-               </font></Label>
-              <Label fx:id="ecoLabel" text="Ekologisk" textFill="#5cc343">
-                  <font>
-                      <Font name="System Bold" size="13.0" />
-                  </font>
+                  <Font name="Lato-Light" size="15.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="4.0" />
+               </VBox.margin>
             </Label>
+            <StackPane>
+               <children>
+                  <AnchorPane fx:id="buttonRestore" disable="true" prefWidth="150.0" visible="false" StackPane.alignment="CENTER">
+                     <children>
+                        <Button alignment="CENTER" contentDisplay="CENTER" layoutX="22.0" mnemonicParsing="false" onAction="#restoreHiddenItem" prefHeight="23.2" prefWidth="104.0" styleClass="button2" stylesheets="@../styling/productCardButton.css" text="Återställ" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="buttonAdd" prefHeight="24.0" prefWidth="150.0" StackPane.alignment="CENTER">
+                     <children>
+                          <Button alignment="CENTER" contentDisplay="CENTER" layoutX="22.0" mnemonicParsing="false" onAction="#handleAddAction" prefWidth="150.0" styleClass="button1" stylesheets="@../styling/productCardButton.css" text="Lägg till" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                  </AnchorPane>
+               </children>
+            </StackPane>
          </children>
+         <padding>
+            <Insets bottom="20.0" />
+         </padding>
       </VBox>
-      <StackPane AnchorPane.bottomAnchor="20.0">
-         <children>
-            <AnchorPane fx:id="buttonRestore" disable="true" visible="false" StackPane.alignment="CENTER">
-               <children>
-                  <Button alignment="CENTER" contentDisplay="CENTER" layoutX="22.0" mnemonicParsing="false" onAction="#restoreHiddenItem" prefHeight="23.2" prefWidth="104.0" styleClass="button2" stylesheets="@../styling/productCardButton.css" text="Återställ" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0" />
-               </children>
-            </AnchorPane>
-            <AnchorPane fx:id="buttonAdd" StackPane.alignment="CENTER">
-               <children>
-                    <Button alignment="CENTER" contentDisplay="CENTER" layoutX="22.0" mnemonicParsing="false" onAction="#handleAddAction" styleClass="button1" stylesheets="@../styling/productCardButton.css" text="Lägg till" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0" />
-               </children>
-            </AnchorPane>
-         </children>
-      </StackPane>
-      <HBox fx:id="buttonGroup" alignment="TOP_CENTER" layoutX="37.5" layoutY="10.0" spacing="10.0" style="-fx-background-color: rgba(255,255,255,0.5);" visible="false" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="15.0">
+      <HBox fx:id="buttonGroup" alignment="TOP_CENTER" layoutX="37.5" layoutY="10.0" spacing="10.0" visible="false" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="15.0">
          <children>
             <VBox alignment="TOP_CENTER" spacing="10.0">
                <children>
@@ -73,7 +75,7 @@
             </ImageView>
          </children>
       </HBox>
-      <AnchorPane prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: red; -fx-background-radius: 30;" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="20.0">
+      <AnchorPane prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: red; -fx-background-radius: 30;" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
          <children>
             <HBox alignment="CENTER" layoutX="7.0" layoutY="14.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
@@ -92,6 +94,19 @@
                      <font>
                         <Font name="Lato Black" size="15.0" />
                      </font>
+                  </Label>
+               </children>
+            </HBox>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="ecoLabelAnchorPane" prefHeight="35.0" prefWidth="35.0" style="-fx-background-radius: 30; -fx-background-color: rgba(0, 160, 8, 1);" AnchorPane.leftAnchor="105.0" AnchorPane.topAnchor="52.0">
+         <children>
+            <HBox alignment="CENTER" prefHeight="35.0" prefWidth="35.0">
+               <children>
+                    <Label fx:id="ecoLabel" text="Eko" textFill="WHITE">
+                        <font>
+                            <Font name="Lato Black" size="15.0" />
+                        </font>
                   </Label>
                </children>
             </HBox>

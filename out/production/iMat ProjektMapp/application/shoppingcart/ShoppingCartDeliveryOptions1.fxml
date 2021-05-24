@@ -9,106 +9,92 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.shoppingcart.DeliveryController">
    <children>
-      <Label layoutX="46.0" layoutY="28.0" text="Leveransalternativ">
+      <Label layoutX="25.0" layoutY="48.0" prefHeight="25.0" prefWidth="70.0" text="Adress">
          <font>
-            <Font name="Lato Bold" size="28.0" />
+            <Font name="Lato Bold" size="16.0" />
          </font>
       </Label>
-      <Label layoutX="32.0" layoutY="77.0" prefHeight="25.0" prefWidth="70.0" text="Adress">
+      <Label layoutX="25.0" layoutY="139.0" prefHeight="26.0" prefWidth="60.0" text="Postnr.">
          <font>
-            <Font name="Lato Bold" size="17.0" />
+            <Font name="Lato Bold" size="16.0" />
          </font>
       </Label>
-      <Label layoutX="32.0" layoutY="165.0" prefHeight="25.0" prefWidth="70.0" text="Postnr.">
+      <Label layoutX="325.0" layoutY="48.0" prefHeight="25.0" prefWidth="70.0" text="Namn">
          <font>
-            <Font name="Lato Bold" size="17.0" />
+            <Font name="Lato Bold" size="16.0" />
          </font>
       </Label>
-      <Label layoutX="300.0" layoutY="77.0" prefHeight="25.0" prefWidth="70.0" text="Namn">
+      <Label layoutX="163.0" layoutY="139.0" prefHeight="26.0" prefWidth="45.0" text="Stad">
          <font>
-            <Font name="Lato Bold" size="17.0" />
+            <Font name="Lato Bold" size="16.0" />
          </font>
       </Label>
-      <Label layoutX="129.0" layoutY="165.0" prefHeight="25.0" prefWidth="70.0" text="Stad">
+      <Label layoutX="325.0" layoutY="140.0" prefHeight="25.0" prefWidth="70.0" text="Telefon">
          <font>
-            <Font name="Lato Bold" size="17.0" />
+            <Font name="Lato Bold" size="16.0" />
          </font>
       </Label>
-      <Label layoutX="300.0" layoutY="165.0" prefHeight="25.0" prefWidth="70.0" text="Telefon">
-         <font>
-            <Font name="Lato Bold" size="17.0" />
-         </font>
-      </Label>
-      <Button layoutX="32.0" layoutY="115.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="224.0" style="-fx-background-radius: 40; -fx-background-color: white; -fx-border-color: black; -fx-border-radius: 40; -fx-border-width: 2;">
+      <Button layoutX="25.0" layoutY="78.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="250.0" style="-fx-background-radius: 40; -fx-background-color: white; -fx-border-color: black; -fx-border-radius: 40; -fx-border-width: 2;">
          <graphic>
             <HBox alignment="CENTER" spacing="10.0">
                <children>
-                  <TextField prefHeight="40.0" promptText="Gatuadress" styleClass="font-normal" stylesheets="@../../styling/searchfield.css" HBox.hgrow="ALWAYS" />
+                  <TextField fx:id="address" onKeyTyped="#InformationChanged" prefHeight="40.0" promptText="Gatuadress" styleClass="font-normal" stylesheets="@../../styling/searchfield.css" HBox.hgrow="ALWAYS" />
                </children>
             </HBox>
          </graphic>
       </Button>
-      <Button layoutX="300.0" layoutY="115.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="224.0" style="-fx-background-radius: 40; -fx-background-color: white; -fx-border-color: black; -fx-border-radius: 40; -fx-border-width: 2;">
+      <Button layoutX="325.0" layoutY="78.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="250.0" style="-fx-background-radius: 40; -fx-background-color: white; -fx-border-color: black; -fx-border-radius: 40; -fx-border-width: 2;">
          <graphic>
             <HBox alignment="CENTER" spacing="10.0">
                <children>
-                  <TextField prefHeight="40.0" promptText="Kalle Svensson" styleClass="font-normal" stylesheets="@../../styling/searchfield.css" HBox.hgrow="ALWAYS" />
+                  <TextField fx:id="name" onKeyTyped="#InformationChanged" prefHeight="40.0" promptText="Kalle Svensson" styleClass="font-normal" stylesheets="@../../styling/searchfield.css" HBox.hgrow="ALWAYS" />
                </children>
             </HBox>
          </graphic>
       </Button>
-      <Button layoutX="32.0" layoutY="200.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="88.0" style="-fx-background-radius: 40; -fx-background-color: white; -fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 40;">
+      <Button layoutX="25.0" layoutY="170.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="112.0" style="-fx-background-radius: 40; -fx-background-color: white; -fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 40;">
          <graphic>
             <HBox alignment="CENTER" spacing="10.0">
                <children>
-                  <TextField prefHeight="40.0" promptText="XXX XX" styleClass="font-normal" stylesheets="@../../styling/searchfield.css" HBox.hgrow="ALWAYS" />
+                  <TextField fx:id="zipcode" onKeyTyped="#InformationChanged" prefHeight="40.0" promptText="XXX XX" styleClass="font-normal" stylesheets="@../../styling/searchfield.css" HBox.hgrow="ALWAYS" />
                </children>
             </HBox>
          </graphic>
       </Button>
-      <Button layoutX="129.0" layoutY="200.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="88.0" style="-fx-background-radius: 40; -fx-background-color: white; -fx-border-color: black; -fx-border-radius: 40; -fx-border-width: 2;">
+      <Button layoutX="163.0" layoutY="170.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="112.0" style="-fx-background-radius: 40; -fx-background-color: white; -fx-border-color: black; -fx-border-radius: 40; -fx-border-width: 2;">
          <graphic>
             <HBox alignment="CENTER" spacing="10.0">
                <children>
-                  <TextField prefHeight="40.0" promptText="Göteborg" styleClass="font-normal" stylesheets="@../../styling/searchfield.css" HBox.hgrow="ALWAYS" />
+                  <TextField fx:id="city" onKeyTyped="#InformationChanged" prefHeight="40.0" promptText="Göteborg" styleClass="font-normal" stylesheets="@../../styling/searchfield.css" HBox.hgrow="ALWAYS" />
                </children>
             </HBox>
          </graphic>
       </Button>
-      <Button layoutX="300.0" layoutY="200.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="224.0" style="-fx-background-radius: 40; -fx-background-color: white; -fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 40;">
+      <Button layoutX="325.0" layoutY="170.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="250.0" style="-fx-background-radius: 40; -fx-background-color: white; -fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 40;">
          <graphic>
             <HBox alignment="CENTER" spacing="10.0">
                <children>
-                  <TextField prefHeight="40.0" promptText="XXX - XXX XX XX" styleClass="font-normal" stylesheets="@../../styling/searchfield.css" HBox.hgrow="ALWAYS" />
+                  <TextField fx:id="telephone" onKeyTyped="#InformationChanged" prefHeight="40.0" promptText="XXX - XXX XX XX" styleClass="font-normal" stylesheets="@../../styling/searchfield.css" HBox.hgrow="ALWAYS" />
                </children>
             </HBox>
          </graphic>
       </Button>
-      <ImageView fitHeight="16.0" fitWidth="26.0" layoutX="94.0" layoutY="82.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="16.0" fitWidth="26.0" layoutX="82.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../icons/help.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="16.0" fitWidth="17.0" layoutX="94.0" layoutY="170.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="16.0" fitWidth="17.0" layoutX="82.0" layoutY="145.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../icons/help.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="16.0" fitWidth="17.0" layoutX="173.0" layoutY="170.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="16.0" fitWidth="17.0" layoutX="200.0" layoutY="145.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../icons/help.png" />
          </image>
       </ImageView>
-      <Button layoutX="533.0" layoutY="30.0" mnemonicParsing="false">
-         <graphic>
-            <ImageView fitHeight="26.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../icons/close.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </Button>
    </children>
 </AnchorPane>

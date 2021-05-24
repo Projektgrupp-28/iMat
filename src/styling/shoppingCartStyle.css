@@ -1,0 +1,60 @@
+.background {
+    -fx-background-color: rgba(0, 0, 0, 0.75);
+}
+
+.dotsUnmarked{
+    -fx-background-color: rgba(0, 0, 0, 0.25);
+}
+
+.dotsMarked{
+    -fx-background-color: rgba(0, 117, 255, 1);
+}
+
+.cornerCloseButton {
+    -fx-background-color: transparent;
+    -fx-background-radius: 40;
+}
+.cornerCloseButton:hover {
+    -fx-background-color: rgba(0, 0, 0, 0.1);
+}
+
+.closeButton {
+    -fx-background-radius: 40;
+    -fx-background-color: white;
+    -fx-text-fill: black;
+    -fx-padding: 4 16 4 16;
+    -fx-font-family: 'Lato';
+    -fx-font-size: 17px;
+    -fx-font-weight: bold;
+    -fx-border-color: black;
+    -fx-border-width: 2 2 2 2;
+    -fx-border-radius: 40;
+}
+
+.closeButton:hover {
+    -fx-background-color: rgba(0, 0, 0, 0.1);
+}
+
+.nextButton {
+    -fx-background-color: transparent;
+    -fx-text-fill: rgba(0, 117, 255, 1);
+    -fx-font-family: 'Lato';
+    -fx-font-size: 17px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 40;
+}
+.nextButton:hover {
+    -fx-background-color: rgba(0, 0, 0, 0.1);
+}
+
+.backButton {
+    -fx-background-color: transparent;
+    -fx-text-fill: rgba(0, 0, 0, 0.6);
+    -fx-font-family: 'Lato';
+    -fx-font-size: 17px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 40;
+}
+.backButton:hover {
+    -fx-background-color: rgba(0, 0, 0, 0.1);
+}

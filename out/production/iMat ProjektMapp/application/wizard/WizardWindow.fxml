@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane style="-fx-background-color: rgba(0,0,0,0.75);" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.wizard.WizardController">
+<AnchorPane onMouseClicked="#close" pickOnBounds="false" style="-fx-background-color: rgba(0,0,0,0.75);" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.wizard.WizardController">
    <children>
       <VBox alignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -28,11 +28,11 @@
                         </HBox>
                      </bottom>
                      <top>
-                        <HBox alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                        <HBox alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="295.0" BorderPane.alignment="CENTER">
                            <children>
-                              <Button mnemonicParsing="false" onAction="#close" style="-fx-background-color: transparent;">
+                              <Button mnemonicParsing="false" onAction="#close" prefHeight="35.0" prefWidth="35.0" styleClass="cornerCloseButton">
                                  <graphic>
-                                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                    <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
                                           <Image url="@../icons/close.png" />
                                        </image>
@@ -41,7 +41,7 @@
                               </Button>
                            </children>
                            <BorderPane.margin>
-                              <Insets right="10.0" />
+                              <Insets right="7.0" top="7.0" />
                            </BorderPane.margin>
                         </HBox>
                      </top>
