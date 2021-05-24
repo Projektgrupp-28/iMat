@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
@@ -8,7 +9,7 @@
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" stylesheets="@../styling/styling.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.HomePageController">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: white;" stylesheets="@../styling/styling.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.HomePageController">
    <children>
       <ScrollPane fitToWidth="true" hbarPolicy="NEVER" stylesheets="@../styling/scrollpane.css" vbarPolicy="ALWAYS" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <content>
@@ -58,6 +59,10 @@
                </children>
             </AnchorPane>
         </content>
+         <styleClass>
+            <String fx:value="scroll-bar" />
+            <String fx:value="scroll-pane" />
+         </styleClass>
       </ScrollPane>
    </children>
 </AnchorPane>

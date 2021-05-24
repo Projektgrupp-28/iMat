@@ -1,5 +1,6 @@
 package application;
 
+import application.categories.CategoryItem;
 import application.hiddenitems.HiddenProductListener;
 import application.likeditems.LikedProductListener;
 import javafx.scene.image.Image;
@@ -22,10 +23,14 @@ public class Model {
     private ListObject catalogList = new ListObject();
     private ListObject profileList = new ListObject();
     private IMatDataHandler iMatDataHandler;
-    private iMatController iMatController;
+    private MainController mainController;
     private List<Product> hiddenProductList = new ArrayList<>();
+    private List<CategoryItem> categories = new ArrayList<>();
     private ArrayList<HiddenProductListener> hiddenProductListenersList = new ArrayList();
     private ArrayList<LikedProductListener> likedProductListenersList = new ArrayList<>();
+
+    private String currentSearchTerm;
+
     /**
      * To be used instead of the constructor.
      * Like singleton pattern.
@@ -44,6 +49,43 @@ public class Model {
      */
     private void init() {
         iMatDataHandler = IMatDataHandler.getInstance();
+        initCategories();
+    }
+
+    private void initCategories() {
+        categories.add(new CategoryItem(ProductCategory.POD, "Konserver"));
+        categories.add(new CategoryItem(ProductCategory.BREAD, "Bröd"));
+        categories.add(new CategoryItem(ProductCategory.BERRY, "Bär"));
+        categories.add(new CategoryItem(ProductCategory.CITRUS_FRUIT, "Citrusfrukter"));
+        categories.add(new CategoryItem(ProductCategory.HOT_DRINKS, "Varma drycker"));
+        categories.add(new CategoryItem(ProductCategory.COLD_DRINKS, "Kalla drycker"));
+        categories.add(new CategoryItem(ProductCategory.EXOTIC_FRUIT, "Exotiska frukter"));
+        categories.add(new CategoryItem(ProductCategory.FISH, "Fisk"));
+        categories.add(new CategoryItem(ProductCategory.VEGETABLE_FRUIT, "Vegetariska frukter"));
+        categories.add(new CategoryItem(ProductCategory.CABBAGE, "Kål"));
+        categories.add(new CategoryItem(ProductCategory.MEAT, "Kött"));
+        categories.add(new CategoryItem(ProductCategory.DAIRIES, "Mejeri"));
+        categories.add(new CategoryItem(ProductCategory.MELONS, "Meloner"));
+        categories.add(new CategoryItem(ProductCategory.FLOUR_SUGAR_SALT, "Mjöl, socker och salt"));
+        categories.add(new CategoryItem(ProductCategory.NUTS_AND_SEEDS, "Nötter och frön"));
+        categories.add(new CategoryItem(ProductCategory.PASTA, "Pasta"));
+        categories.add(new CategoryItem(ProductCategory.POTATO_RICE, "Potatis och ris"));
+        categories.add(new CategoryItem(ProductCategory.ROOT_VEGETABLE, "Rotfrukter"));
+        categories.add(new CategoryItem(ProductCategory.FRUIT, "Frukt"));
+        categories.add(new CategoryItem(ProductCategory.SWEET, "Sötsaker"));
+        categories.add(new CategoryItem(ProductCategory.HERB, "Örter"));
+    }
+
+    public List<CategoryItem> getCategories() {
+        return categories;
+    }
+
+    public List<String> getCategoryNames() {
+        List<String> categoryNames = new ArrayList<>();
+        for (CategoryItem item : categories) {
+            categoryNames.add(item.getCategoryName());
+        }
+        return categoryNames;
     }
 
     /**
@@ -62,6 +104,17 @@ public class Model {
 
     public List<Product> getProducts(ProductCategory pc) {
         return iMatDataHandler.getProducts(pc);
+    }
+
+    public List<Product> getProducts(String categoryName) {
+        ProductCategory chosenCategory;
+        for (CategoryItem category : categories) {
+            if (category.getCategoryName().contains(categoryName)){
+                chosenCategory = category.getCategory();
+                return getProducts(chosenCategory);
+            }
+        }
+        return null;
     }
 
     /**
@@ -266,5 +319,13 @@ public class Model {
             System.out.println("liked product changed in while loop");
         }
         System.out.println("liked product changed");
+    }
+
+    public void setCurrentSearchTerm(String searchTerm) {
+        currentSearchTerm = searchTerm;
+    }
+
+    public String getCurrentSearchTerm() {
+        return currentSearchTerm;
     }
 }

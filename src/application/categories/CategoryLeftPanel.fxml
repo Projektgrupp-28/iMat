@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefWidth="250.0" style="-fx-background-color: white;" styleClass="font-larger" stylesheets="@../../styling/styling.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.categories.CategoryLeftPanelController">
+   <children>
+      <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="30.0">
+         <children>
+            <Label fx:id="leftPanelHeader" text="Katalog" />
+            <ListView fx:id="listView" fixedCellSize="60.0" minHeight="-Infinity" onMouseClicked="#showCategory" prefHeight="400.0" VBox.vgrow="ALWAYS">
+               <stylesheets>
+                  <URL value="@../../styling/scrollpane.css" />
+                  <URL value="@../../styling/listview.css" />
+               </stylesheets>
+               <styleClass>
+                  <String fx:value="scroll-pane" />
+                  <String fx:value="scroll-bar" />
+                  <String fx:value="track" />
+                  <String fx:value="font-normal" />
+               </styleClass></ListView>
+            <Button fx:id="returnButton" minWidth="-Infinity" mnemonicParsing="false" onAction="#returnHome" prefWidth="120.0" style="-fx-border-color: black; -fx-border-radius: 25; -fx-border-width: 2;" styleClass="font-normal" stylesheets="@../../styling/button.css" text="Tillbaka">
+               <graphic>
+                  <ImageView fitWidth="8.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icons/chevron_left.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
