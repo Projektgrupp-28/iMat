@@ -2,11 +2,8 @@ package application.shoppingcart;
 
 import application.FxmlLoader;
 import application.Model;
-import application.ProductCard;
-import application.iMatController;
-import com.sun.javafx.image.impl.ByteRgba;
+import application.MainController;
 import javafx.event.Event;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
@@ -14,17 +11,13 @@ import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.Pane;
-import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 import se.chalmers.cse.dat216.project.CartEvent;
 import se.chalmers.cse.dat216.project.ShoppingCartListener;
-import se.chalmers.cse.dat216.project.ShoppingItem;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -38,7 +31,7 @@ public class ShoppingCartController implements Initializable, ShoppingCartListen
     List<Pane> shoppingCartViews = new ArrayList<>();
     List<Circle> shoppingPaneCircleGuides = new ArrayList<>();
     FlowPaneController flowPaneController = new FlowPaneController();
-    private iMatController iMatController = application.iMatController.getInstance();
+    private MainController mainController = MainController.getInstance();
 
     @FXML private BorderPane shoppingCartBorderPane;
     @FXML private AnchorPane shoppingCartLayerPane;
@@ -144,12 +137,12 @@ public class ShoppingCartController implements Initializable, ShoppingCartListen
 
     @FXML
     public void outsideClicked() {
-        iMatController.closeOverlayWindow();
+        mainController.closeOverlayWindow();
     }
 
     @FXML
     public void closeButtonPressed() {
-        iMatController.closeOverlayWindow();
+        mainController.closeOverlayWindow();
     }
 
     @FXML
