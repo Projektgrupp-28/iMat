@@ -52,11 +52,11 @@
             </AnchorPane>
          </children>
       </VBox>
-      <Rectangle fx:id="rectangle1" arcHeight="5.0" arcWidth="5.0" fill="TRANSPARENT" height="50.0" layoutX="160.0" stroke="#64b5f6" strokeType="INSIDE" strokeWidth="5.0" visible="false" width="305.0" AnchorPane.topAnchor="-65.0" />
-      <Rectangle fx:id="rectangle4" arcHeight="5.0" arcWidth="5.0" fill="TRANSPARENT" height="50.0" layoutX="660.0" stroke="#64b5f6" strokeType="INSIDE" strokeWidth="5.0" visible="false" width="110.0" AnchorPane.topAnchor="-65.0" />
-      <Rectangle fx:id="rectangle3" arcHeight="5.0" arcWidth="5.0" fill="TRANSPARENT" height="40.0" layoutX="570.0" layoutY="400.0" stroke="#64b5f6" strokeType="INSIDE" strokeWidth="5.0" visible="false" width="130.0" />
-      <Rectangle fx:id="rectangle2" arcHeight="5.0" arcWidth="5.0" fill="TRANSPARENT" height="545.0" layoutY="40.0" stroke="#64b5f6" strokeType="INSIDE" strokeWidth="5.0" visible="false" width="190.0" />
-      <Rectangle fx:id="rectangle5" arcHeight="5.0" arcWidth="5.0" fill="TRANSPARENT" height="50.0" layoutX="470.0" layoutY="-55.0" stroke="#64b5f6" strokeType="INSIDE" strokeWidth="5.0" visible="false" width="120.0" AnchorPane.topAnchor="-65.0" />
+      <Rectangle fx:id="rectangle1" arcHeight="5.0" arcWidth="5.0" fill="TRANSPARENT" height="50.0" layoutX="180.0" stroke="#64b5f6" strokeType="INSIDE" strokeWidth="5.0" visible="false" width="310.0" AnchorPane.topAnchor="-65.0" />
+      <Rectangle fx:id="rectangle4" arcHeight="5.0" arcWidth="5.0" fill="TRANSPARENT" height="50.0" layoutX="710.0" stroke="#64b5f6" strokeType="INSIDE" strokeWidth="5.0" visible="false" width="110.0" AnchorPane.topAnchor="-65.0" />
+      <Rectangle fx:id="rectangle3" arcHeight="5.0" arcWidth="5.0" fill="TRANSPARENT" height="40.0" layoutX="630.0" layoutY="400.0" stroke="#64b5f6" strokeType="INSIDE" strokeWidth="5.0" visible="false" width="130.0" />
+      <Rectangle fx:id="rectangle2" arcHeight="5.0" arcWidth="5.0" fill="TRANSPARENT" height="545.0" layoutY="40.0" stroke="#64b5f6" strokeType="INSIDE" strokeWidth="5.0" visible="false" width="250.0" />
+      <Rectangle fx:id="rectangle5" arcHeight="5.0" arcWidth="5.0" fill="TRANSPARENT" height="50.0" layoutX="495.0" layoutY="-55.0" stroke="#64b5f6" strokeType="INSIDE" strokeWidth="5.0" visible="false" width="120.0" AnchorPane.topAnchor="-65.0" />
    </children>
    <cursor>
       <Cursor fx:constant="HAND" />

@@ -2,10 +2,17 @@
 
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="350.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="350.0" prefWidth="325.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label layoutX="24.0" layoutY="75.0" prefHeight="37.0" prefWidth="273.0" styleClass="font-xlarge" stylesheets="@../../styling/styling.css" text="Välkommen till iMat!" textAlignment="CENTER" />
-      <Label layoutX="22.0" layoutY="122.0" prefHeight="70.0" prefWidth="256.0" styleClass="font-larger" stylesheets="@../../styling/styling.css" text="Låt oss visa dig hur du genomför ett köp" textAlignment="CENTER" wrapText="true" />
+      <Label contentDisplay="CENTER" layoutX="19.0" layoutY="74.0" prefHeight="38.0" prefWidth="288.0" styleClass="font-xlarge" stylesheets="@../../styling/styling.css" text="Välkommen till iMat!">
+         <font>
+            <Font name="Lato Black" size="13.0" />
+         </font></Label>
+      <Label layoutX="35.0" layoutY="128.0" prefHeight="70.0" prefWidth="256.0" text="Låt oss visa dig hur du genomför ett köp" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font name="Lato-Light" size="25.0" />
+         </font></Label>
    </children>
 </AnchorPane>
