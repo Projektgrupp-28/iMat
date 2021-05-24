@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.FlowPane;
 import se.chalmers.cse.dat216.project.Product;
@@ -25,17 +26,16 @@ public class shoppingListController implements Initializable, shoppingListListen
 
     private final Model model = Model.getInstance();
     private final List<Product> emptyProductList = new ArrayList<>();
+    private boolean editIcon;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         //updateShoppingListCatalogue(model.getShoppingListList());
         if (!model.getShoppingListList().isEmpty()) {
-            listName.setText(model.getShoppingListList().get(0).getShoppingListName());
-            updateProductList(model.getShoppingListList().get(0).getProductList());
-            isVisible(true);
+            updateShownList();
         }
         else {
-            isVisible(false);
+            toggleStuff(false);
         }
     }
 
@@ -65,8 +65,11 @@ public class shoppingListController implements Initializable, shoppingListListen
         else {
             model.getShoppingListList().remove(0);
             if (isListListEmpty()) {
-                isVisible(false);
+                toggleStuff(false);
                 updateProductList(emptyProductList);
+            }
+            else {
+                updateShownList();
             }
         }
     }
@@ -75,9 +78,16 @@ public class shoppingListController implements Initializable, shoppingListListen
         return model.getShoppingListList().isEmpty();
     }
 
-    public void isVisible(Boolean bool) {
-        if (!bool) { listName.setText("Inga inköpslistor"); }
-        editList.setVisible(bool);
+    public void toggleStuff(Boolean bool) {
+        if (!bool) {
+            listName.setText("Skapa ny inköpslista");
+            editList.setImage(new Image(getClass().getClassLoader().getResourceAsStream("application/icons/create.png")));
+            editIcon = false;
+        }
+        else {
+            editList.setImage(new Image(getClass().getClassLoader().getResourceAsStream("application/icons/edit.png")));
+            editIcon = true;
+        }
         removeList.setVisible(bool);
         addListToCart.setVisible(bool);
     }
@@ -86,6 +96,31 @@ public class shoppingListController implements Initializable, shoppingListListen
         List<Product> products = model.getShoppingListList().get(0).getProductList();
         for (Product product : products) { model.addToShoppingCart(product);}
     }
+
+    public void editOrCreateList() {
+        if (editIcon) {
+            // Edit list
+        }
+        else {
+            shoppingListFlowPane.getChildren().clear();
+            createNewList();
+            toggleStuff(true);
+        }
+    }
+
+    public void createNewList() {
+        for (int i = 0; i < 5; i++) {
+            model.createShoppingList(null);
+        }
+        updateShownList();
+    }
+
+    public void updateShownList() {
+        listName.setText(model.getShoppingListList().get(0).getShoppingListName());
+        updateProductList(model.getShoppingListList().get(0).getProductList());
+        toggleStuff(true);
+    }
+
     @Override
     public void updateShoppingLists() {
         updateShoppingListCatalogue(model.getShoppingListList());

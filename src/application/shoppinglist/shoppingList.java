@@ -11,7 +11,10 @@ public class shoppingList {
 
     public shoppingList(String shoppingListName, Product product) {
         this.shoppingListName = shoppingListName;
-        this.productList.add(product);
+        if (product == null) {
+            // Do nothing
+        }
+        else { this.productList.add(product); }
     }
 
     public void setShoppingListName(String shoppingListName) {

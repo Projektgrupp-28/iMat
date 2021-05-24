@@ -18,12 +18,12 @@
             <content>
                 <VBox spacing="10.0">
                     <children>
-                  <HBox spacing="101.0">
+                  <HBox prefHeight="30.0" spacing="10.0">
                      <children>
-                        <HBox prefHeight="31.0" prefWidth="250.0" spacing="15.0">
+                        <HBox maxHeight="30.0" maxWidth="1.7976931348623157E308" minHeight="30.0" minWidth="342.0" prefHeight="30.0" prefWidth="342.0" spacing="15.0">
                            <children>
                                     <Label fx:id="listName" styleClass="font-larger" text="Fika med William" />
-                              <ImageView fx:id="editList" fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="editList" fitHeight="25.0" fitWidth="25.0" onMouseClicked="#editOrCreateList" pickOnBounds="true" preserveRatio="true">
                                  <HBox.margin>
                                     <Insets top="3.0" />
                                  </HBox.margin>
@@ -47,7 +47,7 @@
                               </ImageView>
                            </children>
                         </HBox>
-                        <Button fx:id="addListToCart" mnemonicParsing="false" onAction="#addListToCart" styleClass="button1" stylesheets="@../../styling/shoppingList.css" text="Lägg till lista">
+                        <Button fx:id="addListToCart" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#addListToCart" styleClass="button1" stylesheets="@../../styling/shoppingList.css" text="Lägg till lista">
                            <HBox.margin>
                               <Insets top="2.0" />
                            </HBox.margin>
@@ -60,7 +60,7 @@
                         <Insets />
                      </VBox.margin>
                   </HBox>
-                        <FlowPane fx:id="shoppingListFlowPane" hgap="10.0" prefHeight="380.0" prefWidth="580.0" vgap="10.0" VBox.vgrow="ALWAYS" />
+                        <FlowPane fx:id="shoppingListFlowPane" hgap="10.0" prefHeight="380.0" prefWidth="506.0" vgap="10.0" VBox.vgrow="ALWAYS" />
                     </children>
                     <padding>
                         <Insets bottom="50.0" left="50.0" right="50.0" top="29.0" />
