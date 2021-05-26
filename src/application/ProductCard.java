@@ -215,7 +215,7 @@ public class ProductCard extends AnchorPane implements ShoppingCartListener {
 
     @FXML
     private void addItemToList() {
-        System.out.println(product.getName() + " added to list");
+        model.addProductToList(product);
     }
 
     @FXML

@@ -169,7 +169,7 @@
                            <children>
                               <HBox alignment="CENTER" prefHeight="45.0" prefWidth="328.0" spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="0.0">
                                  <children>
-                                    <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="149.0" style="-fx-background-color: transparent;" styleClass="font-normal" text="Inköpslistor">
+                                    <Button mnemonicParsing="false" onAction="#goToShoppingList" prefHeight="35.0" prefWidth="149.0" style="-fx-background-color: transparent;" styleClass="font-normal" text="Inköpslistor">
                                        <graphic>
                                           <ImageView fx:id="listIkon" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
