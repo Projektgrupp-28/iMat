@@ -37,8 +37,8 @@
          <graphic>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <Label alignment="TOP_CENTER" contentDisplay="CENTER" text="Måndag" />
-                  <Label alignment="TOP_CENTER" contentDisplay="CENTER" text="8">
+                  <Label alignment="TOP_CENTER" contentDisplay="CENTER" text="Tisdag" />
+                  <Label alignment="TOP_CENTER" contentDisplay="CENTER" text="9">
                      <font>
                         <Font name="System Bold" size="17.0" />
                      </font>
@@ -51,8 +51,8 @@
          <graphic>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <Label alignment="TOP_CENTER" contentDisplay="CENTER" text="Måndag" />
-                  <Label alignment="TOP_CENTER" contentDisplay="CENTER" text="8">
+                  <Label alignment="TOP_CENTER" contentDisplay="CENTER" text="Onsdag" />
+                  <Label alignment="TOP_CENTER" contentDisplay="CENTER" text="10">
                      <font>
                         <Font name="System Bold" size="17.0" />
                      </font>
@@ -65,8 +65,8 @@
          <graphic>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <Label alignment="TOP_CENTER" contentDisplay="CENTER" text="Måndag" />
-                  <Label alignment="TOP_CENTER" contentDisplay="CENTER" text="8">
+                  <Label alignment="TOP_CENTER" contentDisplay="CENTER" text="Torsdag" />
+                  <Label alignment="TOP_CENTER" contentDisplay="CENTER" text="11">
                      <font>
                         <Font name="System Bold" size="17.0" />
                      </font>
@@ -79,8 +79,8 @@
          <graphic>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <Label alignment="TOP_CENTER" contentDisplay="CENTER" text="Måndag" />
-                  <Label alignment="TOP_CENTER" contentDisplay="CENTER" text="8">
+                  <Label alignment="TOP_CENTER" contentDisplay="CENTER" text="Fredag" />
+                  <Label alignment="TOP_CENTER" contentDisplay="CENTER" text="12">
                      <font>
                         <Font name="System Bold" size="17.0" />
                      </font>
@@ -93,8 +93,8 @@
          <graphic>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <Label alignment="TOP_CENTER" contentDisplay="CENTER" text="Måndag" />
-                  <Label alignment="TOP_CENTER" contentDisplay="CENTER" text="8">
+                  <Label alignment="TOP_CENTER" contentDisplay="CENTER" text="Lördag" />
+                  <Label alignment="TOP_CENTER" contentDisplay="CENTER" text="13">
                      <font>
                         <Font name="System Bold" size="17.0" />
                      </font>
@@ -107,8 +107,8 @@
          <graphic>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <Label alignment="TOP_CENTER" contentDisplay="CENTER" text="Måndag" />
-                  <Label alignment="TOP_CENTER" contentDisplay="CENTER" text="8">
+                  <Label alignment="TOP_CENTER" contentDisplay="CENTER" text="Söndag" />
+                  <Label alignment="TOP_CENTER" contentDisplay="CENTER" text="14">
                      <font>
                         <Font name="System Bold" size="17.0" />
                      </font>
@@ -128,7 +128,7 @@
       </Button>
       <Button layoutX="412.0" layoutY="57.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="70.0">
          <graphic>
-            <Label text="11-13">
+            <Label text="13-15">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
@@ -137,7 +137,7 @@
       </Button>
       <Button layoutX="496.0" layoutY="57.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="70.0">
          <graphic>
-            <Label text="11-13">
+            <Label text="15-17">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
@@ -146,7 +146,7 @@
       </Button>
       <Button layoutX="328.0" layoutY="119.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="70.0">
          <graphic>
-            <Label text="11-13">
+            <Label text="17-19">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
@@ -155,7 +155,7 @@
       </Button>
       <Button layoutX="412.0" layoutY="119.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="70.0">
          <graphic>
-            <Label text="11-13">
+            <Label text="19-21">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>

@@ -1,20 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.FlowPane?>
-<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="600.0" style="-fx-background-color: red;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.shoppingcart.FlowPaneController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.shoppingcart.FlowPaneController">
    <children>
-      <Label layoutX="21.0" layoutY="29.0" text="Shopping cart!" textFill="WHITE">
-         <font>
-            <Font size="47.0" />
-         </font></Label>
-      <ScrollPane layoutX="96.0" layoutY="42.0" prefHeight="200.0" prefWidth="340.0">
+      <ScrollPane layoutX="1.0" layoutY="17.0" prefHeight="234.0" prefWidth="594.0" style="-fx-background-color: white;">
          <content>
-            <FlowPane fx:id="flowPane" prefHeight="200.0" prefWidth="338.0" />
+            <FlowPane fx:id="flowPane" prefHeight="231.0" prefWidth="570.0" style="-fx-background-color: white;" />
          </content>
       </ScrollPane>
    </children>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -8,18 +9,19 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
 
-<AnchorPane onMouseClicked="#close" pickOnBounds="false" style="-fx-background-color: rgba(0,0,0,0.75);" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.wizard.WizardController">
+<AnchorPane onMouseClicked="#close" pickOnBounds="false" prefHeight="580.0" prefWidth="850.0" style="-fx-background-color: rgba(0,0,0,0.2);" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.wizard.WizardController">
    <children>
       <VBox alignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="300.0" style="-fx-background-radius: 25; -fx-background-color: white;" stylesheets="@../../styling/WizardStyle.css">
+            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="325.0" style="-fx-background-radius: 25; -fx-background-color: white; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 10, 0.5, 0.0, 0.0);" stylesheets="@../../styling/WizardStyle.css">
                <children>
                   <BorderPane fx:id="contentPane" layoutX="310.0" layoutY="231.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="250.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <bottom>
-                        <HBox alignment="CENTER" spacing="50.0" BorderPane.alignment="CENTER">
+                        <HBox alignment="CENTER" spacing="100.0" BorderPane.alignment="CENTER">
                            <children>
-                              <Button mnemonicParsing="false" onAction="#previous" styleClass="backButton" text="Tillbaka" />
+                              <Button fx:id="backButton" mnemonicParsing="false" onAction="#previous" styleClass="backButton" text="Tillbaka" />
                               <Button mnemonicParsing="false" onAction="#next" styleClass="nextButton" text="Nästa" />
                            </children>
                            <BorderPane.margin>
@@ -50,5 +52,13 @@
             </AnchorPane>
          </children>
       </VBox>
+      <Rectangle fx:id="rectangle1" arcHeight="5.0" arcWidth="5.0" fill="TRANSPARENT" height="50.0" layoutX="180.0" stroke="#64b5f6" strokeType="INSIDE" strokeWidth="5.0" visible="false" width="310.0" AnchorPane.topAnchor="-65.0" />
+      <Rectangle fx:id="rectangle4" arcHeight="5.0" arcWidth="5.0" fill="TRANSPARENT" height="50.0" layoutX="710.0" stroke="#64b5f6" strokeType="INSIDE" strokeWidth="5.0" visible="false" width="110.0" AnchorPane.topAnchor="-65.0" />
+      <Rectangle fx:id="rectangle3" arcHeight="5.0" arcWidth="5.0" fill="TRANSPARENT" height="40.0" layoutX="630.0" layoutY="400.0" stroke="#64b5f6" strokeType="INSIDE" strokeWidth="5.0" visible="false" width="130.0" />
+      <Rectangle fx:id="rectangle2" arcHeight="5.0" arcWidth="5.0" fill="TRANSPARENT" height="545.0" layoutY="40.0" stroke="#64b5f6" strokeType="INSIDE" strokeWidth="5.0" visible="false" width="250.0" />
+      <Rectangle fx:id="rectangle5" arcHeight="5.0" arcWidth="5.0" fill="TRANSPARENT" height="50.0" layoutX="495.0" layoutY="-55.0" stroke="#64b5f6" strokeType="INSIDE" strokeWidth="5.0" visible="false" width="120.0" AnchorPane.topAnchor="-65.0" />
    </children>
+   <cursor>
+      <Cursor fx:constant="HAND" />
+   </cursor>
 </AnchorPane>

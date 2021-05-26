@@ -60,7 +60,30 @@ public class Model {
     }
 
     private void initCategories() {
-        categories.add(new CategoryItem(ProductCategory.POD, "Konserver"));
+        categories.add(new CategoryItem(ProductCategory.POD, "Baljväxter"));
+        categories.add(new CategoryItem(ProductCategory.BREAD, "Bröd"));
+        categories.add(new CategoryItem(ProductCategory.BERRY, "Bär"));
+        categories.add(new CategoryItem(ProductCategory.CITRUS_FRUIT, "Citrusfrukter"));
+        categories.add(new CategoryItem(ProductCategory.EXOTIC_FRUIT, "Exotiska frukter"));
+        categories.add(new CategoryItem(ProductCategory.FISH, "Fisk och skaldjur"));
+        categories.add(new CategoryItem(ProductCategory.VEGETABLE_FRUIT, "Grönsaksfrukter"));
+        categories.add(new CategoryItem(ProductCategory.COLD_DRINKS, "Kalla drycker"));
+        categories.add(new CategoryItem(ProductCategory.CABBAGE, "Kål"));
+        categories.add(new CategoryItem(ProductCategory.MEAT, "Kött"));
+        categories.add(new CategoryItem(ProductCategory.DAIRIES, "Mejeri"));
+        categories.add(new CategoryItem(ProductCategory.MELONS, "Meloner"));
+        categories.add(new CategoryItem(ProductCategory.FLOUR_SUGAR_SALT, "Mjöl, socker och salt"));
+        categories.add(new CategoryItem(ProductCategory.NUTS_AND_SEEDS, "Nötter och frön"));
+        categories.add(new CategoryItem(ProductCategory.PASTA, "Pasta"));
+        categories.add(new CategoryItem(ProductCategory.POTATO_RICE, "Potatis och ris"));
+        categories.add(new CategoryItem(ProductCategory.ROOT_VEGETABLE, "Rotfrukter"));
+        categories.add(new CategoryItem(ProductCategory.FRUIT, "Stenfrukt"));
+        categories.add(new CategoryItem(ProductCategory.SWEET, "Sötsaker"));
+        categories.add(new CategoryItem(ProductCategory.HOT_DRINKS, "Varma drycker"));
+        categories.add(new CategoryItem(ProductCategory.HERB, "Örter"));
+    }
+    /*
+    categories.add(new CategoryItem(ProductCategory.POD, "Konserver"));
         categories.add(new CategoryItem(ProductCategory.BREAD, "Bröd"));
         categories.add(new CategoryItem(ProductCategory.BERRY, "Bär"));
         categories.add(new CategoryItem(ProductCategory.CITRUS_FRUIT, "Citrusfrukter"));
@@ -81,7 +104,8 @@ public class Model {
         categories.add(new CategoryItem(ProductCategory.FRUIT, "Frukt"));
         categories.add(new CategoryItem(ProductCategory.SWEET, "Sötsaker"));
         categories.add(new CategoryItem(ProductCategory.HERB, "Örter"));
-    }
+
+     */
 
     public List<CategoryItem> getCategories() {
         return categories;
@@ -159,11 +183,14 @@ public class Model {
      */
     public void addToShoppingCart(Product p) {
         ShoppingCart shoppingCart = iMatDataHandler.getShoppingCart();
-
+        for (int i = 0; i < shoppingCart.getItems().size(); i++) {
+            if (shoppingCart.getItems().get(i).getProduct().getName().equals(p.getName())) {
+                shoppingCart.getItems().get(i).setAmount(shoppingCart.getItems().get(i).getAmount() + 1);
+                return;
+            }
+        }
         ShoppingItem item = new ShoppingItem(p);
         Model.getInstance().getShoppingCart().addItem(item);
-
-        // shoppingCart.addProduct(p);
     }
 
     // TODO: Fix methods.
