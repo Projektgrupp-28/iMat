@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -18,9 +19,11 @@ import java.text.NumberFormat;
 public class ShoppingCartItemHolder extends AnchorPane {
 
     @FXML private Label productName;
-    @FXML private Label productAmount;
+    @FXML private TextField productAmount;
     @FXML private Label price;
     @FXML private ImageView imageView;
+    @FXML private Button deleteButton;
+    @FXML private ImageView trashcan;
 
     ShoppingItem shoppingItem;
     Product product;
@@ -39,7 +42,7 @@ public class ShoppingCartItemHolder extends AnchorPane {
         }
         product = shoppingItem.getProduct();
         productName.setText(product.getName());
-        productAmount.setText( (int) shoppingItem.getAmount() + "st");
+        productAmount.setText( (int) shoppingItem.getAmount()+ " " + product.getUnitSuffix());
         imageView.setImage(model.getImage(product));
         price.setText(shoppingItem.getTotal()+" kr");
     }
@@ -47,7 +50,7 @@ public class ShoppingCartItemHolder extends AnchorPane {
         model.getShoppingCart().removeItem(shoppingItem);
         shoppingItem.setAmount(shoppingItem.getAmount() + 1);
         model.getShoppingCart().addItem(shoppingItem);
-        productAmount.setText((int)shoppingItem.getAmount() + "st");
+        productAmount.setText((int)shoppingItem.getAmount()+ " " + product.getUnitSuffix());
 
         NumberFormat rounded = NumberFormat.getNumberInstance();
         rounded.setMaximumFractionDigits(2);
@@ -59,7 +62,7 @@ public class ShoppingCartItemHolder extends AnchorPane {
             model.getShoppingCart().removeItem(shoppingItem);
             shoppingItem.setAmount(shoppingItem.getAmount() - 1);
             model.getShoppingCart().addItem(shoppingItem);
-            productAmount.setText((int) shoppingItem.getAmount() + "st");
+            productAmount.setText((int) shoppingItem.getAmount()+ " " + product.getUnitSuffix());
 
             NumberFormat rounded = NumberFormat.getNumberInstance();
             rounded.setMaximumFractionDigits(2);
@@ -68,9 +71,16 @@ public class ShoppingCartItemHolder extends AnchorPane {
         }
     }
     @FXML public void deleteItem() {
+        deleteButton.setStyle("-fx-background-color:red;");
+        trashcan.resize(1,1);
+        trashcan.setVisible(false);
+        deleteButton.setText("Ta bort?");
+        /*
         model.getShoppingCart().removeItem(shoppingItem);
         productAmount.setText("0st");
         price.setText("0 kr");
         this.setDisable(true);
+
+         */
     }
 }
