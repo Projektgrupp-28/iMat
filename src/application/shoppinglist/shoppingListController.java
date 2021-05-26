@@ -1,5 +1,7 @@
 package application.shoppinglist;
 
+import application.FxmlLoader;
+import application.MainController;
 import application.Model;
 import application.ProductCard;
 import javafx.fxml.FXML;
@@ -9,6 +11,7 @@ import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.FlowPane;
+import javafx.scene.control.ListView;
 import se.chalmers.cse.dat216.project.Product;
 
 import java.net.URL;
@@ -16,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class shoppingListController implements Initializable, shoppingListListener {
+public class shoppingListController implements Initializable, ShoppingListListener {
 
     @FXML private FlowPane shoppingListFlowPane;
     @FXML private Label listName;
@@ -26,17 +29,13 @@ public class shoppingListController implements Initializable, shoppingListListen
 
     private final Model model = Model.getInstance();
     private final List<Product> emptyProductList = new ArrayList<>();
+
     private boolean editIcon;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        //updateShoppingListCatalogue(model.getShoppingListList());
-        if (!model.getShoppingListList().isEmpty()) {
-            updateShownList();
-        }
-        else {
-            toggleStuff(false);
-        }
+        toggleStuff();
+        model.addListListener(this);
     }
 
     private void updateProductList(List<Product> products) {
@@ -49,47 +48,35 @@ public class shoppingListController implements Initializable, shoppingListListen
         }
     }
 
-    private void updateShoppingListCatalogue(List<shoppingList> shoppingListList) {
-        //likedFlowPane.getChildren().clear();
-
-        for (shoppingList shoppingList : shoppingListList) {
-            System.out.println(shoppingList);
-            //likedFlowPane.getChildren().add(new ProductCard(product));
-        }
-    }
-
     public void deleteShoppingList() {
         if (isListListEmpty()) {
             // Do nothing
         }
         else {
-            model.getShoppingListList().remove(0);
-            if (isListListEmpty()) {
-                toggleStuff(false);
-                updateProductList(emptyProductList);
-            }
-            else {
-                updateShownList();
-            }
+            model.getShoppingListList().remove(currentList());
+            model.fireListCatalogueChanged();
+            if (isListListEmpty()) { model.fireListChanged(null); }
+            else { model.fireListChanged(model.getShoppingListList().get(model.getShoppingListList().size() - 1)); }
         }
+        toggleStuff();
     }
 
     public Boolean isListListEmpty() {
         return model.getShoppingListList().isEmpty();
     }
 
-    public void toggleStuff(Boolean bool) {
-        if (!bool) {
+    public void toggleStuff() {
+        if (isListListEmpty()) {
             listName.setText("Skapa ny inköpslista");
+
             editList.setImage(new Image(getClass().getClassLoader().getResourceAsStream("application/icons/create.png")));
-            editIcon = false;
         }
         else {
             editList.setImage(new Image(getClass().getClassLoader().getResourceAsStream("application/icons/edit.png")));
-            editIcon = true;
         }
-        removeList.setVisible(bool);
-        addListToCart.setVisible(bool);
+        editIcon = !isListListEmpty();
+        removeList.setVisible(!isListListEmpty());
+        addListToCart.setVisible(!isListListEmpty());
     }
 
     public void addListToCart() {
@@ -104,25 +91,43 @@ public class shoppingListController implements Initializable, shoppingListListen
         else {
             shoppingListFlowPane.getChildren().clear();
             createNewList();
-            toggleStuff(true);
         }
+        toggleStuff();
     }
 
     public void createNewList() {
-        for (int i = 0; i < 5; i++) {
-            model.createShoppingList(null);
-        }
-        updateShownList();
+        model.createShoppingList(null);
     }
 
-    public void updateShownList() {
-        listName.setText(model.getShoppingListList().get(0).getShoppingListName());
-        updateProductList(model.getShoppingListList().get(0).getProductList());
-        toggleStuff(true);
+    public void updateShownList(shoppingList sl) {
+        if (sl != null) {
+            listName.setText(sl.getShoppingListName());
+            updateProductList(sl.getProductList());
+        }
+        else {
+            System.out.println("Shoppinglist can't be null");
+        }
+        toggleStuff();
+    }
+
+    public shoppingList currentList() {
+        for (shoppingList sl : model.getShoppingListList()) {
+            if (listName.getText() == sl.getShoppingListName()) {
+                return sl;
+            }
+        }
+        return null;
     }
 
     @Override
-    public void updateShoppingLists() {
-        updateShoppingListCatalogue(model.getShoppingListList());
+    public void updateShownShoppingList(shoppingList sl) {
+        if (isListListEmpty()) {
+            updateProductList(emptyProductList);
+        }
+        else if (sl != null){
+            updateShownList(sl);
+        }
+        else { updateShownList(null); }
+        toggleStuff();
     }
 }

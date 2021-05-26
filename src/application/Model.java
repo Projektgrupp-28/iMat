@@ -3,8 +3,9 @@ package application;
 import application.categories.CategoryItem;
 import application.hiddenitems.HiddenProductListener;
 import application.likeditems.LikedProductListener;
+import application.shoppinglist.ShoppingListCatalogueListener;
+import application.shoppinglist.ShoppingListListener;
 import application.shoppinglist.shoppingList;
-import javafx.fxml.FXML;
 import javafx.scene.image.Image;
 import se.chalmers.cse.dat216.project.*;
 
@@ -30,6 +31,8 @@ public class Model {
     private List<CategoryItem> categories = new ArrayList<>();
     private ArrayList<HiddenProductListener> hiddenProductListenersList = new ArrayList();
     private ArrayList<LikedProductListener> likedProductListenersList = new ArrayList<>();
+    private ArrayList<ShoppingListCatalogueListener> shoppingListCatalogueListenersList = new ArrayList<>();
+    private ArrayList<ShoppingListListener> shoppingListListenersList = new ArrayList<>();
     private List<shoppingList> shoppingListList = new ArrayList<>();
     private int nrOfShoppingLists = 0;
 
@@ -340,6 +343,7 @@ public class Model {
     public void createShoppingList(Product product) {
         System.out.println("list created");
         shoppingListList.add(new shoppingList(setShoppingListName(), product));
+        fireListCatalogueChanged();
     }
 
     private String setShoppingListName() {
@@ -349,6 +353,44 @@ public class Model {
 
     public List<shoppingList> getShoppingListList() {
         return shoppingListList;
+    }
+
+    public void addCatalogueListener(ShoppingListCatalogueListener slcl) {
+        this.shoppingListCatalogueListenersList.add(slcl);
+        System.out.println("added shoppinglist catalogue listener");
+    }
+
+    public void fireListCatalogueChanged() {
+        Iterator var = this.shoppingListCatalogueListenersList.iterator();
+
+        while(var.hasNext()) {
+            ShoppingListCatalogueListener slcl = (ShoppingListCatalogueListener) var.next();
+            slcl.shoppingListCatalogueChanged();
+            System.out.println("shoppinglist catalogue changed in while loop");
+        }
+    }
+
+    public void setSelectedShoppingList(String shoppingList) {
+        for (shoppingList sl : shoppingListList) {
+            if (sl.getShoppingListName().equals(shoppingList)) {
+                fireListChanged(sl);
+            }
+        }
+    }
+
+    public void addListListener(ShoppingListListener sll) {
+        this.shoppingListListenersList.add(sll);
+        System.out.println("added shoppinglist listener");
+    }
+
+    public void fireListChanged(shoppingList sl) {
+        Iterator var = this.shoppingListListenersList.iterator();
+
+        while (var.hasNext()) {
+                ShoppingListListener sll = (ShoppingListListener) var.next();
+                sll.updateShownShoppingList(sl);
+                System.out.println("shoppinglist changed in while loop");
+        }
     }
 
     public void setCurrentSearchTerm(String searchTerm) {

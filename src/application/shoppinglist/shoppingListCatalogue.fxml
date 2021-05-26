@@ -9,22 +9,21 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="375.0" prefWidth="190.0" stylesheets="@../../styling/styling.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefWidth="250.0" style="-fx-background-color: white;" stylesheets="@../../styling/styling.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.shoppinglist.shoppingListCatalogueController">
    <children>
-      <VBox alignment="TOP_CENTER" prefHeight="375.0" prefWidth="190.0" style="-fx-background-color: white;">
+      <VBox alignment="TOP_CENTER" spacing="10.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="30.0">
          <children>
             <Label styleClass="font-larger" text="Inköpslistor">
                <VBox.margin>
-                  <Insets top="30.0" />
+                  <Insets />
                </VBox.margin>
             </Label>
-            <ListView fixedCellSize="50.0" prefHeight="172.0" prefWidth="150.0" styleClass="font-normal" stylesheets="@../../styling/listview.css" VBox.vgrow="ALWAYS">
+            <ListView fx:id="listCatalogue" fixedCellSize="60.0" onMouseClicked="#showList" styleClass="font-normal" stylesheets="@../../styling/listview.css" VBox.vgrow="ALWAYS">
                <VBox.margin>
-                  <Insets bottom="20.0" left="20.0" right="20.0" top="10.0" />
+                  <Insets />
                </VBox.margin>
             </ListView>
-            <Button mnemonicParsing="false" text="Ny inköpslista">
+            <Button mnemonicParsing="false" onAction="#createNewList" text="Ny inköpslista">
                <graphic>
                   <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -36,7 +35,7 @@
                   <Insets bottom="10.0" />
                </VBox.margin>
             </Button>
-            <Button mnemonicParsing="false" text="Tillbaka">
+            <Button mnemonicParsing="false" onAction="#goBack" text="Tillbaka">
                <graphic>
                   <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -45,7 +44,7 @@
                   </ImageView>
                </graphic>
                <VBox.margin>
-                  <Insets bottom="30.0" />
+                  <Insets />
                </VBox.margin>
             </Button>
          </children>

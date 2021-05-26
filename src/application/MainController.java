@@ -64,6 +64,7 @@ public class MainController implements Initializable, ShoppingCartListener {
     private Pane likedItemsPane;
 
     private Pane shoppingListPane;
+    private Pane shoppingListCataloguePane;
 
     private Pane lastLoadedPane;
     private Pane categoryLeftPanel;
@@ -183,6 +184,7 @@ public class MainController implements Initializable, ShoppingCartListener {
         homePagePane.setCenter(categoryCenterPanel);
     }
 
+    // Todo fix and remove this
     public void goToCategory() {
         lastLoadedPane = categoryPane = fxmlLoader.getPage("categories/Category");
         homePagePane.setCenter(categoryPane);
@@ -230,15 +232,18 @@ public class MainController implements Initializable, ShoppingCartListener {
        }
    }
 
-    private void closeShoppingList() {
+    public void closeShoppingList() {
         homePagePane.setCenter(lastLoadedPane);
+        showCategories();
         shoppingListIsShown = false;
         listIkon.setImage(new Image(getClass().getClassLoader().getResourceAsStream("application/icons/list.png")));
     }
 
     private void openShoppingList() {
         shoppingListPane = fxmlLoader.getPage("shoppinglist/shoppingList");
+        shoppingListCataloguePane = fxmlLoader.getPage("shoppinglist/shoppingListCatalogue");
         homePagePane.setCenter(shoppingListPane);
+        homePagePane.setLeft(shoppingListCataloguePane);
         shoppingListIsShown = true;
         listIkon.setImage(new Image(getClass().getClassLoader().getResourceAsStream("application/icons/list_heavy_selected.png")));
     }
@@ -347,6 +352,10 @@ public class MainController implements Initializable, ShoppingCartListener {
 
     private void unDimHeader() {
         headerDim.setVisible(false);
+    }
+
+    public BorderPane getHomePagePane() {
+        return homePagePane;
     }
 
     // TODO: Fix commented functions
