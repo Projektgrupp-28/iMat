@@ -70,6 +70,7 @@ public class ShoppingCartItemHolder extends AnchorPane {
             price.setText(rounded.format(shoppingItem.getTotal()) + " kr");
         }
     }
+
     @FXML public void deleteItem() {
         deleteButton.setStyle("-fx-background-color:red;");
         trashcan.resize(1,1);
@@ -83,4 +84,5 @@ public class ShoppingCartItemHolder extends AnchorPane {
 
          */
     }
+
 }

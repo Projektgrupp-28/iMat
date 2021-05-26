@@ -8,7 +8,7 @@
     -fx-font-weight: bold;
 }
 .button1:hover {
-    -fx-background-color: rgba(0, 250, 8, 0.75);
+    -fx-background-color: rgba(0, 230, 8, 1);
 }
 
 .button2 {
@@ -20,6 +20,7 @@
     -fx-font-size: 15px;
     -fx-font-weight: bold;
 }
+
 .button2:hover {
-    -fx-background-color: rgba(255, 0, 0, 0.75);
+    -fx-background-color: rgba(255, 0, 0, 1);
 }
