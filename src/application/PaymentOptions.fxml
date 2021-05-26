@@ -96,5 +96,10 @@
             </ImageView>
          </graphic>
       </Button>
+      <Label layoutX="24.0" layoutY="14.0" prefHeight="28.0" prefWidth="225.0" text="Betalningsalternativ">
+         <font>
+            <Font name="Lato Bold" size="22.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

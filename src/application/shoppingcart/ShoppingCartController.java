@@ -30,11 +30,9 @@ public class ShoppingCartController implements Initializable, ShoppingCartListen
 
     List<Pane> shoppingCartViews = new ArrayList<>();
     List<Circle> shoppingPaneCircleGuides = new ArrayList<>();
-    FlowPaneController flowPaneController = new FlowPaneController();
     private MainController mainController = MainController.getInstance();
 
     @FXML private BorderPane shoppingCartBorderPane;
-    @FXML private AnchorPane shoppingCartLayerPane;
     @FXML private Circle shoppingPaneCircleGuide1;
     @FXML private Circle shoppingPaneCircleGuide2;
     @FXML private Circle shoppingPaneCircleGuide3;
@@ -71,8 +69,6 @@ public class ShoppingCartController implements Initializable, ShoppingCartListen
         shoppingPaneCircleGuides.add(shoppingPaneCircleGuideReserved); // This one does not show but are need for indexing.
     }
 
-    private final Model model = Model.getInstance();
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         initShoppingCart();
@@ -87,9 +83,6 @@ public class ShoppingCartController implements Initializable, ShoppingCartListen
         shoppingCartBorderPane.setOnMouseClicked(Event::consume);
         closeButton.setVisible(false);
         backButton.setVisible(false);
-
-        //flowPaneController.loadProducts();
-        //flowPaneController.aa();
     }
 
     @Override

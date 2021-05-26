@@ -152,11 +152,14 @@ public class Model {
      */
     public void addToShoppingCart(Product p) {
         ShoppingCart shoppingCart = iMatDataHandler.getShoppingCart();
-
+        for (int i = 0; i < shoppingCart.getItems().size(); i++) {
+            if (shoppingCart.getItems().get(i).getProduct().getName().equals(p.getName())) {
+                shoppingCart.getItems().get(i).setAmount(shoppingCart.getItems().get(i).getAmount() + 1);
+                return;
+            }
+        }
         ShoppingItem item = new ShoppingItem(p);
         Model.getInstance().getShoppingCart().addItem(item);
-
-        // shoppingCart.addProduct(p);
     }
 
     // TODO: Fix methods.

@@ -18,6 +18,10 @@
     -fx-background-color: rgba(0, 0, 0, 0.1);
 }
 
+.cornerCloseButton:pressed {
+    -fx-background-color: rgba(0, 0, 0, 0.2);
+}
+
 .closeButton {
     -fx-background-radius: 40;
     -fx-background-color: white;
@@ -35,6 +39,10 @@
     -fx-background-color: rgba(0, 0, 0, 0.1);
 }
 
+.closeButton:pressed {
+    -fx-background-color: rgba(0, 0, 0, 0.2);
+}
+
 .nextButton {
     -fx-background-color: transparent;
     -fx-text-fill: rgba(0, 117, 255, 1);
@@ -47,6 +55,10 @@
     -fx-background-color: rgba(0, 0, 0, 0.1);
 }
 
+.nextButton:pressed {
+    -fx-background-color: rgba(0, 0, 0, 0.2);
+}
+
 .backButton {
     -fx-background-color: transparent;
     -fx-text-fill: rgba(0, 0, 0, 0.6);
@@ -57,4 +69,8 @@
 }
 .backButton:hover {
     -fx-background-color: rgba(0, 0, 0, 0.1);
+}
+
+.backButton:pressed {
+    -fx-background-color: rgba(0, 0, 0, 0.2);
 }

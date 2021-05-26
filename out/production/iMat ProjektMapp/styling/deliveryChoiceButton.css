@@ -11,3 +11,7 @@
     -fx-background-color: rgba(100, 181, 246, 1);
 
 }
+
+.button:pressed {
+    -fx-background-color: rgba(110, 191, 246, 1);
+}
