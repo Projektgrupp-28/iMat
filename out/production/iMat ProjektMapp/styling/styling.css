@@ -10,18 +10,18 @@
 }
 
 .font-larger {
-     -fx-font-size: 20;
+     -fx-font-size: 25;
      -fx-font-weight: bold;
      -fx-font-family: "Lato";
 }
 
 .font-normal {
-     -fx-font-size: 15;
+     -fx-font-size: 18;
      -fx-font-weight: bold;
      -fx-font-family: "Lato";
 }
 
 .font-smaller {
-     -fx-font-size: 15;
+     -fx-font-size: 18;
      -fx-font-family: "Lato";
 }
