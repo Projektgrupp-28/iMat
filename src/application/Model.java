@@ -344,6 +344,7 @@ public class Model {
         System.out.println("list created");
         shoppingListList.add(new shoppingList(setShoppingListName(), product));
         fireListCatalogueChanged();
+        fireListChanged(shoppingListList.get(shoppingListList.size() - 1));
     }
 
     private String setShoppingListName() {

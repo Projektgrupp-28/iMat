@@ -14,6 +14,7 @@ public class shoppingListCatalogueController implements Initializable, ShoppingL
     @FXML private ListView<String> listCatalogue;
     private final Model model = Model.getInstance();
     private final MainController mc = MainController.getInstance();
+    private boolean toggle = true;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -24,11 +25,12 @@ public class shoppingListCatalogueController implements Initializable, ShoppingL
     private void updateShoppingListCatalogue(List<shoppingList> shoppingListList) {
         listCatalogue.getItems().clear();
 
-        for (shoppingList shoppingList : shoppingListList) {
-            listCatalogue.getItems().add(shoppingList.getShoppingListName());
+        // Reverses list
+        for (int i = shoppingListList.size(); i-- > 0; ) {
+            listCatalogue.getItems().add(shoppingListList.get(i).getShoppingListName());
         }
 
-        listCatalogue.getSelectionModel().selectLast();
+        listCatalogue.getSelectionModel().selectFirst();
     }
 
     public void showList() {
