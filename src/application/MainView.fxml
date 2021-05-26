@@ -106,7 +106,10 @@
                                                       <Cursor fx:constant="HAND" />
                                                    </cursor>
                                                 </ImageView>
-                                                <Label styleClass="font-normal" stylesheets="@../styling/styling.css" text="Min profil" textFill="WHITE" />
+                                                <Label styleClass="font-normal" stylesheets="@../styling/styling.css" text="Min profil" textFill="WHITE">
+                                                   <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                   </cursor></Label>
                                              </children>
                                           </HBox>
                                        </graphic>
@@ -124,6 +127,9 @@
                                              <image>
                                                 <Image url="@icons/shopping_cart.png" />
                                              </image>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
                                           </ImageView>
                                           <HBox alignment="TOP_CENTER" spacing="2.0">
                                              <children>
