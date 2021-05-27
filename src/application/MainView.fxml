@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
@@ -15,7 +16,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" stylesheets="@../styling/styling.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainController">
+<AnchorPane prefHeight="700.0" prefWidth="1000.0" stylesheets="@../styling/styling.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainController">
    <children>
       <BorderPane fx:id="overlayPane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
@@ -40,6 +41,9 @@
                                              </image>
                                           </ImageView>
                                        </graphic>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
                                     </Button>
                                  </children>
                               </AnchorPane>
@@ -47,6 +51,9 @@
                                  <VBox.margin>
                                     <Insets />
                                  </VBox.margin>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
                               </ListView>
                            </children>
                         </VBox>
@@ -64,6 +71,9 @@
                                  <HBox.margin>
                                     <Insets />
                                  </HBox.margin>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
                               </Label>
                               <HBox alignment="CENTER" prefHeight="40.0" spacing="10.0" HBox.hgrow="ALWAYS">
                                  <children>
@@ -84,16 +94,22 @@
                                           </HBox>
                                        </graphic>
                                     </Button>
-                                    <Button mnemonicParsing="false" onAction="#openAccountView" prefHeight="40.0" stylesheets="@../styling/profilebutton.css">
+                                    <Button mnemonicParsing="false" onAction="#openAccountView" stylesheets="@../styling/profilebutton.css">
                                        <graphic>
-                                          <HBox alignment="CENTER" spacing="5.0">
+                                          <HBox alignment="CENTER" prefHeight="40.0" spacing="5.0">
                                              <children>
                                                 <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
                                                       <Image url="@icons/profile.png" />
                                                    </image>
+                                                   <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                   </cursor>
                                                 </ImageView>
-                                                <Label styleClass="font-normal" stylesheets="@../styling/styling.css" text="Min profil" textFill="WHITE" />
+                                                <Label styleClass="font-normal" stylesheets="@../styling/styling.css" text="Min profil" textFill="WHITE">
+                                                   <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                   </cursor></Label>
                                              </children>
                                           </HBox>
                                        </graphic>
@@ -111,6 +127,9 @@
                                              <image>
                                                 <Image url="@icons/shopping_cart.png" />
                                              </image>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
                                           </ImageView>
                                           <HBox alignment="TOP_CENTER" spacing="2.0">
                                              <children>
@@ -119,12 +138,12 @@
                                                       <Insets top="3.0" />
                                                    </HBox.margin>
                                                 </Label>
-                                                <Label fx:id="lowSum" styleClass="font-normal" text="55">
+                                                <Label fx:id="lowSum" styleClass="font-normal" text=",55">
                                                    <font>
                                                       <Font size="1.0" />
                                                    </font>
                                                    <HBox.margin>
-                                                      <Insets top="1.0" />
+                                                      <Insets top="2.0" />
                                                    </HBox.margin>
                                                 </Label>
                                                 <Label fx:id="cartSumSymbol" alignment="CENTER" contentDisplay="BOTTOM" styleClass="font-larger" text=":-">
@@ -133,6 +152,9 @@
                                                    </HBox.margin>
                                                 </Label>
                                              </children>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
                                           </HBox>
                                        </children>
                                     </HBox>
@@ -145,9 +167,9 @@
                         </HBox>
                         <AnchorPane style="-fx-background-color: #C0FFF7;">
                            <children>
-                              <HBox alignment="CENTER" prefHeight="45.0" prefWidth="330.0" spacing="50.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="0.0">
+                              <HBox alignment="CENTER" prefHeight="45.0" prefWidth="328.0" spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="0.0">
                                  <children>
-                                    <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: transparent;" styleClass="font-normal" text="Inköpslistor">
+                                    <Button mnemonicParsing="false" onAction="#goToShoppingList" prefHeight="35.0" prefWidth="149.0" style="-fx-background-color: transparent;" styleClass="font-normal" text="Inköpslistor">
                                        <graphic>
                                           <ImageView fx:id="listIkon" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
@@ -155,8 +177,11 @@
                                              </image>
                                           </ImageView>
                                        </graphic>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
                                     </Button>
-                                    <Button mnemonicParsing="false" onAction="#goToLikedItems" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: transparent;" styleClass="font-normal" text="Gillade varor">
+                                    <Button mnemonicParsing="false" onAction="#goToLikedItems" prefHeight="35.0" prefWidth="162.0" style="-fx-background-color: transparent;" styleClass="font-normal" text="Gillade varor">
                                        <graphic>
                                           <ImageView fx:id="gilladeVarorIkon" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
@@ -164,10 +189,13 @@
                                              </image>
                                           </ImageView>
                                        </graphic>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
                                     </Button>
                                  </children>
                               </HBox>
-                              <Button mnemonicParsing="false" onAction="#runWizard" prefHeight="40.0" prefWidth="90.0" style="-fx-background-color: transparent;" styleClass="font-normal" text="Hjälp" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0">
+                              <Button mnemonicParsing="false" onAction="#runWizard" prefHeight="45.0" prefWidth="100.0" style="-fx-background-color: transparent;" styleClass="font-normal" text="Hjälp" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="0.0">
                                  <graphic>
                                     <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
@@ -175,6 +203,9 @@
                                        </image>
                                     </ImageView>
                                  </graphic>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
                               </Button>
                            </children>
                         </AnchorPane>

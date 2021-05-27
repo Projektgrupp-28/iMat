@@ -61,19 +61,15 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <HBox alignment="CENTER" prefWidth="100.0">
-               <children>
-                  <Button fx:id="deleteButton" maxHeight="-Infinity" minHeight="-Infinity" mnemonicParsing="false" onAction="#deleteItem" prefHeight="40.0" styleClass="button2">
-                     <graphic>
-                        <ImageView fx:id="trashcan" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../icons/trash.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-               </children>
-            </HBox>
+            <Button fx:id="deleteButton" maxHeight="-Infinity" minHeight="-Infinity" mnemonicParsing="false" onAction="#deleteItem" prefHeight="40.0" prefWidth="40.0" styleClass="button2" HBox.hgrow="ALWAYS">
+               <graphic>
+                  <ImageView fx:id="trashcan" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icons/trash.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
          </children>
       </HBox>
    </children>

@@ -4,13 +4,13 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
-import se.chalmers.cse.dat216.project.Product;
+import se.chalmers.cse.dat216.project.*;
 
-import java.awt.*;
 import java.io.IOException;
 import java.math.RoundingMode;
 import java.text.NumberFormat;
@@ -21,21 +21,43 @@ import java.text.NumberFormat;
  * a node.
  * @author Philip Winsnes
  */
-public class ProductCard extends AnchorPane {
+public class ProductCard extends AnchorPane implements ShoppingCartListener {
 
-    @FXML private ImageView productImage;
-    @FXML private Label productName;
-    @FXML private Label priceLabel;
-    @FXML private Label ecoLabel;
-    @FXML private AnchorPane buttonRestore;
-    @FXML private AnchorPane buttonAdd;
-    @FXML private HBox buttonGroup;
-    @FXML private ImageView likeButton;
-    @FXML private ImageView hideButton;
-    @FXML private ImageView addToListButton;
-    @FXML private Label highSum;
-    @FXML private Label lowSum;
-    @FXML private AnchorPane ecoLabelAnchorPane;
+    @FXML
+    private ImageView productImage;
+    @FXML
+    private Label productName;
+    @FXML
+    private Label priceLabel;
+    @FXML
+    private Label ecoLabel;
+    @FXML
+    private AnchorPane buttonRestore;
+    @FXML
+    private AnchorPane buttonAdd;
+    @FXML
+    private HBox buttonGroup;
+    @FXML
+    private ImageView likeButton;
+    //private ImageView hideButton;
+    @FXML
+    private ImageView addToListButton;
+    @FXML
+    private Label highSum;
+    @FXML
+    private Label lowSum;
+    @FXML
+    private AnchorPane ecoLabelAnchorPane;
+    @FXML
+    private AnchorPane amountPanel;
+    private AnchorPane previousPanel = new AnchorPane();
+    @FXML
+    private TextField productAmount;
+    @FXML
+    private Label unitLabel;
+
+    private int testAmount;
+
 
     /**
      * Wrapper class of the data handler that holds some backend functionalities.
@@ -45,6 +67,7 @@ public class ProductCard extends AnchorPane {
      * The card's product.
      */
     private Product product;
+    ShoppingItem shoppingItem = new ShoppingItem(product);
 
     public ProductCard(Product product) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/application/ProductCard.fxml"));
@@ -57,7 +80,15 @@ public class ProductCard extends AnchorPane {
             throw new RuntimeException(exception);
         }
 
+        model.getShoppingCart().addShoppingCartListener(this);
+
+        selectButtonPanel(buttonAdd);
+
+
         this.product = product;
+        this.shoppingItem.setProduct(product);
+        this.unitLabel.setText(product.getUnitSuffix());
+        this.productAmount.setText(Integer.toString((int) shoppingItem.getAmount()));
         this.productImage.setImage(model.getImage(product));
         this.productName.setText(product.getName());
         priceLabel.setText(String.format("%.2f", product.getPrice()) + " " + product.getUnit());
@@ -72,8 +103,21 @@ public class ProductCard extends AnchorPane {
 
     }
 
+    private void unselectButtonPanel(AnchorPane panel) {
+        panel.setVisible(false);
+        panel.setDisable(true);
+    }
+
+    private void selectButtonPanel(AnchorPane panel) {
+        unselectButtonPanel(previousPanel);
+        previousPanel = panel;
+        panel.setVisible(true);
+        panel.setDisable(false);
+        panel.toFront();
+    }
+
     private void checkIfHidden() {
-        if (isHidden()){
+        if (isHidden()) {
             buttonAdd.setVisible(false);
             buttonAdd.setDisable(true);
             buttonRestore.setVisible(true);
@@ -86,14 +130,48 @@ public class ProductCard extends AnchorPane {
         }
     }
 
+    @FXML
+    private void informationChanged() {
+        if (productAmount.getText().length() > 3) {
+            productAmount.deletePreviousChar();
+        } else if (!productAmount.getText().matches("\\d+")) {
+            // Given text does not include digits.
+            productAmount.deletePreviousChar();
+        }
+    }
+
+    @FXML
+    private void clearText() {
+        productAmount.selectAll();
+    }
+
+    @FXML
+    private void updateAmount() {
+        int amount;
+        if (productAmount.getText().equals("")) {
+            amount = 1;
+        } else {
+            amount = Integer.valueOf(productAmount.getText());
+        }
+
+        if (amount == 0) {
+            deleteItem();
+        } else {
+            shoppingItem.setAmount(amount);
+            model.getShoppingCart().removeItem(shoppingItem);
+            model.getShoppingCart().addItem(shoppingItem);
+            productAmount.setText(Integer.toString((int) shoppingItem.getAmount()));
+        }
+    }
+
     /**
      * Adds the product to the shopping cart after e.g. a button tap.
      * @param event is the action event.
      */
     @FXML
     private void handleAddAction(ActionEvent event) {
-        System.out.println("Add " + product.getName());
-        model.addToShoppingCart(product);
+        selectButtonPanel(amountPanel);
+        model.getShoppingCart().addItem(shoppingItem);
     }
 
     @FXML
@@ -106,6 +184,7 @@ public class ProductCard extends AnchorPane {
             updateHideButton();
         }
     }
+
     @FXML
     private void onMouseExit() {
         if(!isHidden()) { buttonGroup.setVisible(false); }
@@ -136,7 +215,36 @@ public class ProductCard extends AnchorPane {
 
     @FXML
     private void addItemToList() {
-        System.out.println(product.getName() + " added to list");
+        model.addProductToList(product);
+    }
+
+    @FXML
+    public void incrementAmount() {
+        shoppingItem.setAmount(shoppingItem.getAmount() + 1);
+        model.getShoppingCart().removeItem(shoppingItem);
+        model.getShoppingCart().addItem(shoppingItem);
+        productAmount.setText(Integer.toString((int) shoppingItem.getAmount()));
+    }
+
+    @FXML
+    public void decrementAmount() {
+        if (shoppingItem.getAmount() > 1) {
+            shoppingItem.setAmount(shoppingItem.getAmount() - 1);
+            model.getShoppingCart().removeItem(shoppingItem);
+            model.getShoppingCart().addItem(shoppingItem);
+            productAmount.setText(Integer.toString((int) shoppingItem.getAmount()));
+        } else {
+            // The user would like to remove the item.
+            deleteItem();
+        }
+    }
+
+    @FXML
+    public void deleteItem() {
+        shoppingItem.setAmount(1);
+        model.getShoppingCart().removeItem(shoppingItem);
+        productAmount.setText(Integer.toString((int) shoppingItem.getAmount()));
+        selectButtonPanel(buttonAdd);
     }
 
     private Boolean isHidden() {
@@ -156,8 +264,8 @@ public class ProductCard extends AnchorPane {
             toggle = false;
         }
 
-        hideButton.setVisible(!toggle);
-        hideButton.setDisable(toggle);
+        //hideButton.setVisible(!toggle);
+        //hideButton.setDisable(toggle);
     }
 
     private void updateSumLabels(Double productPrice) {
@@ -176,6 +284,7 @@ public class ProductCard extends AnchorPane {
         highFormat.setRoundingMode(RoundingMode.FLOOR);
         return highFormat.format(value);
     }
+
     /**
      * Formats the total price for the low label which only shows the integers.
      * @param value is the Double value being formatted.
@@ -190,4 +299,13 @@ public class ProductCard extends AnchorPane {
         return lowFormat.format(value);
     }
 
+
+    @Override
+    public void shoppingCartChanged(CartEvent cartEvent) {
+        int amount = (int) shoppingItem.getAmount();
+        productAmount.setText(Integer.toString(amount));
+        if (amount == 0) {
+            deleteItem();
+        }
+    }
 }

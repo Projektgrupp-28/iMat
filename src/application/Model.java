@@ -3,6 +3,9 @@ package application;
 import application.categories.CategoryItem;
 import application.hiddenitems.HiddenProductListener;
 import application.likeditems.LikedProductListener;
+import application.shoppinglist.ShoppingListCatalogueListener;
+import application.shoppinglist.ShoppingListListener;
+import application.shoppinglist.shoppingList;
 import javafx.scene.image.Image;
 import se.chalmers.cse.dat216.project.*;
 
@@ -28,6 +31,10 @@ public class Model {
     private List<CategoryItem> categories = new ArrayList<>();
     private ArrayList<HiddenProductListener> hiddenProductListenersList = new ArrayList();
     private ArrayList<LikedProductListener> likedProductListenersList = new ArrayList<>();
+    private ArrayList<ShoppingListCatalogueListener> shoppingListCatalogueListenersList = new ArrayList<>();
+    private ArrayList<ShoppingListListener> shoppingListListenersList = new ArrayList<>();
+    private List<shoppingList> shoppingListList = new ArrayList<>();
+    private int nrOfShoppingLists = 0;
 
     private String currentSearchTerm;
 
@@ -53,7 +60,30 @@ public class Model {
     }
 
     private void initCategories() {
-        categories.add(new CategoryItem(ProductCategory.POD, "Konserver"));
+        categories.add(new CategoryItem(ProductCategory.POD, "Baljväxter"));
+        categories.add(new CategoryItem(ProductCategory.BREAD, "Bröd"));
+        categories.add(new CategoryItem(ProductCategory.BERRY, "Bär"));
+        categories.add(new CategoryItem(ProductCategory.CITRUS_FRUIT, "Citrusfrukter"));
+        categories.add(new CategoryItem(ProductCategory.EXOTIC_FRUIT, "Exotiska frukter"));
+        categories.add(new CategoryItem(ProductCategory.FISH, "Fisk och skaldjur"));
+        categories.add(new CategoryItem(ProductCategory.VEGETABLE_FRUIT, "Grönsaksfrukter"));
+        categories.add(new CategoryItem(ProductCategory.COLD_DRINKS, "Kalla drycker"));
+        categories.add(new CategoryItem(ProductCategory.CABBAGE, "Kål"));
+        categories.add(new CategoryItem(ProductCategory.MEAT, "Kött"));
+        categories.add(new CategoryItem(ProductCategory.DAIRIES, "Mejeri"));
+        categories.add(new CategoryItem(ProductCategory.MELONS, "Meloner"));
+        categories.add(new CategoryItem(ProductCategory.FLOUR_SUGAR_SALT, "Mjöl, socker och salt"));
+        categories.add(new CategoryItem(ProductCategory.NUTS_AND_SEEDS, "Nötter och frön"));
+        categories.add(new CategoryItem(ProductCategory.PASTA, "Pasta"));
+        categories.add(new CategoryItem(ProductCategory.POTATO_RICE, "Potatis och ris"));
+        categories.add(new CategoryItem(ProductCategory.ROOT_VEGETABLE, "Rotfrukter"));
+        categories.add(new CategoryItem(ProductCategory.FRUIT, "Stenfrukt"));
+        categories.add(new CategoryItem(ProductCategory.SWEET, "Sötsaker"));
+        categories.add(new CategoryItem(ProductCategory.HOT_DRINKS, "Varma drycker"));
+        categories.add(new CategoryItem(ProductCategory.HERB, "Örter"));
+    }
+    /*
+    categories.add(new CategoryItem(ProductCategory.POD, "Konserver"));
         categories.add(new CategoryItem(ProductCategory.BREAD, "Bröd"));
         categories.add(new CategoryItem(ProductCategory.BERRY, "Bär"));
         categories.add(new CategoryItem(ProductCategory.CITRUS_FRUIT, "Citrusfrukter"));
@@ -74,7 +104,8 @@ public class Model {
         categories.add(new CategoryItem(ProductCategory.FRUIT, "Frukt"));
         categories.add(new CategoryItem(ProductCategory.SWEET, "Sötsaker"));
         categories.add(new CategoryItem(ProductCategory.HERB, "Örter"));
-    }
+
+     */
 
     public List<CategoryItem> getCategories() {
         return categories;
@@ -322,6 +353,72 @@ public class Model {
             System.out.println("liked product changed in while loop");
         }
         System.out.println("liked product changed");
+    }
+
+    public void addProductToList(Product product) {
+        if(shoppingListList.isEmpty()){
+            createShoppingList(product);
+        }
+        else if (shoppingListList.get(0).getProductList().contains(product)) {
+            // Product already in list, do nothing
+        }
+        else {
+            shoppingListList.get(0).addProductToShoppingList(product);
+        }
+    }
+
+    public void createShoppingList(Product product) {
+        System.out.println("list created");
+        shoppingListList.add(new shoppingList(setShoppingListName(), product));
+        fireListCatalogueChanged();
+        fireListChanged(shoppingListList.get(shoppingListList.size() - 1));
+    }
+
+    private String setShoppingListName() {
+        nrOfShoppingLists++;
+        return "Inköpslista " + nrOfShoppingLists;
+    }
+
+    public List<shoppingList> getShoppingListList() {
+        return shoppingListList;
+    }
+
+    public void addCatalogueListener(ShoppingListCatalogueListener slcl) {
+        this.shoppingListCatalogueListenersList.add(slcl);
+        System.out.println("added shoppinglist catalogue listener");
+    }
+
+    public void fireListCatalogueChanged() {
+        Iterator var = this.shoppingListCatalogueListenersList.iterator();
+
+        while(var.hasNext()) {
+            ShoppingListCatalogueListener slcl = (ShoppingListCatalogueListener) var.next();
+            slcl.shoppingListCatalogueChanged();
+            System.out.println("shoppinglist catalogue changed in while loop");
+        }
+    }
+
+    public void setSelectedShoppingList(String shoppingList) {
+        for (shoppingList sl : shoppingListList) {
+            if (sl.getShoppingListName().equals(shoppingList)) {
+                fireListChanged(sl);
+            }
+        }
+    }
+
+    public void addListListener(ShoppingListListener sll) {
+        this.shoppingListListenersList.add(sll);
+        System.out.println("added shoppinglist listener");
+    }
+
+    public void fireListChanged(shoppingList sl) {
+        Iterator var = this.shoppingListListenersList.iterator();
+
+        while (var.hasNext()) {
+                ShoppingListListener sll = (ShoppingListListener) var.next();
+                sll.updateShownShoppingList(sl);
+                System.out.println("shoppinglist changed in while loop");
+        }
     }
 
     public void setCurrentSearchTerm(String searchTerm) {

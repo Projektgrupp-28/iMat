@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: white;" stylesheets="@../styling/styling.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.HomePageController">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: white;" stylesheets="@../styling/styling.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.HomePageController">
    <children>
       <ScrollPane fitToWidth="true" hbarPolicy="NEVER" stylesheets="@../styling/scrollpane.css" vbarPolicy="ALWAYS" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <content>
@@ -30,7 +30,7 @@
                         <VBox prefHeight="500.0" prefWidth="400.0" spacing="10.0" VBox.vgrow="ALWAYS">
                            <children>
                               <Label styleClass="font-larger" text="Kampanjvaror" />
-                              <FlowPane id="flowPane" fx:id="promotionProductsFlowPane" hgap="10.0" rowValignment="TOP" styleClass="flow-pane" stylesheets="@../styling/flowpane.css" vgap="10.0" />
+                              <FlowPane id="flowPane" fx:id="promotionProductsFlowPane" hgap="20.0" rowValignment="TOP" styleClass="flow-pane" stylesheets="@../styling/flowpane.css" vgap="20.0" />
                            </children>
                            <VBox.margin>
                               <Insets left="50.0" right="50.0" />
@@ -39,7 +39,7 @@
                         <VBox layoutX="60.0" layoutY="112.0" prefHeight="500.0" prefWidth="400.0" spacing="10.0">
                            <children>
                               <Label styleClass="font-larger" text="Ofta köpta" />
-                              <FlowPane id="flowPane" fx:id="oftenPurchasedFlowPane" hgap="10.0" rowValignment="TOP" styleClass="flow-pane" stylesheets="@../styling/flowpane.css" vgap="10.0" />
+                              <FlowPane id="flowPane" fx:id="oftenPurchasedFlowPane" hgap="20.0" rowValignment="TOP" styleClass="flow-pane" stylesheets="@../styling/flowpane.css" vgap="20.0" />
                            </children>
                            <VBox.margin>
                               <Insets left="50.0" right="50.0" />
@@ -48,7 +48,7 @@
                         <VBox layoutX="60.0" layoutY="444.0" prefHeight="500.0" prefWidth="400.0" spacing="10.0">
                            <children>
                               <Label styleClass="font-larger" text="Alla varor" />
-                              <FlowPane id="flowPane" fx:id="allProductsFlowPane" hgap="10.0" rowValignment="TOP" styleClass="flow-pane" stylesheets="@../styling/flowpane.css" vgap="10.0" />
+                              <FlowPane id="flowPane" fx:id="allProductsFlowPane" hgap="20.0" rowValignment="TOP" styleClass="flow-pane" stylesheets="@../styling/flowpane.css" vgap="20.0" />
                            </children>
                            <VBox.margin>
                               <Insets bottom="50.0" left="50.0" right="50.0" />
