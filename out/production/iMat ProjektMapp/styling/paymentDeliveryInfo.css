@@ -1,0 +1,27 @@
+.backButton {
+    -fx-background-color: transparent;
+    -fx-text-fill: rgba(0, 0, 0, 0.6);
+    -fx-font-family: 'Lato';
+    -fx-font-size: 17px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 40;
+}
+.backButton:hover {
+    -fx-background-color: rgba(0, 0, 0, 0.1);
+}
+
+.saveButton {
+    -fx-background-color: rgba(0, 201, 8, 1);
+    -fx-background-radius: 40;
+    -fx-text-fill: white;
+    -fx-font-family: 'Lato';
+    -fx-font-size: 17px;
+    -fx-font-weight: bold;
+}
+.saveButton:hover {
+    -fx-background-color: rgba(0, 250, 8, 0.75);
+}
+
+.saveButton:disabled {
+    -fx-background-color: grey;
+}
