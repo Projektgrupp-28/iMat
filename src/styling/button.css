@@ -1,15 +1,12 @@
-.button {
+
+.cornerCloseButton {
     -fx-background-color: transparent;
+    -fx-background-radius: 40;
+}
+.cornerCloseButton:hover {
+    -fx-background-color: rgba(0, 0, 0, 0.1);
 }
 
-.button:hover {
-    -fx-background-color: rgba(0,0,0,0.04);
-}
-
-.button-white {
-    -fx-background-color: transparent;
-}
-
-.button-white:hover {
-    -fx-background-color: rgba(0,0,0,0.25);
+.cornerCloseButton:pressed {
+    -fx-background-color: rgba(0, 0, 0, 0.2);
 }

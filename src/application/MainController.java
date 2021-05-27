@@ -5,6 +5,7 @@ import application.categories.CategoryLeftPanelController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -17,6 +18,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.scene.shape.Rectangle;
 import se.chalmers.cse.dat216.project.*;
 
@@ -47,6 +49,7 @@ public class MainController implements Initializable, ShoppingCartListener {
     @FXML private Rectangle headerDim;
     @FXML private ImageView gilladeVarorIkon;
     @FXML private ImageView listIkon;
+    @FXML private AnchorPane accountPaneBox;
 
     // private String previousSelectedCategory;
     ObservableList observableCategoriesList = FXCollections.observableArrayList();
@@ -116,6 +119,7 @@ public class MainController implements Initializable, ShoppingCartListener {
      */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        accountPaneBox.setOnMouseClicked(Event::consume);
         mainController = this;
         model.getShoppingCart().addShoppingCartListener(this);
         model.getShoppingCart().clear();
@@ -123,6 +127,7 @@ public class MainController implements Initializable, ShoppingCartListener {
         loadProfileList();
         showCategories();
         goHome();
+
     }
 
     private void updateSumLabels() {

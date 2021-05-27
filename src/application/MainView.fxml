@@ -16,7 +16,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="700.0" prefWidth="1000.0" stylesheets="@../styling/styling.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainController">
+<AnchorPane prefHeight="700.0" prefWidth="1000.0" stylesheets="@../styling/styling.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainController">
    <children>
       <BorderPane fx:id="overlayPane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
@@ -26,16 +26,16 @@
          <children>
             <AnchorPane fx:id="accountPane" onMouseClicked="#closeAccountView" prefHeight="501.0" prefWidth="800.0" style="-fx-background-color: rgba(0,0,0,0.75);">
                <children>
-                  <AnchorPane layoutX="188.0" layoutY="96.0" prefHeight="307.0" prefWidth="380.0" style="-fx-background-color: white; -fx-background-radius: 25;" AnchorPane.bottomAnchor="200.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="0.0">
+                  <AnchorPane fx:id="accountPaneBox" layoutX="188.0" layoutY="96.0" prefHeight="307.0" prefWidth="380.0" style="-fx-background-color: white; -fx-background-radius: 25;" AnchorPane.bottomAnchor="200.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="0.0">
                      <children>
                         <VBox layoutX="39.0" layoutY="17.0" spacing="10.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="30.0">
                            <children>
                               <AnchorPane>
                                  <children>
                                     <Label styleClass="font-larger" text="Min Profil" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                                    <Button layoutY="25.0" mnemonicParsing="false" onAction="#closeAccountView" stylesheets="@../styling/button.css" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <Button layoutY="25.0" mnemonicParsing="false" onAction="#closeAccountView" prefHeight="35.0" prefWidth="35.0" styleClass="cornerCloseButton" stylesheets="@../styling/button.css" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                        <graphic>
-                                          <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                          <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
                                                 <Image url="@icons/close.png" />
                                              </image>
