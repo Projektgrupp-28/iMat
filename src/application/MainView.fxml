@@ -20,7 +20,7 @@
    <children>
       <BorderPane fx:id="overlayPane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
-            <Rectangle fx:id="headerDim" arcHeight="5.0" arcWidth="5.0" fill="#00000080" height="80.0" stroke="BLACK" strokeType="INSIDE" width="800.0" BorderPane.alignment="CENTER" />
+            <Rectangle fx:id="headerDim" arcHeight="5.0" arcWidth="5.0" fill="#00000080" height="80.0" stroke="BLACK" strokeType="INSIDE" width="1000.0" BorderPane.alignment="CENTER" />
          </top></BorderPane>
       <StackPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>

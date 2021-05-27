@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Rectangle?>
 
-<AnchorPane onMouseClicked="#close" pickOnBounds="false" prefHeight="580.0" prefWidth="850.0" style="-fx-background-color: rgba(0,0,0,0.2);" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.wizard.WizardController">
+<AnchorPane onMouseClicked="#close" pickOnBounds="false" prefHeight="580.0" prefWidth="1000.0" style="-fx-background-color: rgba(0,0,0,0.2);" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.wizard.WizardController">
    <children>
       <VBox alignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
