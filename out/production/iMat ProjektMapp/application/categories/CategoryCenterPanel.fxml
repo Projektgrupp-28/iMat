@@ -7,11 +7,11 @@
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" stylesheets="@../../styling/styling.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.categories.CategoryCenterPanelController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@../../styling/styling.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.categories.CategoryCenterPanelController">
    <children>
       <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" layoutX="20.0" layoutY="180.0" stylesheets="@../../styling/scrollpane.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <content>
-            <VBox spacing="10.0">
+            <VBox spacing="10.0" style="-fx-background-color: fx-background;">
                <children>
                   <Label fx:id="mainPanelHeader" styleClass="font-larger" text="Category name" />
                   <FlowPane id="flowPane" fx:id="flowPane" hgap="10.0" rowValignment="TOP" styleClass="flow-pane" stylesheets="@../../styling/flowpane.css" vgap="10.0" VBox.vgrow="ALWAYS" />

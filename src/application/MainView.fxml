@@ -16,7 +16,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="700.0" prefWidth="1000.0" stylesheets="@../styling/styling.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainController">
+<AnchorPane prefHeight="700.0" prefWidth="1000.0" stylesheets="@../styling/styling.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainController">
    <children>
       <BorderPane fx:id="overlayPane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
@@ -65,7 +65,7 @@
                <top>
                   <VBox BorderPane.alignment="CENTER">
                      <children>
-                        <HBox alignment="CENTER" prefHeight="80.0" spacing="40.0" style="-fx-background-color: black;">
+                        <HBox alignment="CENTER" maxHeight="80.0" minHeight="80.0" prefHeight="80.0" spacing="40.0" style="-fx-background-color: black;" VBox.vgrow="NEVER">
                            <children>
                               <Label id="iMatLogo" alignment="CENTER_RIGHT" onMouseClicked="#goHome" prefHeight="40.0" text="iMat" textAlignment="CENTER" textFill="#fffdfd" HBox.hgrow="ALWAYS">
                                  <HBox.margin>
@@ -165,7 +165,7 @@
                               <Insets left="30.0" right="30.0" />
                            </padding>
                         </HBox>
-                        <AnchorPane style="-fx-background-color: #C0FFF7;">
+                        <AnchorPane maxHeight="45.0" minHeight="45.0" prefHeight="45.0" style="-fx-background-color: #C0FFF7;" VBox.vgrow="NEVER">
                            <children>
                               <HBox alignment="CENTER" prefHeight="45.0" prefWidth="328.0" spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="0.0">
                                  <children>
