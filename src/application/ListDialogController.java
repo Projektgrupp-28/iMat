@@ -44,6 +44,6 @@ public class ListDialogController implements Initializable {
         model.addToSelectedShoppingList(chosenList);
         closeWindow();
     }
-
+    @FXML
     public void closeWindow() { mainController.closeOverlayWindow(); }
 }
