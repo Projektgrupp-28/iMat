@@ -25,3 +25,51 @@
      -fx-font-size: 18;
      -fx-font-family: "Lato";
 }
+
+.decButton {
+    -fx-background-color:transparent;
+    -fx-border-color:red;
+    -fx-background-radius:40;
+    -fx-border-radius:40;
+    -fx-border-width:2;
+}
+
+.decButton:hover {
+    -fx-background-color:rgba(255, 20, 20, 1);
+    -fx-background-radius:40;
+    -fx-border-color:rgba(255, 20, 20, 1);
+    -fx-border-radius:40;
+    -fx-border-width:2;
+}
+
+.decButton:pressed {
+    -fx-background-color:red;
+    -fx-background-radius:40;
+    -fx-border-color:red;
+    -fx-border-radius:40;
+    -fx-border-width:2;
+}
+
+.incButton {
+    -fx-background-color:transparent;
+    -fx-background-radius:40;
+    -fx-border-color: rgba(0, 201, 8, 1);
+    -fx-border-radius:40;
+    -fx-border-width:2;
+}
+
+.incButton:hover {
+    -fx-background-color:rgba(0, 230, 8, 1);
+    -fx-background-radius:40;
+    -fx-border-color:rgba(0, 230, 8, 1);
+    -fx-border-radius:40;
+    -fx-border-width:2;
+}
+
+.incButton:pressed {
+    -fx-background-color:rgba(0, 201, 8, 1);
+    -fx-background-radius:40;
+    -fx-border-color:rgba(0, 201, 8, 1);
+    -fx-border-radius:40;
+    -fx-border-width:2;
+}
