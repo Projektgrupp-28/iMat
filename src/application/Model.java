@@ -370,8 +370,8 @@ public class Model {
     public void createShoppingList(Product product) {
         System.out.println("list created");
         shoppingListList.add(new shoppingList(setShoppingListName(), product));
-        fireListCatalogueChanged();
         fireListChanged(shoppingListList.get(shoppingListList.size() - 1));
+        fireListCatalogueChanged();
     }
 
     private String setShoppingListName() {

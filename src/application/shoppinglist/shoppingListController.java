@@ -34,8 +34,9 @@ public class shoppingListController implements Initializable, ShoppingListListen
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        toggleStuff();
         model.addListListener(this);
+        if (!isListListEmpty()) { model.fireListChanged(model.getShoppingListList().get(model.getShoppingListList().size() - 1)); }
+        else { toggleStuff(); }
     }
 
     private void updateProductList(List<Product> products) {
@@ -80,8 +81,10 @@ public class shoppingListController implements Initializable, ShoppingListListen
     }
 
     public void addListToCart() {
-        List<Product> products = model.getShoppingListList().get(0).getProductList();
-        for (Product product : products) { model.addToShoppingCart(product);}
+        List<Product> products = currentList().getProductList();
+        for (Product product : products) {
+            model.addToShoppingCart(product);
+        }
     }
 
     public void editOrCreateList() {
