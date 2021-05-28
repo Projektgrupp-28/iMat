@@ -24,7 +24,7 @@ public class ListDialogController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        productName.setText("Hej");
+        productName.setText(model.getCurrentProduct().getName());
         updateShoppingListCatalogue(model.getShoppingListList());
     }
 

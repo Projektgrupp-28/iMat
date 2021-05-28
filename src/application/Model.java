@@ -358,6 +358,8 @@ public class Model {
     }
 
     public void addProductToList(Product product) {
+        currentProduct = product;
+        // TODO MAKE THESE RELEVANT
         if(shoppingListList.isEmpty()){
             createShoppingList(product);
         }
@@ -366,7 +368,6 @@ public class Model {
         }
         else {
             //shoppingListList.get(0).addProductToShoppingList(product);
-            currentProduct = product;
         }
     }
 
@@ -440,6 +441,10 @@ public class Model {
 
     public shoppingList getCurrentShoppingList() {
         return currentShoppingList;
+    }
+
+    public Product getCurrentProduct() {
+        return currentProduct;
     }
 
     public void setCurrentSearchTerm(String searchTerm) {

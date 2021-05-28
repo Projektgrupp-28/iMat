@@ -68,7 +68,7 @@ public class ProductCard extends AnchorPane implements ShoppingCartListener {
      */
     private Product product;
     ShoppingItem shoppingItem = new ShoppingItem(product);
-    MainController mainController;
+    private MainController mainController;
 
     public ProductCard(Product product) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/application/ProductCard.fxml"));
@@ -215,8 +215,8 @@ public class ProductCard extends AnchorPane implements ShoppingCartListener {
     @FXML
     private void addItemToList() {
         this.mainController = MainController.getInstance();
-        mainController.openListDialog();
         model.addProductToList(product);
+        mainController.openListDialog();
     }
 
     @FXML
