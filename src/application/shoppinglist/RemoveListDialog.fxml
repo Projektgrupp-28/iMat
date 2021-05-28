@@ -43,8 +43,8 @@
                             <children>
                                 <AnchorPane>
                                     <children>
-                                        <Button layoutX="123.0" layoutY="12.0" mnemonicParsing="false" text="Ja" />
-                                        <Button layoutX="14.0" layoutY="12.0" mnemonicParsing="false" text="Nej tack" />
+                                        <Button layoutX="123.0" layoutY="12.0" mnemonicParsing="false" onAction="#deleteShoppingList" text="Ja" />
+                                        <Button layoutX="14.0" layoutY="12.0" mnemonicParsing="false" onAction="#closeWindow" text="Nej tack" />
                                     </children>
                                 </AnchorPane>
                             </children>

@@ -27,7 +27,7 @@ public class shoppingListController implements Initializable, ShoppingListListen
     @FXML private ImageView removeList;
     @FXML private Button addListToCart;
 
-    private MainController mainController;
+    private MainController mainController = MainController.getInstance();
     private final Model model = Model.getInstance();
     private final List<Product> emptyProductList = new ArrayList<>();
 
@@ -55,15 +55,16 @@ public class shoppingListController implements Initializable, ShoppingListListen
             // Do nothing
         }
         else {
-
             //Det här öppnar en RemoveListDialog ruta. Klasserna finns i shoppingList mappen
-            mainController = MainController.getInstance();
+            model.setCurrentList(currentList());
             mainController.openRemoveListDialog();
 
+            /*
             model.getShoppingListList().remove(currentList());
             model.fireListCatalogueChanged();
             if (isListListEmpty()) { model.fireListChanged(null); }
             else { model.fireListChanged(model.getShoppingListList().get(model.getShoppingListList().size() - 1)); }
+            */
         }
         toggleStuff();
     }

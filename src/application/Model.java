@@ -38,6 +38,7 @@ public class Model {
 
     private String currentSearchTerm;
     private Product currentProduct;
+    private shoppingList currentShoppingList;
 
     /**
      * To be used instead of the constructor.
@@ -431,6 +432,14 @@ public class Model {
                 System.out.println(currentProduct.getName() + " added to list: " + shoppingList);
             }
         }
+    }
+
+    public void setCurrentList(shoppingList sl) {
+        currentShoppingList = sl;
+    }
+
+    public shoppingList getCurrentShoppingList() {
+        return currentShoppingList;
     }
 
     public void setCurrentSearchTerm(String searchTerm) {
