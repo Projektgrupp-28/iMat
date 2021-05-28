@@ -37,6 +37,7 @@ public class Model {
     private int nrOfShoppingLists = 0;
 
     private String currentSearchTerm;
+    private Product currentProduct;
 
     /**
      * To be used instead of the constructor.
@@ -363,7 +364,8 @@ public class Model {
             // Product already in list, do nothing
         }
         else {
-            shoppingListList.get(0).addProductToShoppingList(product);
+            //shoppingListList.get(0).addProductToShoppingList(product);
+            currentProduct = product;
         }
     }
 
@@ -418,6 +420,16 @@ public class Model {
                 ShoppingListListener sll = (ShoppingListListener) var.next();
                 sll.updateShownShoppingList(sl);
                 System.out.println("shoppinglist changed in while loop");
+        }
+    }
+
+    public void addToSelectedShoppingList(String shoppingList) {
+        for (shoppingList sl : shoppingListList) {
+            if (sl.getShoppingListName().equals(shoppingList)) {
+                int temp = shoppingListList.indexOf(sl);
+                shoppingListList.get(temp).addProductToShoppingList(currentProduct);
+                System.out.println(currentProduct.getName() + " added to list: " + shoppingList);
+            }
         }
     }
 

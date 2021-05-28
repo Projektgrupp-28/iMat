@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane onMouseClicked="#outsideClicked" style="-fx-background-color: rgba(0,0,0,0.75);" stylesheets="@../styling/shoppingCartStyle.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ListDialogController">
+<AnchorPane onMouseClicked="#closeWindow" style="-fx-background-color: rgba(0,0,0,0.75);" stylesheets="@../styling/shoppingCartStyle.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ListDialogController">
    <children>
       <VBox alignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -19,7 +19,7 @@
                <top>
                   <AnchorPane>
                      <children>
-                        <Button alignment="CENTER" contentDisplay="CENTER" layoutX="500.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#closeButtonPressed" prefHeight="35.0" prefWidth="35.0" styleClass="cornerCloseButton" textAlignment="CENTER" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+                        <Button alignment="CENTER" contentDisplay="CENTER" layoutX="500.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#closeWindow" prefHeight="35.0" prefWidth="35.0" styleClass="cornerCloseButton" textAlignment="CENTER" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
                            <graphic>
                               <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -52,11 +52,11 @@
                               <Font name="Lato Bold" size="20.0" />
                            </font>
                         </Label>
-                        <ChoiceBox prefWidth="150.0" />
+                        <ChoiceBox fx:id="listor" prefWidth="150.0" />
                         <AnchorPane>
                            <children>
-                              <Button layoutX="123.0" layoutY="12.0" mnemonicParsing="false" text="Lägg till" />
-                              <Button layoutX="14.0" layoutY="12.0" mnemonicParsing="false" text="Nej tack" />
+                              <Button layoutX="123.0" layoutY="12.0" mnemonicParsing="false" onAction="#addToList" text="Lägg till" />
+                              <Button layoutX="14.0" layoutY="12.0" mnemonicParsing="false" onAction="#closeWindow" text="Nej tack" />
                            </children>
                         </AnchorPane>
                      </children>
