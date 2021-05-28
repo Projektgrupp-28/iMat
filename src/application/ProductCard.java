@@ -68,6 +68,7 @@ public class ProductCard extends AnchorPane implements ShoppingCartListener {
      */
     private Product product;
     ShoppingItem shoppingItem = new ShoppingItem(product);
+    MainController mainController;
 
     public ProductCard(Product product) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/application/ProductCard.fxml"));
@@ -81,7 +82,6 @@ public class ProductCard extends AnchorPane implements ShoppingCartListener {
         }
 
         model.getShoppingCart().addShoppingCartListener(this);
-
         selectButtonPanel(buttonAdd);
 
 
@@ -98,9 +98,7 @@ public class ProductCard extends AnchorPane implements ShoppingCartListener {
             ecoLabel.setText("");
             ecoLabelAnchorPane.setVisible(false);
         }
-
         checkIfHidden();
-
     }
 
     private void unselectButtonPanel(AnchorPane panel) {
@@ -199,6 +197,7 @@ public class ProductCard extends AnchorPane implements ShoppingCartListener {
             model.removeFavourite(product);
         }
         updateHideButton();
+
     }
 
     @FXML
@@ -215,6 +214,8 @@ public class ProductCard extends AnchorPane implements ShoppingCartListener {
 
     @FXML
     private void addItemToList() {
+        this.mainController = MainController.getInstance();
+        mainController.openListDialog();
         model.addProductToList(product);
     }
 
