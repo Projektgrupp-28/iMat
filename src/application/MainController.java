@@ -91,7 +91,7 @@ public class MainController implements Initializable, ShoppingCartListener {
             case "Leveransinformation":
                 lastLoadedPane = view = fxmlLoader.getPage("DeliveryOptions");
                 break;
-            case "Betalningssätt":
+            case "Betalningsinformation":
                 lastLoadedPane = view = fxmlLoader.getPage("PaymentOptions");
                 break;
             default: System.out.println("Unrecognizable selection");
@@ -321,7 +321,7 @@ public class MainController implements Initializable, ShoppingCartListener {
      */
     private void loadProfileList() {
         observableProfileList.removeAll();
-        observableProfileList.addAll("Orderhistorik", "Dolda varor", "Leveransinformation", "Betalningssätt");
+        observableProfileList.addAll("Orderhistorik", "Leveransinformation", "Betalningsinformation");
         profileList.getItems().addAll(observableProfileList);
     }
 

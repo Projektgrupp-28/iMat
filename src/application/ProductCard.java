@@ -59,6 +59,7 @@ public class ProductCard extends AnchorPane implements ShoppingCartListener {
     private int testAmount;
 
 
+
     /**
      * Wrapper class of the data handler that holds some backend functionalities.
      */
@@ -97,6 +98,13 @@ public class ProductCard extends AnchorPane implements ShoppingCartListener {
         if (!product.isEcological()) {
             ecoLabel.setText("");
             ecoLabelAnchorPane.setVisible(false);
+        }
+
+        if(model.getFavourites().contains(product)){
+            likeButton.setImage(new Image(getClass().getClassLoader().getResourceAsStream("application/icons/heart_red.png")));
+            buttonGroup.setVisible(true);
+           
+            addToListButton.setVisible(false);
         }
         checkIfHidden();
     }
@@ -174,19 +182,35 @@ public class ProductCard extends AnchorPane implements ShoppingCartListener {
 
     @FXML
     private void onMouseEntered() {
-        if(!isHidden()) {
+        if(!isHidden()){
             buttonGroup.setVisible(true);
             if(model.getFavourites().contains(product)){
                 likeButton.setImage(new Image(getClass().getClassLoader().getResourceAsStream("application/icons/heart_red.png")));
+                addToListButton.setVisible(true);
             }
             updateHideButton();
         }
+
     }
+
+
+
+
+
 
     @FXML
     private void onMouseExit() {
-        if(!isHidden()) { buttonGroup.setVisible(false); }
+        if(model.getFavourites().contains(product)) {
+            likeButton.setVisible(true);
+            addToListButton.setVisible(false);
+            }
+
+            else  {
+                buttonGroup.setVisible(false);
+            }
     }
+    
+
 
     @FXML
     private void likeItem() {
@@ -309,4 +333,9 @@ public class ProductCard extends AnchorPane implements ShoppingCartListener {
             deleteItem();
         }
     }
+
+
+
+
+
 }
