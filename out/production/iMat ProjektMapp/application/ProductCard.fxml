@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseEntered="#onMouseEntered" onMouseExited="#onMouseExit" prefHeight="290.0" prefWidth="190.0" style="-fx-background-radius: 25; -fx-background-color: white;" stylesheets="@../styling/styling.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseEntered="#onMouseEntered" onMouseExited="#onMouseExit" prefHeight="300.0" prefWidth="190.0" style="-fx-background-radius: 25; -fx-background-color: white;" stylesheets="@../styling/styling.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
     <children>
       <VBox alignment="BOTTOM_CENTER" layoutX="14.0" layoutY="14.0" spacing="12.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
