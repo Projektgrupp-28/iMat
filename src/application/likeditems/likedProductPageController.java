@@ -27,7 +27,8 @@ public class likedProductPageController implements Initializable, LikedProductLi
         likedFlowPane.getChildren().clear();
 
         for (Product product : products) {
-            likedFlowPane.getChildren().add(new ProductCard(product));
+            ProductCard productCard = new ProductCard(product);
+            likedFlowPane.getChildren().add(productCard);
         }
     }
 
