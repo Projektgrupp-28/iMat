@@ -26,7 +26,10 @@ public class shoppingList {
     }
 
     public void addProductToShoppingList(Product product) {
-        productList.add(product);
+        if (productList.contains(product)) {
+            System.out.println("List already contains product");
+        }
+        else { productList.add(product); }
     }
 
     public List<Product> getProductList() {

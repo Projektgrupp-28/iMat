@@ -359,16 +359,6 @@ public class Model {
 
     public void addProductToList(Product product) {
         currentProduct = product;
-        // TODO MAKE THESE RELEVANT
-        if(shoppingListList.isEmpty()){
-            createShoppingList(product);
-        }
-        else if (shoppingListList.get(0).getProductList().contains(product)) {
-            // Product already in list, do nothing
-        }
-        else {
-            //shoppingListList.get(0).addProductToShoppingList(product);
-        }
     }
 
     public void createShoppingList(Product product) {
