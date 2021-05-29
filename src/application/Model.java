@@ -376,6 +376,7 @@ public class Model {
         shoppingListList.add(new shoppingList(setShoppingListName(), product));
         fireListChanged(shoppingListList.get(shoppingListList.size() - 1));
         fireListCatalogueChanged();
+        setCurrentList(shoppingListList.get(shoppingListList.size() - 1));
     }
 
     private String setShoppingListName() {
@@ -406,6 +407,7 @@ public class Model {
         for (shoppingList sl : shoppingListList) {
             if (sl.getShoppingListName().equals(shoppingList)) {
                 fireListChanged(sl);
+                setCurrentList(sl);
             }
         }
     }

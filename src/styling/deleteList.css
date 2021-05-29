@@ -1,0 +1,15 @@
+.avbryt {
+    -fx-background-color: rgba(255, 255, 255, 1);
+    -fx-background-radius: 50;
+    -fx-text-fill: black;
+    -fx-padding: 2 27 2 27;
+    -fx-font-family: 'Lato';
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-border-color: black;
+    -fx-border-width: 2 2 2 2;
+    -fx-border-radius: 50;
+}
+.avbryt:hover {
+    -fx-background-color: rgba(0, 0, 0, 0.1);
+}

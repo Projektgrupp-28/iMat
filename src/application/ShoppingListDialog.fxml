@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
@@ -11,28 +13,31 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane onMouseClicked="#closeWindow" style="-fx-background-color: rgba(0,0,0,0.75);" stylesheets="@../styling/shoppingCartStyle.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ListDialogController">
+<AnchorPane onMouseClicked="#closeWindow" style="-fx-background-color: rgba(0,0,0,0.75);" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ListDialogController">
    <children>
       <VBox alignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <BorderPane minHeight="200.0" minWidth="100.0" pickOnBounds="false" style="-fx-background-color: white; -fx-background-radius: 25;" VBox.vgrow="ALWAYS">
+            <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" pickOnBounds="false" prefHeight="225.0" prefWidth="250.0" style="-fx-background-color: white; -fx-background-radius: 25;" VBox.vgrow="ALWAYS">
                <top>
                   <AnchorPane>
                      <children>
-                        <Button alignment="CENTER" contentDisplay="CENTER" layoutX="500.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#closeWindow" prefHeight="35.0" prefWidth="35.0" styleClass="cornerCloseButton" textAlignment="CENTER" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+                        <Label alignment="CENTER" layoutY="19.0" styleClass="font-normal" text="Spara till inköpslista" wrapText="true" AnchorPane.leftAnchor="22.0">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </Label>
+                        <Button alignment="CENTER" contentDisplay="CENTER" layoutX="500.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#closeWindow" prefHeight="35.0" prefWidth="35.0" styleClass="cornerCloseButton" textAlignment="CENTER" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
                            <graphic>
-                              <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@icons/close.png" />
                                  </image>
                               </ImageView>
                            </graphic>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </Button>
-                        <Label prefHeight="36.0" prefWidth="175.0" text="Lägg till" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
-                           <font>
-                              <Font name="Lato Bold" size="28.0" />
-                           </font>
-                        </Label>
                      </children>
                   </AnchorPane>
                </top>
@@ -40,30 +45,43 @@
                   <Insets bottom="300.0" left="400.0" right="400.0" top="250.0" />
                </VBox.margin>
                <center>
-                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+                  <VBox alignment="TOP_CENTER" prefHeight="161.0" prefWidth="175.0">
                      <children>
-                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="45.0" prefWidth="170.0" text="Vill du lägga till:">
-                           <font>
-                              <Font name="Lato Bold" size="20.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="productName" alignment="CENTER" contentDisplay="CENTER" prefHeight="45.0" prefWidth="170.0" text="Gurka">
-                           <font>
-                              <Font name="Lato Bold" size="20.0" />
-                           </font>
-                        </Label>
-                        <ChoiceBox fx:id="listor" prefWidth="150.0" />
-                        <AnchorPane>
+                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
                            <children>
-                              <Button layoutX="123.0" layoutY="12.0" mnemonicParsing="false" onAction="#addToList" text="Lägg till" />
-                              <Button layoutX="14.0" layoutY="12.0" mnemonicParsing="false" onAction="#closeWindow" text="Nej tack" />
+                              <Label styleClass="font-smaller" text="Lägg till vara i lista:" />
+                              <ChoiceBox fx:id="listor" prefWidth="150.0" style="-fx-border-color: black;" styleClass="decButton" stylesheets="@../styling/button.css">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </ChoiceBox>
+                              <Label fx:id="productName" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" style="-fx-font-weight: bold;" styleClass="font-smaller" text="Gurka" wrapText="true">
+                                 <font>
+                                    <Font size="22.0" />
+                                 </font>
+                              </Label>
+                              <Button mnemonicParsing="false" onAction="#addToList" styleClass="button1" stylesheets="@../styling/productCardButton.css" text="Spara">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
                            </children>
-                        </AnchorPane>
+                        </VBox>
                      </children>
+                     <BorderPane.margin>
+                        <Insets />
+                     </BorderPane.margin>
+                     <padding>
+                        <Insets bottom="20.0" />
+                     </padding>
                   </VBox>
                </center>
             </BorderPane>
          </children>
       </VBox>
    </children>
+   <stylesheets>
+      <URL value="@../styling/shoppingCartStyle.css" />
+      <URL value="@../styling/styling.css" />
+   </stylesheets>
 </AnchorPane>

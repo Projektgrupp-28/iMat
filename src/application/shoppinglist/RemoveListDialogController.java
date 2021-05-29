@@ -5,6 +5,7 @@ import application.Model;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
+import javafx.scene.control.Label;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -13,9 +14,11 @@ public class RemoveListDialogController implements Initializable {
     MainController mainController = MainController.getInstance();
     Model model = Model.getInstance();
 
+    private @FXML Label listId;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        // Shoppinglist name
+        listId.setText(model.getCurrentShoppingList().getShoppingListName());
     }
 
     public void deleteShoppingList() {
