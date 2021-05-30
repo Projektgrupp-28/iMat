@@ -250,7 +250,7 @@ public class MainController implements Initializable, ShoppingCartListener {
         overlayPane.setCenter(shoppingCartPane);
     }
 
-   private void closeLikedItems() {
+   public void closeLikedItems() {
        homePagePane.setCenter(lastLoadedPane);
        showCategories();
        likePageIsShown = false;
