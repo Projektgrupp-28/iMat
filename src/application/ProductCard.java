@@ -59,6 +59,7 @@ public class ProductCard extends AnchorPane implements ShoppingCartListener {
     private int testAmount;
 
 
+
     /**
      * Wrapper class of the data handler that holds some backend functionalities.
      */
@@ -68,6 +69,7 @@ public class ProductCard extends AnchorPane implements ShoppingCartListener {
      */
     private Product product;
     ShoppingItem shoppingItem = new ShoppingItem(product);
+    private MainController mainController;
 
     public ProductCard(Product product) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/application/ProductCard.fxml"));
@@ -81,7 +83,6 @@ public class ProductCard extends AnchorPane implements ShoppingCartListener {
         }
 
         model.getShoppingCart().addShoppingCartListener(this);
-
         selectButtonPanel(buttonAdd);
 
 
@@ -99,8 +100,13 @@ public class ProductCard extends AnchorPane implements ShoppingCartListener {
             ecoLabelAnchorPane.setVisible(false);
         }
 
+        if(model.getFavourites().contains(product)){
+            likeButton.setImage(new Image(getClass().getClassLoader().getResourceAsStream("application/icons/heart_red.png")));
+            buttonGroup.setVisible(true);
+           
+            addToListButton.setVisible(false);
+        }
         checkIfHidden();
-
     }
 
     private void unselectButtonPanel(AnchorPane panel) {
@@ -176,19 +182,35 @@ public class ProductCard extends AnchorPane implements ShoppingCartListener {
 
     @FXML
     private void onMouseEntered() {
-        if(!isHidden()) {
+        if(!isHidden()){
             buttonGroup.setVisible(true);
             if(model.getFavourites().contains(product)){
                 likeButton.setImage(new Image(getClass().getClassLoader().getResourceAsStream("application/icons/heart_red.png")));
+                addToListButton.setVisible(true);
             }
             updateHideButton();
         }
+
     }
+
+
+
+
+
 
     @FXML
     private void onMouseExit() {
-        if(!isHidden()) { buttonGroup.setVisible(false); }
+        if(model.getFavourites().contains(product)) {
+            likeButton.setVisible(true);
+            addToListButton.setVisible(false);
+            }
+
+            else  {
+                buttonGroup.setVisible(false);
+            }
     }
+    
+
 
     @FXML
     private void likeItem() {
@@ -199,6 +221,7 @@ public class ProductCard extends AnchorPane implements ShoppingCartListener {
             model.removeFavourite(product);
         }
         updateHideButton();
+
     }
 
     @FXML
@@ -215,7 +238,9 @@ public class ProductCard extends AnchorPane implements ShoppingCartListener {
 
     @FXML
     private void addItemToList() {
+        this.mainController = MainController.getInstance();
         model.addProductToList(product);
+        mainController.openListDialog();
     }
 
     @FXML
@@ -308,4 +333,9 @@ public class ProductCard extends AnchorPane implements ShoppingCartListener {
             deleteItem();
         }
     }
+
+
+
+
+
 }

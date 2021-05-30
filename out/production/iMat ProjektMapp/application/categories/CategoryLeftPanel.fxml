@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.String?>
 <?import java.net.URL?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
@@ -16,18 +15,12 @@
       <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="30.0">
          <children>
             <Label fx:id="leftPanelHeader" text="Katalog" />
-            <ListView fx:id="listView" fixedCellSize="60.0" minHeight="-Infinity" onMouseClicked="#showCategory" prefHeight="400.0" VBox.vgrow="ALWAYS">
+            <ListView fx:id="listView" fixedCellSize="60.0" minHeight="-Infinity" onMouseClicked="#showCategory" prefHeight="400.0" styleClass="font-normal" VBox.vgrow="ALWAYS">
                <stylesheets>
-                  <URL value="@../../styling/scrollpane.css" />
                   <URL value="@../../styling/listview.css" />
-               </stylesheets>
-               <styleClass>
-                  <String fx:value="scroll-pane" />
-                  <String fx:value="scroll-bar" />
-                  <String fx:value="track" />
-                  <String fx:value="font-normal" />
-               </styleClass></ListView>
-            <Button fx:id="returnButton" minWidth="-Infinity" mnemonicParsing="false" onAction="#returnHome" prefWidth="120.0" style="-fx-border-color: black; -fx-border-radius: 25; -fx-border-width: 2;" styleClass="font-normal" stylesheets="@../../styling/button.css" text="Tillbaka">
+                  <URL value="@../../styling/scrollbarCategory.css" />
+               </stylesheets></ListView>
+            <Button fx:id="returnButton" minWidth="-Infinity" mnemonicParsing="false" onAction="#returnHome" prefWidth="120.0" style="-fx-border-color: black; -fx-border-radius: 25; -fx-border-width: 2; -fx-background-color: white;" styleClass="font-normal" stylesheets="@../../styling/button.css" text="Tillbaka">
                <graphic>
                   <ImageView fitWidth="8.0" pickOnBounds="true" preserveRatio="true">
                      <image>

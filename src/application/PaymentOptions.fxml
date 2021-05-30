@@ -87,6 +87,11 @@
          </image>
       </ImageView>
       <Button fx:id="saveButton" layoutX="480.0" layoutY="354.0" mnemonicParsing="false" onAction="#saveButtonPressed" styleClass="saveButton" text="    Spara    " />
+      <Label fx:id="saved" layoutX="505.0" layoutY="388.0" text="Sparat" textFill="#00c908" visible="false">
+         <font>
+            <Font name="Lato Regular" size="15.0" />
+         </font>
+      </Label>
       <Button layoutX="25.0" layoutY="354.0" mnemonicParsing="false" onAction="#backButtonPressed" styleClass="backButton" text="Tillbaka">
          <graphic>
             <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">

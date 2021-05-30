@@ -25,3 +25,63 @@
      -fx-font-size: 18;
      -fx-font-family: "Lato";
 }
+
+.decButton {
+    -fx-background-color:transparent;
+    -fx-border-color:red;
+    -fx-background-radius:40;
+    -fx-border-radius:40;
+    -fx-border-width:2;
+}
+
+.decButton:hover {
+    -fx-background-color:red;
+    -fx-background-radius:40;
+    -fx-border-color:red;
+    -fx-border-radius:40;
+    -fx-border-width:2;
+}
+
+.decButton:pressed {
+    -fx-background-color:rgba(255, 100, 100, 1);
+    -fx-background-radius:40;
+    -fx-border-color:rgba(255, 100, 100, 1);
+}
+
+.incButton {
+    -fx-background-color:transparent;
+    -fx-background-radius:40;
+    -fx-border-color: rgba(0, 201, 8, 1);
+    -fx-border-radius:40;
+    -fx-border-width:2;
+}
+
+.incButton:hover {
+    -fx-background-color:rgba(0, 201, 8, 1);
+    -fx-background-radius:40;
+    -fx-border-color:rgba(0, 200, 8, 1);
+    -fx-border-radius:40;
+    -fx-border-width:2;
+}
+
+.incButton:pressed {
+    -fx-background-color:rgba(0, 230, 8, 1);
+    -fx-background-radius:40;
+    -fx-border-color:rgba(0, 230, 8, 1);
+}
+
+.choiceBox {
+    -fx-background-color:transparent;
+    -fx-border-color:red;
+    -fx-background-radius:40;
+    -fx-border-radius:40;
+    -fx-border-width:2;
+}
+
+.choiceBox:hover {
+    -fx-background-color:rgba(240, 240, 240, 0.8);
+    -fx-background-radius:40;
+    -fx-border-color:red;
+    -fx-border-radius:40;
+    -fx-border-width:2;
+}

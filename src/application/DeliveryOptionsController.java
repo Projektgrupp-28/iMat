@@ -3,6 +3,7 @@ package application;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import se.chalmers.cse.dat216.project.Customer;
 
@@ -19,6 +20,7 @@ public class DeliveryOptionsController implements Initializable {
     @FXML TextField city;
     @FXML TextField name;
     @FXML TextField telephone;
+    @FXML Label saved;
 
     String sAddress = "";
     String sZipcode = "";
@@ -40,33 +42,39 @@ public class DeliveryOptionsController implements Initializable {
 
     @FXML
     public void addressChanged() {
+        saved.setVisible(false);
         saveButton.setDisable(false);
         sAddress = address.getText();
     }
 
     @FXML
     public void zipcodeChanged() {
+        saved.setVisible(false);
         saveButton.setDisable(false);
         sZipcode = zipcode.getText();
     }
     @FXML
     public void cityChanged() {
+        saved.setVisible(false);
         saveButton.setDisable(false);
         sCity = city.getText();
     }
     @FXML
     public void nameChanged() {
+        saved.setVisible(false);
         saveButton.setDisable(false);
         sName = name.getText();
     }
     @FXML
     public void telephoneChanged() {
+        saved.setVisible(false);
         saveButton.setDisable(false);
         sTelephone = telephone.getText();
     }
 
     @FXML
     public void saveButtonPressed() {
+        saved.setVisible(true);
         saveButton.setDisable(true);
         customer.setAddress(sAddress);
         customer.setFirstName(sName);
@@ -78,6 +86,7 @@ public class DeliveryOptionsController implements Initializable {
     @FXML
     public void backButtonPressed() {
         mainController.goHome();
+        mainController.openAccountView();
     }
 
     private void prepopulateFields (Customer customer) {

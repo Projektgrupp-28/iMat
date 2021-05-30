@@ -37,6 +37,8 @@ public class Model {
     private int nrOfShoppingLists = 0;
 
     private String currentSearchTerm;
+    private Product currentProduct;
+    private shoppingList currentShoppingList;
 
     /**
      * To be used instead of the constructor.
@@ -356,22 +358,15 @@ public class Model {
     }
 
     public void addProductToList(Product product) {
-        if(shoppingListList.isEmpty()){
-            createShoppingList(product);
-        }
-        else if (shoppingListList.get(0).getProductList().contains(product)) {
-            // Product already in list, do nothing
-        }
-        else {
-            shoppingListList.get(0).addProductToShoppingList(product);
-        }
+        currentProduct = product;
     }
 
     public void createShoppingList(Product product) {
         System.out.println("list created");
         shoppingListList.add(new shoppingList(setShoppingListName(), product));
-        fireListCatalogueChanged();
         fireListChanged(shoppingListList.get(shoppingListList.size() - 1));
+        fireListCatalogueChanged();
+        setCurrentList(shoppingListList.get(shoppingListList.size() - 1));
     }
 
     private String setShoppingListName() {
@@ -402,6 +397,7 @@ public class Model {
         for (shoppingList sl : shoppingListList) {
             if (sl.getShoppingListName().equals(shoppingList)) {
                 fireListChanged(sl);
+                setCurrentList(sl);
             }
         }
     }
@@ -419,6 +415,28 @@ public class Model {
                 sll.updateShownShoppingList(sl);
                 System.out.println("shoppinglist changed in while loop");
         }
+    }
+
+    public void addToSelectedShoppingList(String shoppingList) {
+        for (shoppingList sl : shoppingListList) {
+            if (sl.getShoppingListName().equals(shoppingList)) {
+                int temp = shoppingListList.indexOf(sl);
+                shoppingListList.get(temp).addProductToShoppingList(currentProduct);
+                System.out.println(currentProduct.getName() + " added to list: " + shoppingList);
+            }
+        }
+    }
+
+    public void setCurrentList(shoppingList sl) {
+        currentShoppingList = sl;
+    }
+
+    public shoppingList getCurrentShoppingList() {
+        return currentShoppingList;
+    }
+
+    public Product getCurrentProduct() {
+        return currentProduct;
     }
 
     public void setCurrentSearchTerm(String searchTerm) {

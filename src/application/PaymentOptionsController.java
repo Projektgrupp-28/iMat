@@ -3,6 +3,7 @@ package application;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import se.chalmers.cse.dat216.project.CreditCard;
 
@@ -20,6 +21,7 @@ public class PaymentOptionsController implements Initializable {
     @FXML TextField date;
     @FXML TextField cvc;
     @FXML TextField cardType;
+    @FXML Label saved;
 
     String sCardNumber = "";
     String sName = "";
@@ -41,21 +43,25 @@ public class PaymentOptionsController implements Initializable {
 
     @FXML
     public void TelephoneChanged() {
+        saved.setVisible(false);
         saveButton.setDisable(false);
         sCardType = cardType.getText();
     }
     @FXML
     public void CardNumberChanged() {
+        saved.setVisible(false);
         saveButton.setDisable(false);
         sCardNumber = cardNumber.getText();
     }
     @FXML
     public void NameChanged() {
+        saved.setVisible(false);
         saveButton.setDisable(false);
         sName = name.getText();
     }
     @FXML
     public void DateChanged() {
+        saved.setVisible(false);
         saveButton.setDisable(false);
         if (date.getText().length() >= 6) {
             date.deleteText(5,6);
@@ -72,6 +78,7 @@ public class PaymentOptionsController implements Initializable {
     }
     @FXML
     public void CVCChanged() {
+        saved.setVisible(false);
         saveButton.setDisable(false);
         if (cvc.getText().length() >= 4) {
             cvc.deleteText(3,4);
@@ -89,6 +96,7 @@ public class PaymentOptionsController implements Initializable {
 
     @FXML
     public void saveButtonPressed() {
+        saved.setVisible(true);
         saveButton.setDisable(true);
         if (sDate.equals("")) {
             creditCard.setValidYear(0);
@@ -107,7 +115,9 @@ public class PaymentOptionsController implements Initializable {
 
     @FXML
     public void backButtonPressed() {
+
         mainController.goHome();
+        mainController.openAccountView();
     }
 
     private void prepopulateFields (CreditCard creditCard) {
