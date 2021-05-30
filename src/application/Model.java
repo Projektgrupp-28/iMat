@@ -59,8 +59,6 @@ public class Model {
     private void init() {
         iMatDataHandler = IMatDataHandler.getInstance();
         initCategories();
-        iMatDataHandler.reset();
-        iMatDataHandler.getOrders().removeAll(iMatDataHandler.getOrders());
     }
 
     private void initCategories() {
