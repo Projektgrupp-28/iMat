@@ -61,6 +61,7 @@ public class ProductCard extends AnchorPane implements ShoppingCartListener {
     @FXML Button decButton;
 
     private int testAmount;
+    private boolean productIsInHistoryOrList;
 
 
 
@@ -118,6 +119,7 @@ public class ProductCard extends AnchorPane implements ShoppingCartListener {
         incButton.setVisible(false);
         decButton.setVisible(false);
         productAmount.setEditable(false);
+        productIsInHistoryOrList = true;
     }
 
     public void setAmount(int amount) {
@@ -335,10 +337,14 @@ public class ProductCard extends AnchorPane implements ShoppingCartListener {
 
     @Override
     public void shoppingCartChanged(CartEvent cartEvent) {
-        int amount = (int) shoppingItem.getAmount();
-        productAmount.setText(Integer.toString(amount));
-        if (amount == 0) {
-            deleteItem();
+        if (productIsInHistoryOrList) {
+            //do nothing
+        } else {
+            int amount = (int) shoppingItem.getAmount();
+            productAmount.setText(Integer.toString(amount));
+            if (amount == 0) {
+                deleteItem();
+            }
         }
     }
 
