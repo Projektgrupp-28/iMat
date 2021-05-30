@@ -116,14 +116,13 @@ public class PaymentOptionsController implements Initializable {
     public void saveButtonPressed() {
         saved.setVisible(true);
         saveButton.setDisable(true);
-
+        System.out.println("Try to save here");
         creditCard.setCardNumber(cardNumber.getText());
         creditCard.setHoldersName(name.getText());
         //creditCard.setVerificationCode(Integer.parseInt(cvc.getText())); Do not save for safety reasons...
         creditCard.setValidYear(Integer.parseInt(year.getText()));
         creditCard.setValidMonth(Integer.parseInt(month.getText()));
-        creditCard.setCardType(cardTypeSelector.selectionModelProperty().getName());
-        System.out.println("The saved card type was: " + creditCard.getCardType());
+        // creditCard.setCardType(cardTypeSelector.selectionModelProperty().getName());
     }
 
     @FXML
@@ -142,7 +141,7 @@ public class PaymentOptionsController implements Initializable {
         if (creditCard.getValidMonth() == 0) {
             month.setText("00");
         } else {
-            month.setText(String.valueOf(creditCard.getValidYear()));
+            month.setText(String.valueOf(creditCard.getValidMonth()));
         }
 
 
