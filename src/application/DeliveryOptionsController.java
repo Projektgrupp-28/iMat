@@ -86,6 +86,7 @@ public class DeliveryOptionsController implements Initializable {
     @FXML
     public void backButtonPressed() {
         mainController.goHome();
+        mainController.openAccountView();
     }
 
     private void prepopulateFields (Customer customer) {

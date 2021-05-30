@@ -115,7 +115,9 @@ public class PaymentOptionsController implements Initializable {
 
     @FXML
     public void backButtonPressed() {
+
         mainController.goHome();
+        mainController.openAccountView();
     }
 
     private void prepopulateFields (CreditCard creditCard) {

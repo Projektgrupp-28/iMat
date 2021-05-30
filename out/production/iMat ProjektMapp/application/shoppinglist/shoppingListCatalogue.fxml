@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.String?>
 <?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
@@ -21,23 +20,17 @@
                   <Insets />
                </VBox.margin>
             </Label>
-            <ListView fx:id="listCatalogue" fixedCellSize="60.0" onMouseClicked="#showList" VBox.vgrow="ALWAYS">
+            <ListView fx:id="listCatalogue" fixedCellSize="60.0" onMouseClicked="#showList" styleClass="font-normal" VBox.vgrow="ALWAYS">
                <VBox.margin>
                   <Insets />
                </VBox.margin>
-               <stylesheets>
-                  <URL value="@../../styling/listview.css" />
-                  <URL value="@../../styling/scrollpane.css" />
-               </stylesheets>
-               <styleClass>
-                  <String fx:value="font-normal" />
-                  <String fx:value="scroll-bar" />
-                  <String fx:value="scroll-pane" />
-                  <String fx:value="track" />
-               </styleClass>
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
+               <stylesheets>
+                  <URL value="@../../styling/listview.css" />
+                  <URL value="@../../styling/scrollbarCategory.css" />
+               </stylesheets>
             </ListView>
             <Button mnemonicParsing="false" onAction="#createNewList" styleClass="avbryt" stylesheets="@../../styling/deleteList.css" text="Ny inköpslista">
                <graphic>
