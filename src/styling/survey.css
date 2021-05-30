@@ -1,8 +1,19 @@
-.text-field {
+.text-field,
+.combo-box,
+.date-box {
     -fx-background-radius: 40;
-    -fx-background-color: "white";
+    -fx-background-color: white;
 
-    -fx-border-color: "black";
+    -fx-border-color: black;
     -fx-border-width: 2;
     -fx-border-radius: 40;
+
+    -fx-font-family: Lato;
+    -fx-font-weight: bold;
+    -fx-font-size: 20;
+}
+
+.date-field {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
 }

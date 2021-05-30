@@ -39,7 +39,7 @@ public class FlowPaneController implements Initializable {
             for (int i = 0; i < cart.size(); i++) {
                 ShoppingCartItemHolder shoppingCartItemHolder = new ShoppingCartItemHolder(cart.get(i));
                 if (Integer.remainderUnsigned(i,2) == 1) {
-                    shoppingCartItemHolder.setStyle("-fx-background-color: -fx-background;");
+                    //shoppingCartItemHolder.setStyle("-fx-background-color: -fx-background;");
                 }
                 flowPane.getChildren().add(shoppingCartItemHolder);
             }

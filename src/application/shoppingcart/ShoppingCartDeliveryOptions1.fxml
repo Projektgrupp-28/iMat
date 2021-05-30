@@ -1,58 +1,123 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="600.0" stylesheets="@../../styling/styling.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.shoppingcart.DeliveryController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-color: white;" stylesheets="@../../styling/styling.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.shoppingcart.DeliveryController">
    <children>
-      <Label layoutX="25.0" layoutY="48.0" prefHeight="25.0" prefWidth="70.0" text="Adress">
-         <font>
-            <Font name="Lato Bold" size="16.0" />
-         </font>
-      </Label>
-      <Label layoutX="25.0" layoutY="139.0" prefHeight="26.0" prefWidth="60.0" text="Postnr.">
-         <font>
-            <Font name="Lato Bold" size="16.0" />
-         </font>
-      </Label>
-      <Label layoutX="325.0" layoutY="48.0" prefHeight="25.0" prefWidth="70.0" text="Namn">
-         <font>
-            <Font name="Lato Bold" size="16.0" />
-         </font>
-      </Label>
-      <Label layoutX="163.0" layoutY="139.0" prefHeight="26.0" prefWidth="45.0" text="Stad">
-         <font>
-            <Font name="Lato Bold" size="16.0" />
-         </font>
-      </Label>
-      <Label layoutX="325.0" layoutY="140.0" prefHeight="25.0" prefWidth="70.0" text="Telefon">
-         <font>
-            <Font name="Lato Bold" size="16.0" />
-         </font>
-      </Label>
-      <TextField fx:id="address" layoutX="26.0" layoutY="78.0" onKeyTyped="#InformationChanged" prefHeight="38.0" prefWidth="249.0" promptText="Gatuadress" styleClass="font-normal" stylesheets="@../../styling/survey.css" />
-      <TextField fx:id="name" layoutX="326.0" layoutY="77.0" onKeyTyped="#nameLabelTypeCheck" prefHeight="39.0" prefWidth="249.0" promptText="Kalle Svensson" styleClass="font-normal" stylesheets="@../../styling/survey.css" />
-      <TextField fx:id="zipcode" layoutX="30.0" layoutY="169.0" maxHeight="40.0" maxWidth="110.0" onKeyTyped="#zipCodeTypeCheck" prefHeight="40.0" prefWidth="110.0" promptText="XXX XX" styleClass="font-normal" stylesheets="@../../styling/survey.css" />
-      <TextField fx:id="city" layoutX="163.0" layoutY="169.0" onKeyTyped="#InformationChanged" prefHeight="40.0" prefWidth="110.0" promptText="Göteborg" styleClass="font-normal" stylesheets="@../../styling/survey.css" />
-      <TextField fx:id="telephone" layoutX="326.0" layoutY="170.0" onKeyTyped="#InformationChanged" prefHeight="26.0" prefWidth="249.0" promptText="XXX - XXX XX XX" styleClass="font-normal" stylesheets="@../../styling/survey.css" />
-      <ImageView fitHeight="16.0" fitWidth="26.0" layoutX="82.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../icons/help.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="16.0" fitWidth="17.0" layoutX="82.0" layoutY="145.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../icons/help.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="16.0" fitWidth="17.0" layoutX="200.0" layoutY="145.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../icons/help.png" />
-         </image>
-      </ImageView>
+      <VBox spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <HBox spacing="20.0">
+               <children>
+                  <VBox spacing="10.0">
+                     <children>
+                        <VBox>
+                           <children>
+                              <HBox>
+                                 <children>
+                                    <Label prefHeight="25.0" prefWidth="70.0" text="Adress">
+                                       <font>
+                                          <Font name="Lato Bold" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <ImageView fitHeight="16.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                                       <image>
+                                          <Image url="@../icons/help.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </HBox>
+                              <TextField fx:id="address" onKeyReleased="#checkPrecedence" onKeyTyped="#InformationChanged" prefHeight="40.0" prefWidth="280.0" promptText="Gatuadress" styleClass="font-normal" stylesheets="@../../styling/survey.css" />
+                           </children>
+                        </VBox>
+                        <AnchorPane>
+                           <children>
+                              <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <HBox>
+                                       <children>
+                                          <Label prefHeight="26.0" prefWidth="60.0" text="Postnr.">
+                                             <font>
+                                                <Font name="Lato Bold" size="16.0" />
+                                             </font>
+                                          </Label>
+                                          <ImageView fitHeight="16.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                                             <image>
+                                                <Image url="@../icons/help.png" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                    </HBox>
+                                    <TextField fx:id="zipcode" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" onKeyTyped="#zipCodeTypeCheck" prefHeight="40.0" prefWidth="100.0" promptText="XXXXX" styleClass="font-normal" stylesheets="@../../styling/survey.css" />
+                                    <Label fx:id="zipErrorMessage" prefHeight="19.0" prefWidth="110.0" text="Felaktigt postnr." textFill="RED" visible="false">
+                                       <font>
+                                          <Font name="Lato Regular" size="15.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox layoutY="85.0" prefWidth="170.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <HBox>
+                                       <children>
+                                          <Label prefHeight="26.0" prefWidth="45.0" text="Stad">
+                                             <font>
+                                                <Font name="Lato Bold" size="16.0" />
+                                             </font>
+                                          </Label>
+                                          <ImageView fitHeight="16.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                                             <image>
+                                                <Image url="@../icons/help.png" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                    </HBox>
+                                    <TextField fx:id="city" onKeyReleased="#checkPrecedence" onKeyTyped="#InformationChanged" promptText="Göteborg" styleClass="font-normal" stylesheets="@../../styling/survey.css" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </VBox>
+                  <VBox spacing="10.0">
+                     <children>
+                        <VBox prefWidth="280.0">
+                           <children>
+                              <Label prefHeight="25.0" text="Fullständigt Namn">
+                                 <font>
+                                    <Font name="Lato Bold" size="16.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="name" onKeyReleased="#checkPrecedence" onKeyTyped="#nameLabelTypeCheck" prefHeight="40.0" prefWidth="280.0" promptText="Kalle Svensson" styleClass="font-normal" stylesheets="@../../styling/survey.css" />
+                           </children>
+                        </VBox>
+                        <VBox prefWidth="280.0">
+                           <children>
+                              <Label prefHeight="25.0" prefWidth="70.0" text="Telefon">
+                                 <font>
+                                    <Font name="Lato Bold" size="16.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="telephone" onKeyReleased="#checkPrecedence" onKeyTyped="#phoneTypeCheck" prefHeight="40.0" prefWidth="300.0" promptText="XXX - XXX XX XX" styleClass="font-normal" stylesheets="@../../styling/survey.css" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <CheckBox fx:id="saveInformationBox" mnemonicParsing="false" text="Kom ihåg för framtida köp">
+               <font>
+                  <Font name="Lato Bold" size="16.0" />
+               </font>
+            </CheckBox>
+         </children>
+      </VBox>
    </children>
 </AnchorPane>

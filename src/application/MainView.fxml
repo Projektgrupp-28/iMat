@@ -24,43 +24,6 @@
          </top></BorderPane>
       <StackPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <AnchorPane fx:id="accountPane" onMouseClicked="#closeAccountView" prefHeight="501.0" prefWidth="800.0" style="-fx-background-color: rgba(0,0,0,0.75);">
-               <children>
-                  <AnchorPane fx:id="accountPaneBox" layoutX="188.0" layoutY="96.0" prefHeight="307.0" prefWidth="380.0" style="-fx-background-color: white; -fx-background-radius: 25;" AnchorPane.bottomAnchor="200.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="0.0">
-                     <children>
-                        <VBox layoutX="39.0" layoutY="17.0" spacing="10.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="30.0">
-                           <children>
-                              <AnchorPane>
-                                 <children>
-                                    <Label styleClass="font-larger" text="Min Profil" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                                    <Button layoutY="25.0" mnemonicParsing="false" onAction="#closeAccountView" prefHeight="35.0" prefWidth="35.0" styleClass="cornerCloseButton" stylesheets="@../styling/button.css" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                       <graphic>
-                                          <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@icons/close.png" />
-                                             </image>
-                                          </ImageView>
-                                       </graphic>
-                                       <cursor>
-                                          <Cursor fx:constant="HAND" />
-                                       </cursor>
-                                    </Button>
-                                 </children>
-                              </AnchorPane>
-                              <ListView fx:id="profileList" fixedCellSize="50.0" onMouseClicked="#displayFromProfileList" prefHeight="200.0" prefWidth="200.0" styleClass="font-normal" stylesheets="@../styling/listview.css" VBox.vgrow="ALWAYS">
-                                 <VBox.margin>
-                                    <Insets />
-                                 </VBox.margin>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </ListView>
-                           </children>
-                        </VBox>
-                     </children>
-                  </AnchorPane>
-               </children>
-            </AnchorPane>
             <BorderPane fx:id="homePagePane" prefHeight="600.0" prefWidth="800.0">
                <top>
                   <VBox BorderPane.alignment="CENTER">
@@ -213,6 +176,40 @@
                   </VBox>
                </top>
             </BorderPane>
+            <AnchorPane fx:id="accountPane" onMouseClicked="#closeAccountView" prefHeight="501.0" prefWidth="800.0" style="-fx-background-color: rgba(0,0,0,0.75);">
+               <children>
+                  <VBox alignment="CENTER" layoutX="188.0" layoutY="96.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <AnchorPane fx:id="accountPaneBox" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="300.0" prefWidth="400.0" style="-fx-background-color: white; -fx-background-radius: 25;">
+                           <children>
+                              <AnchorPane AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="30.0">
+                                 <children>
+                                    <Label styleClass="font-larger" text="Min Profil" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    <Button layoutY="25.0" mnemonicParsing="false" onAction="#closeAccountView" prefHeight="35.0" prefWidth="35.0" styleClass="cornerCloseButton" stylesheets="@../styling/button.css" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <graphic>
+                                          <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@icons/close.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
+                                 </children>
+                              </AnchorPane>
+                              <ListView fx:id="profileList" fixedCellSize="50.0" onMouseClicked="#displayFromProfileList" prefHeight="100.0" prefWidth="200.0" styleClass="font-normal" stylesheets="@../styling/listview.css" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="80.0">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </ListView>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
          </children>
       </StackPane>
    </children>

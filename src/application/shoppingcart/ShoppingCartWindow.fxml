@@ -12,11 +12,11 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="shoppingCartLayerPane" onMouseClicked="#outsideClicked" style="-fx-background-color: rgba(0,0,0,0.75);" stylesheets="@../../styling/shoppingCartStyle.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.shoppingcart.ShoppingCartController">
+<AnchorPane fx:id="shoppingCartLayerPane" onMouseClicked="#outsideClicked" prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: rgba(0,0,0,0.75);" stylesheets="@../../styling/shoppingCartStyle.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.shoppingcart.ShoppingCartController">
    <children>
       <VBox alignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <BorderPane fx:id="shoppingCartBorderPane" minHeight="500.0" minWidth="600.0" pickOnBounds="false" style="-fx-background-color: white; -fx-background-radius: 25;" VBox.vgrow="ALWAYS">
+            <BorderPane fx:id="shoppingCartBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" pickOnBounds="false" prefHeight="500.0" prefWidth="720.0" style="-fx-background-color: white; -fx-background-radius: 25;" VBox.vgrow="ALWAYS">
                <bottom>
                   <VBox alignment="TOP_CENTER" prefHeight="90.0" prefWidth="600.0" spacing="10.0" BorderPane.alignment="TOP_CENTER">
                      <children>
@@ -57,12 +57,12 @@
                <top>
                   <AnchorPane>
                      <children>
-                        <Label fx:id="pageTitle" prefHeight="36.0" prefWidth="260.0" text="Leveransalternativ" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
+                        <Label fx:id="pageTitle" prefHeight="36.0" prefWidth="318.0" text="Leveransinformation" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
                            <font>
                               <Font name="Lato Bold" size="28.0" />
                            </font>
                         </Label>
-                        <Button alignment="CENTER" contentDisplay="CENTER" layoutX="500.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#closeButtonPressed" prefHeight="35.0" prefWidth="35.0" styleClass="cornerCloseButton" textAlignment="CENTER" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+                        <Button alignment="CENTER" contentDisplay="CENTER" layoutX="500.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#closeButtonPressed" prefHeight="35.0" prefWidth="35.0" styleClass="cornerCloseButton" textAlignment="CENTER" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
                            <graphic>
                               <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -75,8 +75,11 @@
                   </AnchorPane>
                </top>
                <VBox.margin>
-                  <Insets bottom="100.0" left="200.0" right="200.0" top="50.0" />
+                  <Insets />
                </VBox.margin>
+               <center>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+               </center>
             </BorderPane>
          </children>
       </VBox>

@@ -18,6 +18,7 @@
     -fx-font-size: 17px;
     -fx-font-weight: bold;
 }
+
 .saveButton:hover {
     -fx-background-color: rgba(0, 250, 8, 0.75);
 }

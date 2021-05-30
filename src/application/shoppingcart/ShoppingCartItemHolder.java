@@ -20,7 +20,8 @@ public class ShoppingCartItemHolder extends AnchorPane {
 
     @FXML private Label productName;
     @FXML private TextField productAmount;
-    @FXML private Label price;
+    @FXML private Label highSum;
+    @FXML private Label lowSum;
     @FXML private ImageView imageView;
     @FXML private Button deleteButton;
     @FXML private ImageView trashcan;
@@ -42,32 +43,99 @@ public class ShoppingCartItemHolder extends AnchorPane {
         }
         product = shoppingItem.getProduct();
         productName.setText(product.getName());
-        productAmount.setText( (int) shoppingItem.getAmount()+ " " + product.getUnitSuffix());
+        productAmount.setText(String.valueOf((int)shoppingItem.getAmount()));
         imageView.setImage(model.getImage(product));
-        price.setText(shoppingItem.getTotal()+" kr");
+        updatePriceLabel();
     }
+
+    private void updatePriceLabel() {
+        Double totalPrice = shoppingItem.getTotal();
+        highSum.setText(getHighFormatSum(totalPrice));
+        lowSum.setText(getLowFormatSum(totalPrice));
+    }
+
+    @FXML
+    private void onAmountFieldClicked() {
+        productAmount.selectAll();
+    }
+
+    @FXML
+    private void updateAmount() {
+        int amount;
+        if (productAmount.getText().equals("")) {
+            amount = 1;
+            productAmount.setText("1");
+            productAmount.selectAll();
+        } else {
+            amount = Integer.parseInt(productAmount.getText());
+        }
+        System.out.println("New amount is: " + amount);
+
+        model.getShoppingCart().removeItem(shoppingItem);
+        shoppingItem.setAmount(amount);
+        updatePriceLabel();
+        model.getShoppingCart().addItem(shoppingItem);
+    }
+
+    @FXML
+    private void amountTypeCheck() {
+        if (productAmount.getText().length() > 3) {
+            productAmount.deletePreviousChar();
+        } else if (!productAmount.getText().matches("\\d+")) {
+            // Given text does not include digits.
+            productAmount.deletePreviousChar();
+        }
+    }
+
+    /**
+     * Formats the total price for the high label which only shows the integers.
+     * @param value is the Double value being formatted.
+     * @return the value in the new format casted as a String.
+     */
+    private String getHighFormatSum(Double value) {
+        NumberFormat highFormat = NumberFormat.getNumberInstance();
+        highFormat.setMaximumFractionDigits(0);
+        highFormat.setRoundingMode(RoundingMode.FLOOR);
+        return highFormat.format(value);
+    }
+
+    /**
+     * Formats the total price for the low label which only shows the integers.
+     * @param value is the Double value being formatted.
+     * @return the value in the new format casted as a String.
+     */
+    private String getLowFormatSum(Double value) {
+        // TODO: remove the decimal.
+        NumberFormat lowFormat = NumberFormat.getNumberInstance();
+        lowFormat.setMaximumIntegerDigits(0);
+        lowFormat.setMinimumFractionDigits(2);
+        lowFormat.setMaximumFractionDigits(2);
+        return lowFormat.format(value);
+    }
+
     @FXML public void incrementAmount() {
         model.getShoppingCart().removeItem(shoppingItem);
         shoppingItem.setAmount(shoppingItem.getAmount() + 1);
         model.getShoppingCart().addItem(shoppingItem);
-        productAmount.setText((int)shoppingItem.getAmount()+ " " + product.getUnitSuffix());
+        productAmount.setText(String.valueOf((int)shoppingItem.getAmount()));
 
         NumberFormat rounded = NumberFormat.getNumberInstance();
         rounded.setMaximumFractionDigits(2);
         rounded.setRoundingMode(RoundingMode.FLOOR);
-        price.setText(rounded.format(shoppingItem.getTotal()) + " kr");
+        updatePriceLabel();
     }
+
     @FXML public void decrementAmount() {
         if (shoppingItem.getAmount() > 1) {
             model.getShoppingCart().removeItem(shoppingItem);
             shoppingItem.setAmount(shoppingItem.getAmount() - 1);
             model.getShoppingCart().addItem(shoppingItem);
-            productAmount.setText((int) shoppingItem.getAmount()+ " " + product.getUnitSuffix());
+            productAmount.setText(String.valueOf((int)shoppingItem.getAmount()));
 
             NumberFormat rounded = NumberFormat.getNumberInstance();
             rounded.setMaximumFractionDigits(2);
             rounded.setRoundingMode(RoundingMode.FLOOR);
-            price.setText(rounded.format(shoppingItem.getTotal()) + " kr");
+            updatePriceLabel();
         }
     }
 

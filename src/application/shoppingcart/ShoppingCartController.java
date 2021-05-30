@@ -26,6 +26,7 @@ import java.util.ResourceBundle;
 
 public class ShoppingCartController implements Initializable, ShoppingCartListener {
 
+    private static ShoppingCartController shoppingCartController;
     FxmlLoader fxmlLoader = new FxmlLoader();
 
     List<Pane> shoppingCartViews = new ArrayList<>();
@@ -47,13 +48,20 @@ public class ShoppingCartController implements Initializable, ShoppingCartListen
 
     List<String> titles = new ArrayList<>();
 
-    Pane shoppingCart = fxmlLoader.getPage("shoppingcart/ShoppingCart");
-    Pane shoppingCartDeliveryOptions1 = fxmlLoader.getPage("shoppingcart/ShoppingCartDeliveryOptions1");
-    Pane shoppingCartDeliveryOptions2 = fxmlLoader.getPage("shoppingcart/ShoppingCartDeliveryOptions2");
-    Pane shoppingCartPaymentOptions = fxmlLoader.getPage("shoppingcart/ShoppingCartPaymentOptions");
-    Pane shoppingCartThanksForPurchasing = fxmlLoader.getPage("shoppingcart/ShoppingCartThanksForPurchasing");
+    Pane shoppingCart;
+    Pane shoppingCartDeliveryOptions1;
+    Pane shoppingCartDeliveryOptions2;
+    Pane shoppingCartPaymentOptions;
+    Pane shoppingCartThanksForPurchasing;
 
     private void initShoppingPanes() {
+        shoppingCart = fxmlLoader.getPage("shoppingcart/ShoppingCart");
+        shoppingCartDeliveryOptions1 = fxmlLoader.getPage("shoppingcart/ShoppingCartDeliveryOptions1");
+        shoppingCartDeliveryOptions2 = fxmlLoader.getPage("shoppingcart/ShoppingCartDeliveryOptions2");
+        shoppingCartPaymentOptions = fxmlLoader.getPage("shoppingcart/ShoppingCartPaymentOptions");
+        shoppingCartThanksForPurchasing = fxmlLoader.getPage("shoppingcart/ShoppingCartThanksForPurchasing");
+
+
         shoppingCartViews.add(shoppingCart);
         shoppingCartViews.add(shoppingCartDeliveryOptions1);
         shoppingCartViews.add(shoppingCartDeliveryOptions2);
@@ -69,12 +77,21 @@ public class ShoppingCartController implements Initializable, ShoppingCartListen
         shoppingPaneCircleGuides.add(shoppingPaneCircleGuideReserved); // This one does not show but are need for indexing.
     }
 
+    public static ShoppingCartController getInstance() {
+        if (shoppingCartController == null) {
+            System.out.println("ERROR: ShoppingCartController is null!");
+        }
+        return shoppingCartController;
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        shoppingCartController = this;
+
         initShoppingCart();
 
         titles.add("Kundvagn");
-        titles.add("Leveransalternativ");
+        titles.add("Leveransinformation");
         titles.add("Leveransalternativ");
         titles.add("Betalningsalternativ");
         titles.add("");
@@ -198,5 +215,9 @@ public class ShoppingCartController implements Initializable, ShoppingCartListen
             nextButton.setOnMouseEntered(mouseEvent -> nextButton.setStyle("-fx-background-color: rgba(" + hover + ");"));
             nextButton.setOnMouseExited(mouseEvent -> nextButton.setStyle("-fx-background-color: transparent"));
         }
+    }
+
+    public void disableNextButton(boolean b) {
+        nextButton.setDisable(b);
     }
 }

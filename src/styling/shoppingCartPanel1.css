@@ -1,0 +1,33 @@
+.scroll-pane {
+    -fx-background-color: white;
+}
+
+.scroll-bar:horizontal, .scroll-bar:vertical{
+    -fx-background-color: derive(grey, 80%);
+    -fx-background-radius: 40;
+}
+
+.scroll-bar:vertical *.increment-arrow,
+.scroll-bar:vertical *.decrement-arrow{
+    -fx-background-color: transparent;
+}
+
+.scroll-bar:vertical *.increment-button,
+.scroll-bar:vertical *.decrement-button{
+    -fx-background-color: transparent;
+}
+
+.scroll-bar:vertical .track,
+scroll-bar.horizontal . track {
+    -fx-background-radius: 100;
+    -fx-border-radius: 100;
+}
+
+.scroll-bar:vertical .thumb{
+    -fx-background-color: white;
+    -fx-background-radius: 100;
+}
+
+.flow-pane {
+    -fx-background-color: white;
+}

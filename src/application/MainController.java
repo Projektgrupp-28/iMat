@@ -68,6 +68,7 @@ public class MainController implements Initializable, ShoppingCartListener {
 
     private Pane shoppingListPane;
     private Pane shoppingListCataloguePane;
+    private Pane shoppingCartPane;
 
     private Pane lastLoadedPane;
     private Pane categoryLeftPanel;
@@ -85,9 +86,11 @@ public class MainController implements Initializable, ShoppingCartListener {
             case "Orderhistorik":
                 lastLoadedPane = view = fxmlLoader.getPage("Orders");
                 break;
+            /*
             case "Dolda varor":
                 lastLoadedPane = view = fxmlLoader.getPage("hiddenitems/HiddenItems");
                 break;
+             */
             case "Leveransinformation":
                 lastLoadedPane = view = fxmlLoader.getPage("DeliveryOptions");
                 break;
@@ -208,7 +211,7 @@ public class MainController implements Initializable, ShoppingCartListener {
    }
 
     public void openShoppingCart() {
-        Pane shoppingCartPane = fxmlLoader.getPage("shoppingcart/ShoppingCartWindow");
+        shoppingCartPane = fxmlLoader.getPage("shoppingcart/ShoppingCartWindow");
         unDimHeader();
         overlayPane.toFront();
         overlayPane.setCenter(shoppingCartPane);
@@ -307,7 +310,7 @@ public class MainController implements Initializable, ShoppingCartListener {
      */
     private void loadProfileList() {
         observableProfileList.removeAll();
-        observableProfileList.addAll("Orderhistorik", "Dolda varor", "Leveransinformation", "Betalningssätt");
+        observableProfileList.addAll("Orderhistorik", "Leveransinformation", "Betalningssätt");
         profileList.getItems().addAll(observableProfileList);
     }
 

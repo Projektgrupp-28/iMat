@@ -4,11 +4,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.FlowPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.shoppingcart.FlowPaneController">
+<AnchorPane stylesheets="@../../styling/shoppingCartPanel1.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.shoppingcart.FlowPaneController">
    <children>
-      <ScrollPane layoutX="1.0" layoutY="17.0" prefHeight="234.0" prefWidth="594.0" style="-fx-background-color: white;">
+      <ScrollPane fitToWidth="true" hbarPolicy="NEVER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <content>
-            <FlowPane fx:id="flowPane" prefHeight="231.0" prefWidth="570.0" style="-fx-background-color: white;" />
+            <FlowPane fx:id="flowPane" alignment="CENTER" columnHalignment="CENTER" hgap="20.0" nodeOrientation="LEFT_TO_RIGHT" prefWrapLength="300.0" styleClass="flow-pane" />
          </content>
       </ScrollPane>
    </children>
