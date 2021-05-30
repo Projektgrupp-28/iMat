@@ -14,13 +14,16 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 import se.chalmers.cse.dat216.project.CartEvent;
 import se.chalmers.cse.dat216.project.ShoppingCartListener;
 
+import java.math.RoundingMode;
 import java.net.URL;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -47,6 +50,9 @@ public class ShoppingCartController implements Initializable, ShoppingCartListen
     @FXML private Button closeButton;
     @FXML private ImageView blueChevron;
     @FXML private Label pageTitle;
+    @FXML private HBox sumBox;
+    @FXML private Label highSum;
+    @FXML private Label lowSum;
 
     private Circle shoppingPaneCircleGuideReserved = new Circle(); // This circle is not shown but needed for indexing.
 
@@ -90,6 +96,8 @@ public class ShoppingCartController implements Initializable, ShoppingCartListen
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        model.getShoppingCart().addShoppingCartListener(this);
+
         shoppingCartController = this;
 
         initShoppingCart();
@@ -101,14 +109,50 @@ public class ShoppingCartController implements Initializable, ShoppingCartListen
         titles.add("");
         pageTitle.setText("Kundvagn");
 
+        updateSumLabels();
+
         shoppingCartBorderPane.setOnMouseClicked(Event::consume);
         closeButton.setVisible(false);
         backButton.setVisible(false);
     }
 
+    private void updateSumLabels() {
+        Double totalPrice = model.getShoppingCart().getTotal();
+        highSum.setText(getHighFormatSum(totalPrice));
+        lowSum.setText(getLowFormatSum(totalPrice));
+    }
+
+    /**
+     * Formats the total price for the high label which only shows the integers.
+     * @param value is the Double value being formatted.
+     * @return the value in the new format casted as a String.
+     */
+    private String getHighFormatSum(Double value) {
+        NumberFormat highFormat = NumberFormat.getNumberInstance();
+        highFormat.setMaximumFractionDigits(0);
+        highFormat.setRoundingMode(RoundingMode.FLOOR);
+        return highFormat.format(value);
+    }
+
+    /**
+     * Formats the total price for the low label which only shows the integers.
+     * @param value is the Double value being formatted.
+     * @return the value in the new format casted as a String.
+     */
+    private String getLowFormatSum(Double value) {
+        // TODO: remove the decimal.
+        NumberFormat lowFormat = NumberFormat.getNumberInstance();
+        lowFormat.setMaximumIntegerDigits(0);
+        lowFormat.setMinimumFractionDigits(2);
+        lowFormat.setMaximumFractionDigits(2);
+        return lowFormat.format(value);
+    }
+
     @Override
-    public void shoppingCartChanged(CartEvent cartEvent) {
+    public void shoppingCartChanged(CartEvent evt) {
         //flowPaneController.loadProducts();
+        System.out.println("Hello");
+        updateSumLabels();
     }
 
     private void initShoppingCart() {
@@ -176,6 +220,9 @@ public class ShoppingCartController implements Initializable, ShoppingCartListen
             nextButton.setOnMouseEntered(mouseEvent -> nextButton.setStyle("-fx-background-color: rgba(" + hover + "); -fx-text-fill: white;"));
             nextButton.setOnMouseExited(mouseEvent -> nextButton.setStyle("-fx-background-color: rgba(" + rgb + "); -fx-text-fill: white;"));
         }
+
+        sumBox.setVisible(false);
+
         if (thisPanelIndex > shoppingCartViews.size()-3) {
             // User have orderd the shopping cart
             hideNavigation();
@@ -220,6 +267,11 @@ public class ShoppingCartController implements Initializable, ShoppingCartListen
         }
         if (thisPanelIndex == 1) {
             hideBackButton();
+        }
+        if (thisPanelIndex == 1) {
+            sumBox.setVisible(true);
+        } else {
+            sumBox.setVisible(false);
         }
         if (thisPanelIndex == shoppingCartViews.size()-2) {
             nextButton.setPadding(new Insets(5.7,11.3,5.7,11.3));

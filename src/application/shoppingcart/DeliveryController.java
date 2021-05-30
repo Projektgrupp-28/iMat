@@ -96,8 +96,8 @@ public class DeliveryController implements Initializable {
 
     private void prepopulateFields (Customer customer) {
         address.setText(customer.getAddress());
-        zipcode.setText(customer.getPostAddress());
-        city.setText(customer.getLastName());
+        zipcode.setText(customer.getPostCode());
+        city.setText(customer.getPostAddress());
         name.setText(customer.getFirstName());
         telephone.setText(customer.getPhoneNumber());
     }

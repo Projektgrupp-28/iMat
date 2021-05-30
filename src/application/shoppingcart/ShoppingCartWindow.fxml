@@ -71,6 +71,33 @@
                               </ImageView>
                            </graphic>
                         </Button>
+                        <HBox fx:id="sumBox" layoutX="473.0" layoutY="20.0" spacing="10.0" AnchorPane.rightAnchor="100.0">
+                           <children>
+                              <Label text="Summa:">
+                                 <font>
+                                    <Font name="Lato Regular" size="30.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="highSum" text="123">
+                                 <font>
+                                    <Font name="Lato Black" size="30.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="lowSum" layoutX="125.0" layoutY="10.0" text=",75">
+                                 <font>
+                                    <Font name="Lato Black" size="20.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="-6.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Label layoutX="125.0" layoutY="10.0" text="kr">
+                                 <font>
+                                    <Font name="Lato Black" size="30.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
                      </children>
                   </AnchorPane>
                </top>

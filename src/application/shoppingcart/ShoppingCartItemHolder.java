@@ -9,6 +9,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import se.chalmers.cse.dat216.project.CartEvent;
 import se.chalmers.cse.dat216.project.Product;
 import se.chalmers.cse.dat216.project.ShoppingItem;
 
@@ -29,6 +30,7 @@ public class ShoppingCartItemHolder extends AnchorPane {
     ShoppingItem shoppingItem;
     Product product;
     Model model = Model.getInstance();
+    private FlowPaneController flowPaneController = FlowPaneController.getInstance();
 
     public ShoppingCartItemHolder(ShoppingItem shoppingItem) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ShoppingItemHolder.fxml"));
@@ -136,16 +138,25 @@ public class ShoppingCartItemHolder extends AnchorPane {
             rounded.setMaximumFractionDigits(2);
             rounded.setRoundingMode(RoundingMode.FLOOR);
             updatePriceLabel();
+        } else {
+            deleteItem();
         }
     }
 
-    @FXML public void deleteItem() {
+    @FXML
+    public void deleteItem() {
+        /*
         deleteButton.setStyle("-fx-background-color:red;");
         trashcan.resize(1,1);
         trashcan.setVisible(false);
+        deleteButton.resize(50,40);
         deleteButton.setText("Ta bort?");
-        /*
+         */
+
         model.getShoppingCart().removeItem(shoppingItem);
+        flowPaneController.populate();
+
+        /*
         productAmount.setText("0st");
         price.setText("0 kr");
         this.setDisable(true);

@@ -25,16 +25,26 @@ public class FlowPaneController implements Initializable {
     @FXML private FlowPane flowPane;
 
     Model model = Model.getInstance();
+    private static FlowPaneController flowPaneController;
+
     ArrayList<ShoppingItem> cart;
+
+    public static FlowPaneController getInstance() {
+        if (flowPaneController == null) {
+            System.out.println("FlowPaneController is null.");
+        }
+        return flowPaneController;
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        cart = new ArrayList<>(model.getShoppingCart().getItems());
+        flowPaneController = this;
         populate();
     }
 
-    private void populate() {
+    public void populate() {
         flowPane.getChildren().clear();
+        cart = new ArrayList<>(model.getShoppingCart().getItems());
         if (cart.size() != 0) {
             for (int i = 0; i < cart.size(); i++) {
                 ShoppingCartItemHolder shoppingCartItemHolder = new ShoppingCartItemHolder(cart.get(i));
