@@ -182,9 +182,10 @@ public class Model {
             if (shoppingCart.getItems().get(i).getProduct().getName().equals(p.getName())) {
                 if (shoppingCart.getItems().get(i).getAmount() == 1) {
                     shoppingCart.removeItem(i);
+                } else {
+                    shoppingCart.getItems().get(i).setAmount(shoppingCart.getItems().get(i).getAmount() - 1);
+                    shoppingCart.fireShoppingCartChanged(shoppingCart.getItems().get(i),true);
                 }
-                shoppingCart.getItems().get(i).setAmount(shoppingCart.getItems().get(i).getAmount() - 1);
-                shoppingCart.fireShoppingCartChanged(shoppingCart.getItems().get(i),true);
                 return;
             }
         }

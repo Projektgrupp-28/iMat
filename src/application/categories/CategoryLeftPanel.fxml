@@ -20,7 +20,7 @@
                   <URL value="@../../styling/listview.css" />
                   <URL value="@../../styling/scrollbarCategory.css" />
                </stylesheets></ListView>
-            <Button fx:id="returnButton" minWidth="-Infinity" mnemonicParsing="false" onAction="#returnHome" prefWidth="120.0" style="-fx-border-color: black; -fx-border-radius: 25; -fx-border-width: 2; -fx-background-color: white;" styleClass="font-normal" stylesheets="@../../styling/button.css" text="Tillbaka">
+            <Button fx:id="returnButton" minWidth="-Infinity" mnemonicParsing="false" onAction="#returnHome" prefWidth="120.0" styleClass="tillbakaKnapp" stylesheets="@../../styling/button.css" text="Tillbaka">
                <graphic>
                   <ImageView fitWidth="8.0" pickOnBounds="true" preserveRatio="true">
                      <image>

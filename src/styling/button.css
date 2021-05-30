@@ -10,3 +10,30 @@
 .cornerCloseButton:pressed {
     -fx-background-color: rgba(0, 0, 0, 0.2);
 }
+
+.tillbakaKnapp {
+    -fx-font-size: 18;
+    -fx-font-weight: bold;
+    -fx-font-family: "Lato";
+    -fx-background-color: white;
+    -fx-background-radius: 40;
+    -fx-border-radius: 40;
+    -fx-border-color: black;
+    -fx-border-width: 2;
+}
+
+.tillbakaKnapp:hover {
+    -fx-background-color: rgba(0, 0, 0, 0.1);
+    -fx-background-radius: 40;
+    -fx-border-radius: 40;
+    -fx-border-color: black;
+    -fx-border-width: 2;
+}
+
+.tillbakaKnapp:pressed {
+    -fx-background-color: rgba(0, 0, 0, 0.2);
+    -fx-background-radius: 40;
+    -fx-border-radius: 40;
+    -fx-border-color: black;
+    -fx-border-width: 2;
+}
