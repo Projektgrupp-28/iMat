@@ -3,18 +3,23 @@ package application;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import se.chalmers.cse.dat216.project.Customer;
 
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class DeliveryOptionsController implements Initializable {
     private MainController mainController = application.MainController.getInstance();
     private Model model = Model.getInstance();
     Customer customer = model.getCustomer();
+
     @FXML Button saveButton;
+    @FXML Label zipErrorMessage;
     @FXML TextField address;
     @FXML TextField zipcode;
     @FXML TextField city;
@@ -22,65 +27,61 @@ public class DeliveryOptionsController implements Initializable {
     @FXML TextField telephone;
     @FXML Label saved;
 
-    String sAddress = "";
-    String sZipcode = "";
-    String sCity = "";
-    String sName = "";
-    String sTelephone = "";
+    List<TextField> textFields = new ArrayList<>();
+
+    private void initTextFields() {
+        textFields.add(address);
+        textFields.add(name);
+        textFields.add(zipcode);
+        textFields.add(city);
+        textFields.add(telephone);
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        initTextFields();
         saveButton.setDisable(true);
-        prepopulateFields(customer);
-
-        sAddress = customer.getAddress();
-        sZipcode = customer.getPostCode();
-        sCity = customer.getLastName();
-        sName = customer.getFirstName();
-        sTelephone = customer.getPhoneNumber();
+        prepopulateFields();
     }
 
     @FXML
-    public void addressChanged() {
-        saved.setVisible(false);
-        saveButton.setDisable(false);
-        sAddress = address.getText();
+    private void zipCodeTypeCheck() {
+        if (zipcode.getText().length() > 5) {
+            zipcode.deletePreviousChar();
+        } else if (!zipcode.getText().matches("\\d+")) {
+            // Given text does not include digits.
+            zipcode.deletePreviousChar();
+        } else if (zipcode.getText().length() == 5) {
+            zipcode.setStyle("-fx-border-color: green; -fx-prompt-text-fill: grey;");
+            zipErrorMessage.setVisible(false);
+            checkPrecedence();
+        } else {
+            zipcode.setStyle("-fx-border-color: red; -fx-prompt-text-fill: #FF8888;");
+            zipErrorMessage.setVisible(true);
+            saveButton.setDisable(true);
+            saved.setVisible(false);
+        }
     }
 
     @FXML
-    public void zipcodeChanged() {
-        saved.setVisible(false);
-        saveButton.setDisable(false);
-        sZipcode = zipcode.getText();
-    }
-    @FXML
-    public void cityChanged() {
-        saved.setVisible(false);
-        saveButton.setDisable(false);
-        sCity = city.getText();
-    }
-    @FXML
-    public void nameChanged() {
-        saved.setVisible(false);
-        saveButton.setDisable(false);
-        sName = name.getText();
-    }
-    @FXML
-    public void telephoneChanged() {
-        saved.setVisible(false);
-        saveButton.setDisable(false);
-        sTelephone = telephone.getText();
+    private void phoneTypeCheck() {
+        if (!telephone.getText().matches("\\d+")) {
+            // Given text does not include digits.
+            telephone.deletePreviousChar();
+        }
     }
 
     @FXML
     public void saveButtonPressed() {
         saved.setVisible(true);
         saveButton.setDisable(true);
-        customer.setAddress(sAddress);
-        customer.setFirstName(sName);
-        customer.setLastName(sCity);
-        customer.setPhoneNumber(sTelephone);
-        customer.setPostAddress(sZipcode);
+
+        customer.setAddress(address.getText());
+        customer.setPostAddress(city.getText());
+        customer.setPostCode(zipcode.getText());
+        customer.setFirstName(name.getText()); // Used as full name…
+        //customer.setLastName(name.getText());
+        customer.setPhoneNumber(telephone.getText());
     }
 
     @FXML
@@ -89,11 +90,42 @@ public class DeliveryOptionsController implements Initializable {
         mainController.openAccountView();
     }
 
-    private void prepopulateFields (Customer customer) {
+    private void prepopulateFields() {
         address.setText(customer.getAddress());
-        zipcode.setText(customer.getPostAddress());
-        city.setText(customer.getLastName());
-        name.setText(customer.getFirstName());
+        city.setText(customer.getPostAddress());
+        zipcode.setText(customer.getPostCode());
+        //name.setText(customer.getLastName());
+        name.setText(customer.getFirstName()); // Used as full name
         telephone.setText(customer.getPhoneNumber());
+    }
+
+    @FXML
+    private void checkPrecedence() {
+        markUnsolvedTextFields();
+        for (TextField textField : textFields) {
+            if (textField.getText().isEmpty()) {
+                saveButton.setDisable(true);
+                saved.setVisible(false);
+                break;
+            } else {
+                saveButton.setDisable(false);
+                saved.setVisible(false);
+            }
+        }
+    }
+
+    private void markUnsolvedTextFields() {
+        String style = "-fx-border-color: red; -fx-prompt-text-fill: #FF8888;";
+        for (TextField textField : textFields) {
+            if (textField.getText().equals("")) {
+                // One text field is left empty.
+                textField.setStyle(style);
+            } else {
+                // This text fields have been filled with information.
+                if (textField.getStyle().equals(style)) {
+                    textField.setStyle("-fx-border-color: black; -fx-prompt-text-fill: grey;");
+                }
+            }
+        }
     }
 }

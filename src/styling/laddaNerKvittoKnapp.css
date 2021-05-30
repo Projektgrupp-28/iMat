@@ -1,0 +1,8 @@
+.laddaNerKvitto:hover {
+    -fx-underline: true;
+    -fx-text-fill: rgba(0, 0, 0, 0.6);
+}
+
+.laddaNerKvitto:pressed {
+    -fx-text-fill: rgba(0, 0, 0, 0.4);
+}
