@@ -28,8 +28,8 @@
               <FlowPane fx:id="likedFlowPane" hgap="20.0" styleClass="flow-pane" stylesheets="@../../styling/flowpane.css" vgap="20.0" />
          </content>
     </ScrollPane>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="100.0" stroke="WHITE" strokeType="INSIDE" style="-fx-arc-height: 40; -fx-arc-width: 40;" styleClass="tillbaka" width="273.0" AnchorPane.bottomAnchor="-20.0" AnchorPane.leftAnchor="-20.0" />
-      <Button mnemonicParsing="false" onAction="#close" prefWidth="125.0" styleClass="avbryt" stylesheets="@../../styling/deleteList.css" text="Tillbaka" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="62.8">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="111.0" stroke="WHITE" strokeType="INSIDE" style="-fx-arc-height: 40; -fx-arc-width: 40;" styleClass="tillbaka" width="273.0" AnchorPane.bottomAnchor="-20.0" AnchorPane.leftAnchor="-20.0" />
+      <Button mnemonicParsing="false" onAction="#close" prefWidth="125.0" styleClass="tillbakaKnapp" stylesheets="@../../styling/button.css" text="Tillbaka" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="62.8">
          <graphic>
             <ImageView fitWidth="8.0" pickOnBounds="true" preserveRatio="true">
                <image>
