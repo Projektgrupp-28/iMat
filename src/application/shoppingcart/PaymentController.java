@@ -19,6 +19,8 @@ public class PaymentController implements Initializable {
 
     Model model = Model.getInstance();
     CreditCard creditCard = model.getCreditCard();
+    private static PaymentController paymentController;
+
     @FXML private TextField name;
     @FXML private TextField cardNumber;
     @FXML private TextField month;
@@ -35,8 +37,16 @@ public class PaymentController implements Initializable {
 
     private ShoppingCartController shoppingCartController;
 
+    public static PaymentController getInstance() {
+        if (paymentController == null) {
+            System.out.println("ERROR: DeliveryController is null!");
+        }
+        return paymentController;
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        paymentController = this;
         shoppingCartController = ShoppingCartController.getInstance();
         initTextFields();
         prepopulateFields(creditCard);
@@ -219,5 +229,18 @@ public class PaymentController implements Initializable {
         } else {
             cardTypeSelector.setStyle(orgStyle);
         }
+    }
+
+    public boolean permissionToSaveInfo() {
+        return saveInformationBox.isSelected();
+    }
+
+    public void saveInformation() {
+        creditCard.setCardNumber(cardNumber.getText());
+        creditCard.setHoldersName(name.getText());
+        //creditCard.setVerificationCode(Integer.parseInt(cvc.getText())); Do not save for safety reasons...
+        creditCard.setValidYear(Integer.parseInt(year.getText()));
+        creditCard.setValidMonth(Integer.parseInt(month.getText()));
+        // creditCard.setCardType(cardTypeSelector.selectionModelProperty().getName());
     }
 }

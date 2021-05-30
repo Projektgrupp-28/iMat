@@ -1,5 +1,6 @@
 package application;
 
+import application.shoppingcart.DeliveryController;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -16,6 +17,7 @@ public class PaymentOptionsController implements Initializable {
     MainController mainController = application.MainController.getInstance();
     Model model = Model.getInstance();
     CreditCard creditCard = model.getCreditCard();
+
     @FXML private Button saveButton;
     @FXML private TextField name;
     @FXML private TextField cardNumber;
@@ -116,7 +118,6 @@ public class PaymentOptionsController implements Initializable {
     public void saveButtonPressed() {
         saved.setVisible(true);
         saveButton.setDisable(true);
-        System.out.println("Try to save here");
         creditCard.setCardNumber(cardNumber.getText());
         creditCard.setHoldersName(name.getText());
         //creditCard.setVerificationCode(Integer.parseInt(cvc.getText())); Do not save for safety reasons...
@@ -195,5 +196,4 @@ public class PaymentOptionsController implements Initializable {
             cardTypeSelector.setStyle(orgStyle);
         }
     }
-
 }

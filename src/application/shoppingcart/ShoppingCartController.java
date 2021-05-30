@@ -3,6 +3,7 @@ package application.shoppingcart;
 import application.FxmlLoader;
 import application.Model;
 import application.MainController;
+import application.PaymentOptionsController;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -33,6 +34,8 @@ public class ShoppingCartController implements Initializable, ShoppingCartListen
     List<Circle> shoppingPaneCircleGuides = new ArrayList<>();
     private MainController mainController = MainController.getInstance();
     private Model model = Model.getInstance();
+    private DeliveryController deliveryController;
+    private PaymentController paymentController;
 
     @FXML private BorderPane shoppingCartBorderPane;
     @FXML private Circle shoppingPaneCircleGuide1;
@@ -174,9 +177,20 @@ public class ShoppingCartController implements Initializable, ShoppingCartListen
             nextButton.setOnMouseExited(mouseEvent -> nextButton.setStyle("-fx-background-color: rgba(" + rgb + "); -fx-text-fill: white;"));
         }
         if (thisPanelIndex > shoppingCartViews.size()-3) {
+            // User have orderd the shopping cart
             hideNavigation();
             closeButton.setVisible(true);
             createOrder();
+
+            deliveryController = DeliveryController.getInstance();
+            paymentController = PaymentController.getInstance();
+            if (deliveryController.permissionToSaveInfo()) {
+                deliveryController.saveInformation();
+                System.out.println("Delivery information saved!");
+            } else if (paymentController.permissionToSaveInfo()) {
+                paymentController.saveInformation();
+                System.out.println("Payment information saved!");
+            }
         }
         if (thisPanelIndex < shoppingCartViews.size()-1) {
             // The last shopping pane are not selected.
