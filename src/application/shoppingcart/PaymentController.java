@@ -175,13 +175,18 @@ public class PaymentController implements Initializable {
     }
 
     private void prepopulateFields(CreditCard creditCard) {
-        /*
         if (creditCard.getValidYear() == 0) {
-            date.setText("");
+            year.setText("");
         } else {
-            date.setText(String.valueOf(creditCard.getValidYear()));
+            year.setText(String.valueOf(creditCard.getValidYear()));
         }
-         */
+
+        if (creditCard.getValidMonth() == 0) {
+            month.setText("");
+        } else {
+            month.setText(String.valueOf(creditCard.getValidMonth()));
+        }
+
         if (creditCard.getVerificationCode() == 0) {
             cvc.setText("");
         } else {
