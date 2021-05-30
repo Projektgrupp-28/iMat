@@ -12,7 +12,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="shoppingCartLayerPane" onMouseClicked="#outsideClicked" prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: rgba(0,0,0,0.75);" stylesheets="@../../styling/shoppingCartStyle.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.shoppingcart.ShoppingCartController">
+<AnchorPane fx:id="shoppingCartLayerPane" onMouseClicked="#outsideClicked" prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: rgba(0,0,0,0.75);" stylesheets="@../../styling/shoppingCartStyle.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.shoppingcart.ShoppingCartController">
    <children>
       <VBox alignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -20,7 +20,7 @@
                <bottom>
                   <VBox alignment="TOP_CENTER" prefHeight="90.0" prefWidth="600.0" spacing="10.0" BorderPane.alignment="TOP_CENTER">
                      <children>
-                        <Button fx:id="closeButton" mnemonicParsing="false" onAction="#closeButtonPressed" styleClass="closeButton" text="Stäng" />
+                        <Button fx:id="closeButton" mnemonicParsing="false" onAction="#closeButtonPressed" styleClass="tillbakaKnapp" stylesheets="@../../styling/button.css" text="Stäng" />
                         <AnchorPane>
                            <children>
                               <HBox alignment="CENTER" spacing="10.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">

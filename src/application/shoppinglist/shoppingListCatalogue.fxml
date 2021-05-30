@@ -32,7 +32,7 @@
                   <URL value="@../../styling/scrollbarCategory.css" />
                </stylesheets>
             </ListView>
-            <Button mnemonicParsing="false" onAction="#createNewList" styleClass="avbryt" stylesheets="@../../styling/deleteList.css" text="Ny inköpslista">
+            <Button mnemonicParsing="false" onAction="#createNewList" styleClass="tillbakaKnapp" stylesheets="@../../styling/button.css" text="Ny inköpslista">
                <graphic>
                   <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -47,7 +47,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button mnemonicParsing="false" onAction="#goBack" prefWidth="125.0" styleClass="avbryt" stylesheets="@../../styling/deleteList.css" text="Tillbaka">
+            <Button mnemonicParsing="false" onAction="#goBack" prefWidth="125.0" styleClass="tillbakaKnapp" stylesheets="@../../styling/button.css" text="Tillbaka">
                <graphic>
                   <ImageView fitWidth="8.0" pickOnBounds="true" preserveRatio="true">
                      <image>
