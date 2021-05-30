@@ -16,6 +16,7 @@ import java.util.ResourceBundle;
 public class DeliveryController implements Initializable {
     private Model model = Model.getInstance();
     private ShoppingCartController shoppingCartController;
+    private static DeliveryController deliveryController;
     Customer customer = model.getCustomer();
 
     @FXML Label zipErrorMessage;
@@ -28,8 +29,16 @@ public class DeliveryController implements Initializable {
 
     List<TextField> textFields = new ArrayList<>();
 
+    public static DeliveryController getInstance() {
+        if (deliveryController == null) {
+            System.out.println("ERROR: DeliveryController is null!");
+        }
+        return deliveryController;
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        deliveryController = this;
         shoppingCartController = ShoppingCartController.getInstance();
         initTextFields();
         prepopulateFields(customer);
@@ -122,5 +131,17 @@ public class DeliveryController implements Initializable {
         }
     }
 
+    public void saveInformation() {
+        customer.setAddress(address.getText());
+        customer.setPostAddress(city.getText());
+        customer.setPostCode(zipcode.getText());
+        customer.setFirstName(name.getText()); // Used as full name…
+        //customer.setLastName(name.getText());
+        customer.setPhoneNumber(telephone.getText());
+    }
+
+    public boolean permissionToSaveInfo() {
+        return saveInformationBox.isSelected();
+    }
 
 }

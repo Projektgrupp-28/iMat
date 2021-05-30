@@ -9,6 +9,7 @@ import application.shoppinglist.shoppingList;
 import javafx.scene.image.Image;
 import se.chalmers.cse.dat216.project.*;
 
+import java.io.*;
 import java.text.DateFormat;
 import java.util.*;
 
@@ -58,6 +59,8 @@ public class Model {
      */
     private void init() {
         iMatDataHandler = IMatDataHandler.getInstance();
+        //this.shoppingListList = new ArrayList<>();
+        //this.loadShoppingLists();
         initCategories();
     }
 
@@ -84,30 +87,6 @@ public class Model {
         categories.add(new CategoryItem(ProductCategory.HOT_DRINKS, "Varma drycker"));
         categories.add(new CategoryItem(ProductCategory.HERB, "Örter"));
     }
-    /*
-    categories.add(new CategoryItem(ProductCategory.POD, "Konserver"));
-        categories.add(new CategoryItem(ProductCategory.BREAD, "Bröd"));
-        categories.add(new CategoryItem(ProductCategory.BERRY, "Bär"));
-        categories.add(new CategoryItem(ProductCategory.CITRUS_FRUIT, "Citrusfrukter"));
-        categories.add(new CategoryItem(ProductCategory.HOT_DRINKS, "Varma drycker"));
-        categories.add(new CategoryItem(ProductCategory.COLD_DRINKS, "Kalla drycker"));
-        categories.add(new CategoryItem(ProductCategory.EXOTIC_FRUIT, "Exotiska frukter"));
-        categories.add(new CategoryItem(ProductCategory.FISH, "Fisk"));
-        categories.add(new CategoryItem(ProductCategory.VEGETABLE_FRUIT, "Vegetariska frukter"));
-        categories.add(new CategoryItem(ProductCategory.CABBAGE, "Kål"));
-        categories.add(new CategoryItem(ProductCategory.MEAT, "Kött"));
-        categories.add(new CategoryItem(ProductCategory.DAIRIES, "Mejeri"));
-        categories.add(new CategoryItem(ProductCategory.MELONS, "Meloner"));
-        categories.add(new CategoryItem(ProductCategory.FLOUR_SUGAR_SALT, "Mjöl, socker och salt"));
-        categories.add(new CategoryItem(ProductCategory.NUTS_AND_SEEDS, "Nötter och frön"));
-        categories.add(new CategoryItem(ProductCategory.PASTA, "Pasta"));
-        categories.add(new CategoryItem(ProductCategory.POTATO_RICE, "Potatis och ris"));
-        categories.add(new CategoryItem(ProductCategory.ROOT_VEGETABLE, "Rotfrukter"));
-        categories.add(new CategoryItem(ProductCategory.FRUIT, "Frukt"));
-        categories.add(new CategoryItem(ProductCategory.SWEET, "Sötsaker"));
-        categories.add(new CategoryItem(ProductCategory.HERB, "Örter"));
-
-     */
 
     public List<CategoryItem> getCategories() {
         return categories;
@@ -307,6 +286,7 @@ public class Model {
      * Shuts down the data handler.
      */
     public void shutDown() {
+        //this.saveShoppingLists();
         iMatDataHandler.shutDown();
     }
 
@@ -501,4 +481,54 @@ public class Model {
         placeOrder();
         model.getShoppingCart().fireShoppingCartChanged(new ShoppingItem(new Product()), false);
     }
+/*
+    private String shoppingListsFile() {
+        //return this.imatDirectory() + File.separatorChar + "favorites.txt";
+        return iMatDataHandler.imatDirectory();
+    }
+
+    private void loadShoppingLists() {
+        try {
+            BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(this.shoppingListsFile()), "ISO-8859-1"));
+            System.out.println("loadShoppingLists, starting...");
+
+            String line;
+            while((line = reader.readLine()) != null) {
+                String[] tokens = line.split(";");
+
+                for(int i = 0; i < tokens.length - 1; ++i) {
+                    this.shoppingListList.add(Integer.parseInt(tokens[i]));
+                }
+            }
+
+            reader.close();
+        } catch (IOException var5) {
+            var5.printStackTrace();
+        }
+
+    }
+
+    private void saveShoppingLists() {
+        try {
+            FileOutputStream fos = new FileOutputStream(this.shoppingListsFile());
+            OutputStreamWriter osw = new OutputStreamWriter(fos, "ISO-8859-1");
+            System.out.println("saveFavorites() size: " + this.shoppingListList.size());
+            String line = "";
+            Iterator var4 = this.shoppingListList.iterator();
+
+            while(var4.hasNext()) {
+                Product favorite = (Product)var4.next();
+                line = line + favorite.getProductId() + ";";
+                System.out.println("saveShoppingLists() " + line);
+            }
+
+            line = line + "end\n";
+            osw.write(line);
+            osw.flush();
+            osw.close();
+        } catch (IOException var6) {
+            var6.printStackTrace();
+        }
+
+    }*/
 }

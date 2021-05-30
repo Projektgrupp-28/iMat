@@ -18,6 +18,7 @@ public class likedProductPageController implements Initializable, LikedProductLi
     @FXML private FlowPane likedFlowPane;
 
     private final Model model = Model.getInstance();
+    private final MainController mainController = MainController.getInstance();
 
 
     @Override
@@ -40,5 +41,7 @@ public class likedProductPageController implements Initializable, LikedProductLi
         updateProductList(model.getFavourites());
     }
 
-
+    public void close() {
+        mainController.closeLikedItems();
+    }
 }
