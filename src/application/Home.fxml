@@ -12,7 +12,7 @@
    <children>
       <ScrollPane fitToWidth="true" hbarPolicy="NEVER" stylesheets="@../styling/scrollbarCategory.css" vbarPolicy="ALWAYS" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <content>
-          <AnchorPane maxHeight="17500.0" minHeight="0.0" minWidth="0.0">
+          <AnchorPane maxHeight="17600.0" minHeight="0.0" minWidth="0.0">
                <children>
                   <VBox alignment="TOP_CENTER" prefHeight="375.0" prefWidth="520.0" spacing="25.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
