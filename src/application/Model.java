@@ -388,6 +388,7 @@ public class Model {
     }
 
     public void addProductToList(ShoppingItem shoppingItem) {
+        if (shoppingListList.isEmpty()) { createShoppingList(shoppingItem.getProduct()); }
         currentProduct = shoppingItem.getProduct();
     }
 
