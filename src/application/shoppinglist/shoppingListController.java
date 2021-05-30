@@ -58,13 +58,6 @@ public class shoppingListController implements Initializable, ShoppingListListen
             //Det här öppnar en RemoveListDialog ruta. Klasserna finns i shoppingList mappen
             model.setCurrentList(currentList());
             mainController.openRemoveListDialog();
-
-            /*
-            model.getShoppingListList().remove(currentList());
-            model.fireListCatalogueChanged();
-            if (isListListEmpty()) { model.fireListChanged(null); }
-            else { model.fireListChanged(model.getShoppingListList().get(model.getShoppingListList().size() - 1)); }
-            */
         }
         toggleStuff();
     }
@@ -96,7 +89,7 @@ public class shoppingListController implements Initializable, ShoppingListListen
 
     public void editOrCreateList() {
         if (editIcon) {
-            // Edit list
+            mainController.openEditListDialogue();
         }
         else {
             shoppingListFlowPane.getChildren().clear();

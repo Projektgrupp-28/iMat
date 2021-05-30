@@ -111,5 +111,10 @@
             <Font name="Lato Bold" size="22.0" />
          </font>
       </Label>
+      <Label fx:id="saved" layoutX="505.0" layoutY="394.0" text="Sparat" textFill="#00c908" visible="false">
+         <font>
+            <Font name="Lato Regular" size="15.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

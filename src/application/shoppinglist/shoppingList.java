@@ -8,6 +8,7 @@ public class shoppingList {
 
     private List<Product> productList = new ArrayList<>();
     private String shoppingListName;
+    private Model model = Model.getInstance();
 
     public shoppingList(String shoppingListName, Product product) {
         this.shoppingListName = shoppingListName;
@@ -19,6 +20,8 @@ public class shoppingList {
 
     public void setShoppingListName(String shoppingListName) {
         this.shoppingListName = shoppingListName;
+        model.fireListCatalogueChanged();
+        model.fireListChanged(this);
     }
 
     public String getShoppingListName() {

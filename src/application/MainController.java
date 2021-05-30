@@ -221,6 +221,13 @@ public class MainController implements Initializable, ShoppingCartListener {
         overlayPane.setCenter(RemoveListDialog);
     }
 
+    public void openEditListDialogue() {
+        Pane editListDialogue = fxmlLoader.getPage("shoppinglist/editListDialogue");
+        unDimHeader();
+        overlayPane.toFront();
+        overlayPane.setCenter(editListDialogue);
+    }
+
     public void openShoppingCart() {
         Pane shoppingCartPane = fxmlLoader.getPage("shoppingcart/ShoppingCartWindow");
         unDimHeader();

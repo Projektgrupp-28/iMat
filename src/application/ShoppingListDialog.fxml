@@ -17,7 +17,7 @@
    <children>
       <VBox alignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" pickOnBounds="false" prefHeight="225.0" prefWidth="250.0" style="-fx-background-color: white; -fx-background-radius: 25;" VBox.vgrow="ALWAYS">
+            <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" pickOnBounds="false" prefHeight="225.0" prefWidth="250.0" style="-fx-background-color: white; -fx-background-radius: 25;" VBox.vgrow="NEVER">
                <top>
                   <AnchorPane>
                      <children>
@@ -50,7 +50,7 @@
                         <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
                            <children>
                               <Label styleClass="font-smaller" text="Lägg till vara i lista:" />
-                              <ChoiceBox fx:id="listor" prefWidth="150.0" style="-fx-border-color: black;" styleClass="decButton" stylesheets="@../styling/button.css">
+                              <ChoiceBox fx:id="listor" prefWidth="150.0" style="-fx-border-color: black;" styleClass="choiceBox">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
