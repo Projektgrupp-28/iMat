@@ -87,6 +87,7 @@ public class MainController implements Initializable, ShoppingCartListener {
         Pane view = new Pane();
         switch (getSelectedProfileOption()) {
             case "Orderhistorik":
+                closeTabs();
                 lastLoadedPane = view = fxmlLoader.getPage("orderhistory/OrderCenterPanel");
                 showOrderHistory();
                 break;
@@ -96,17 +97,20 @@ public class MainController implements Initializable, ShoppingCartListener {
                 break;
              */
             case "Leveransinformation":
+                closeTabs();
                 lastLoadedPane = view = fxmlLoader.getPage("DeliveryOptions");
+                homePagePane.setLeft(null);
                 break;
             case "Betalningssätt":
+                closeTabs();
                 lastLoadedPane = view = fxmlLoader.getPage("PaymentOptions");
+                homePagePane.setLeft(null);
                 break;
             default: System.out.println("Unrecognizable selection");
         }
         model.setSelectedProfileOption(getSelectedProfileOption());
         profileList.getSelectionModel().clearSelection();
         homePagePane.setCenter(view);
-        if (likePageIsShown) { closeLikedItems(); }
         closeAccountView();
     }
 
@@ -134,7 +138,6 @@ public class MainController implements Initializable, ShoppingCartListener {
         loadProfileList();
         showCategories();
         goHome();
-
     }
 
     private void updateSumLabels() {
@@ -172,6 +175,7 @@ public class MainController implements Initializable, ShoppingCartListener {
     public void goHome() {
         searchField.clear();
         homePagePane.setCenter(homePage);
+        showCategories();
         closeAccountView();
         lastLoadedPane = homePage;
         if (likePageIsShown) { closeLikedItems(); }
@@ -179,6 +183,7 @@ public class MainController implements Initializable, ShoppingCartListener {
     }
 
     public void runWizard() {
+        goHome();
         wizardPane = fxmlLoader.getPage("wizard/WizardWindow");
         overlayPane.toFront();
         dimHeader();
@@ -205,14 +210,6 @@ public class MainController implements Initializable, ShoppingCartListener {
         searchField.clear();
         orderCenterPanel = fxmlLoader.getPage("orderhistory/OrderCenterPanel");
         homePagePane.setCenter(orderCenterPanel);
-    }
-
-    // Todo fix and remove this
-    public void goToCategory() {
-        lastLoadedPane = categoryPane = fxmlLoader.getPage("categories/Category");
-        homePagePane.setCenter(categoryPane);
-        if (likePageIsShown) { closeLikedItems(); }
-        else if (shoppingListIsShown) { closeShoppingList(); }
     }
 
    public void goToLikedItems() {
@@ -255,6 +252,7 @@ public class MainController implements Initializable, ShoppingCartListener {
 
    private void closeLikedItems() {
        homePagePane.setCenter(lastLoadedPane);
+       showCategories();
        likePageIsShown = false;
        gilladeVarorIkon.setImage(new Image(getClass().getClassLoader().getResourceAsStream("application/icons/heart.png")));
    }
@@ -262,6 +260,7 @@ public class MainController implements Initializable, ShoppingCartListener {
    private void openLikedItems() {
        likedItemsPane = fxmlLoader.getPage("likeditems/LikedItems");
        homePagePane.setCenter(likedItemsPane);
+       homePagePane.setLeft(null);
        likePageIsShown = true;
        gilladeVarorIkon.setImage(new Image(getClass().getClassLoader().getResourceAsStream("application/icons/heart_heavy_selected.png")));
    }
@@ -400,6 +399,11 @@ public class MainController implements Initializable, ShoppingCartListener {
 
     public BorderPane getHomePagePane() {
         return homePagePane;
+    }
+
+    private void closeTabs() {
+        if (likePageIsShown) { closeLikedItems(); }
+        else if (shoppingListIsShown) { closeShoppingList(); }
     }
 
     // TODO: Fix commented functions
