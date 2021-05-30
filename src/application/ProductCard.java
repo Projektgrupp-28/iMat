@@ -3,6 +3,7 @@ package application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -55,6 +56,9 @@ public class ProductCard extends AnchorPane implements ShoppingCartListener {
     private TextField productAmount;
     @FXML
     private Label unitLabel;
+
+    @FXML Button incButton;
+    @FXML Button decButton;
 
     private int testAmount;
 
@@ -111,6 +115,9 @@ public class ProductCard extends AnchorPane implements ShoppingCartListener {
 
     public void disableAddButton() {
         buttonAdd.setVisible(false);
+        incButton.setVisible(false);
+        decButton.setVisible(false);
+        productAmount.setEditable(false);
     }
 
     public void setAmount(int amount) {
