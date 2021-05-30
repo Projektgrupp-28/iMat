@@ -45,7 +45,10 @@ public class shoppingListController implements Initializable, ShoppingListListen
 
         for (Product product : products) {
             if(!model.getHiddenProductList().contains(product)) {
-                shoppingListFlowPane.getChildren().add(new ProductCard(product));
+                ProductCard productCard = new ProductCard(product);
+                productCard.disableAddButton();
+                productCard.setAmount(1);
+                shoppingListFlowPane.getChildren().add(productCard);
             }
         }
     }
