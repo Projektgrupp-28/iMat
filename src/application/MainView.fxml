@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
@@ -77,7 +78,7 @@
                                     </Button>
                                  </children>
                               </HBox>
-                              <Button graphicTextGap="10.0" layoutY="92.0" mnemonicParsing="false" onAction="#openShoppingCart" prefHeight="40.0" style="-fx-background-radius: 40; -fx-background-color: white;" styleClass="font-larger" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="10.0">
+                              <Button graphicTextGap="10.0" layoutY="92.0" mnemonicParsing="false" onAction="#openShoppingCart" prefHeight="40.0" style="-fx-background-radius: 40;" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="10.0">
                                  <graphic>
                                     <HBox alignment="CENTER" spacing="5.0">
                                        <children>
@@ -117,6 +118,10 @@
                                        </children>
                                     </HBox>
                                  </graphic>
+                                 <styleClass>
+                                    <String fx:value="font-larger" />
+                                    <String fx:value="shoppingCartButton" />
+                                 </styleClass>
                               </Button>
                            </children>
                         </AnchorPane>

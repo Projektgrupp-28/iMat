@@ -85,3 +85,15 @@
     -fx-border-radius:40;
     -fx-border-width:2;
 }
+
+.shoppingCartButton {
+    -fx-background-color: white;
+}
+
+.shoppingCartButton:hover {
+    -fx-background-color:rgba(230, 230, 230, 1.0);
+}
+
+.shoppingCartButton:pressed {
+    -fx-background-color: rgba(230, 230, 230, 0.9);
+}
