@@ -112,7 +112,7 @@
                                     <Font name="Lato Bold" size="16.0" />
                                  </font>
                               </Label>
-                              <ComboBox fx:id="cardTypeSelector" prefWidth="230.0" promptText="Välj kort">
+                              <ComboBox fx:id="cardTypeSelector" onAction="#checkPrecedence" prefWidth="230.0" promptText="Välj kort">
                                  <VBox.margin>
                                     <Insets />
                                  </VBox.margin>

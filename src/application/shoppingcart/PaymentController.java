@@ -104,10 +104,12 @@ public class PaymentController implements Initializable {
             // Given text does not include digits.
             cardNumber.deletePreviousChar();
         } else if (cardNumber.getText().length() == 16) {
-            cardNumber.setStyle(orgStyle);
+            cardNumber.setStyle("-fx-border-color: green; -fx-prompt-text-fill: grey;");
             checkPrecedence();
         } else {
-            cardNumber.setStyle(errorStyle);
+            cardNumber.setStyle("-fx-border-color: red; -fx-prompt-text-fill: #FF8888;");
+            shoppingCartController.disableNextButton(true);
+            saveInformationBox.setDisable(true);
         }
     }
 
@@ -123,6 +125,8 @@ public class PaymentController implements Initializable {
             checkPrecedence();
         } else {
             dateBox.setStyle("-fx-border-color: red;");
+            shoppingCartController.disableNextButton(true);
+            saveInformationBox.setDisable(true);
         }
     }
 
@@ -138,6 +142,8 @@ public class PaymentController implements Initializable {
             checkPrecedence();
         } else {
             dateBox.setStyle("-fx-border-color: red;");
+            shoppingCartController.disableNextButton(true);
+            saveInformationBox.setDisable(true);
         }
     }
 
@@ -153,6 +159,8 @@ public class PaymentController implements Initializable {
             checkPrecedence();
         } else {
             cvc.setStyle(errorStyle);
+            shoppingCartController.disableNextButton(true);
+            saveInformationBox.setDisable(true);
         }
     }
 
@@ -175,9 +183,9 @@ public class PaymentController implements Initializable {
 
     @FXML
     private void checkPrecedence() {
-        //markUnsolvedTextFields();
+        markUnsolvedTextFields();
         for (TextField textField : textFields) {
-            if (textField.getText().equals("")) { //&& !cardTypeSelector.equals(null)) {
+            if (textField.getText().equals("") || cardTypeSelector.getSelectionModel().selectedItemProperty().getValue() == null) {
                 // There is no information in the text field.
                 shoppingCartController.disableNextButton(true);
                 saveInformationBox.setDisable(true);
@@ -187,17 +195,29 @@ public class PaymentController implements Initializable {
 
     private void markUnsolvedTextFields() {
         for (TextField textField : textFields) {
-            if (textField.getText().equals("") ) {// && (!textField.equals(month) || !textField.equals(year))) {
-                // One text field that isn't month or year is left empty. Update the design.
-                textField.setStyle(errorStyle);
+            if (textField.getText().equals("") ) {
+                // One text field is left empty.
+                if (textField.equals(month) || textField.equals(year)){
+                    // Month or year field is left empty.
+                    dateBox.setStyle("-fx-border-color: red;");
+                } else {
+                    textField.setStyle(errorStyle);
+                }
             } else {
-                // All text fields have been filled with information.
+                // This text fields have been filled with information.
                 if (textField.getStyle().equals(errorStyle)) {
                     textField.setStyle(orgStyle);
                 }
                 shoppingCartController.disableNextButton(false);
                 saveInformationBox.setDisable(false);
             }
+        }
+
+        if (cardTypeSelector.getSelectionModel().selectedItemProperty().getValue() == null) {
+            // No card have been selected.
+            cardTypeSelector.setStyle(errorStyle);
+        } else {
+            cardTypeSelector.setStyle(orgStyle);
         }
     }
 }

@@ -57,7 +57,6 @@ public class DeliveryController implements Initializable {
     private void zipCodeTypeCheck() {
         if (zipcode.getText().length() > 5) {
             zipcode.deletePreviousChar();
-            // TODO: Jump to next.
         } else if (!zipcode.getText().matches("\\d+")) {
             // Given text does not include digits.
             zipcode.deletePreviousChar();
@@ -69,6 +68,7 @@ public class DeliveryController implements Initializable {
             zipcode.setStyle("-fx-border-color: red; -fx-prompt-text-fill: #FF8888;");
             zipErrorMessage.setVisible(true);
             shoppingCartController.disableNextButton(true);
+            saveInformationBox.setDisable(true);
         }
     }
 
@@ -82,9 +82,7 @@ public class DeliveryController implements Initializable {
 
     @FXML
     private void nameLabelTypeCheck() {
-        if (zipcode.getText().matches("[abc]")) {
-            System.out.println("Hello");
-        }
+       // Didn't know how to do this… // Philip
     }
 
     private void prepopulateFields (Customer customer) {
@@ -114,7 +112,7 @@ public class DeliveryController implements Initializable {
                 // One text field is left empty.
                 textField.setStyle(style);
             } else {
-                // All text fields have been filled with information.
+                // This text fields have been filled with information.
                 if (textField.getStyle().equals(style)) {
                     textField.setStyle("-fx-border-color: black; -fx-prompt-text-fill: grey;");
                 }
