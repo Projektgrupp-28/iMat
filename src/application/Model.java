@@ -390,8 +390,8 @@ public class Model {
         System.out.println("liked product changed");
     }
 
-    public void addProductToList(Product product) {
-        currentProduct = product;
+    public void addProductToList(ShoppingItem shoppingItem) {
+        currentProduct = shoppingItem.getProduct();
     }
 
     public void createShoppingList(Product product) {

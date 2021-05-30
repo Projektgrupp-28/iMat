@@ -1,6 +1,5 @@
 package application.shoppinglist;
 
-import application.FxmlLoader;
 import application.MainController;
 import application.Model;
 import application.ProductCard;
@@ -11,8 +10,9 @@ import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.FlowPane;
-import javafx.scene.control.ListView;
+import se.chalmers.cse.dat216.project.CartEvent;
 import se.chalmers.cse.dat216.project.Product;
+import se.chalmers.cse.dat216.project.ShoppingItem;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -84,6 +84,7 @@ public class shoppingListController implements Initializable, ShoppingListListen
         List<Product> products = currentList().getProductList();
         for (Product product : products) {
             model.addToShoppingCart(product);
+            mainController.shoppingCartChanged(null);
         }
     }
 

@@ -190,7 +190,7 @@ public class ProductCard extends AnchorPane implements ShoppingCartListener {
      * @param event is the action event.
      */
     @FXML
-    private void handleAddAction(ActionEvent event) {
+    public void handleAddAction(ActionEvent event) {
         selectButtonPanel(amountPanel);
         model.getShoppingCart().addItem(shoppingItem);
     }
@@ -208,11 +208,6 @@ public class ProductCard extends AnchorPane implements ShoppingCartListener {
 
     }
 
-
-
-
-
-
     @FXML
     private void onMouseExit() {
         if(model.getFavourites().contains(product)) {
@@ -224,8 +219,6 @@ public class ProductCard extends AnchorPane implements ShoppingCartListener {
                 buttonGroup.setVisible(false);
             }
     }
-    
-
 
     @FXML
     private void likeItem() {
@@ -254,7 +247,7 @@ public class ProductCard extends AnchorPane implements ShoppingCartListener {
     @FXML
     private void addItemToList() {
         this.mainController = MainController.getInstance();
-        model.addProductToList(product);
+        model.addProductToList(shoppingItem);
         mainController.openListDialog();
     }
 
