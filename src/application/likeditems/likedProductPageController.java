@@ -1,9 +1,11 @@
 package application.likeditems;
 
+import application.MainController;
 import application.Model;
 import application.ProductCard;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.layout.FlowPane;
 import se.chalmers.cse.dat216.project.Product;
 
@@ -16,6 +18,7 @@ public class likedProductPageController implements Initializable, LikedProductLi
     @FXML private FlowPane likedFlowPane;
 
     private final Model model = Model.getInstance();
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -36,4 +39,6 @@ public class likedProductPageController implements Initializable, LikedProductLi
     public void productUnliked() {
         updateProductList(model.getFavourites());
     }
+
+
 }
