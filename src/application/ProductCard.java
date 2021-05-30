@@ -109,6 +109,14 @@ public class ProductCard extends AnchorPane implements ShoppingCartListener {
         checkIfHidden();
     }
 
+    public void disableAddButton() {
+        buttonAdd.setVisible(false);
+    }
+
+    public void setAmount(int amount) {
+        productAmount.setText(Integer.toString(amount));
+    }
+
     private void unselectButtonPanel(AnchorPane panel) {
         panel.setVisible(false);
         panel.setDisable(true);

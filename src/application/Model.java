@@ -9,9 +9,8 @@ import application.shoppinglist.shoppingList;
 import javafx.scene.image.Image;
 import se.chalmers.cse.dat216.project.*;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import java.text.DateFormat;
+import java.util.*;
 
 /**
  * Wrapper around the IMatDataHandler. The idea is that it might be useful to
@@ -25,6 +24,7 @@ public class Model {
     private static Model model;
     private ListObject catalogList = new ListObject();
     private ListObject profileList = new ListObject();
+    private Order selectedOrder;
     private IMatDataHandler iMatDataHandler;
     private MainController mainController;
     private List<Product> hiddenProductList = new ArrayList<>();
@@ -253,6 +253,39 @@ public class Model {
         return iMatDataHandler.getOrders().size();
     }
 
+    public List<Order> getOrders() {
+        return iMatDataHandler.getOrders();
+    }
+
+    public void setSelectedOrder(Order order) {
+        this.selectedOrder = order;
+    }
+
+    public Order getSelectedOrder() {
+        return selectedOrder;
+    }
+
+    public String getOrderName(int orderNumber) {
+        for (int i = 0; i < getOrders().size(); i++) {
+            if (getOrders().get(i).getOrderNumber() == orderNumber) {
+                Date date = getOrders().get(i).getDate();
+                int day = date.getDay();
+                String dag = "";
+                switch (day) {
+                    case 0 -> dag = "Söndag";
+                    case 1 -> dag = "Måndag";
+                    case 2 -> dag = "Tisdag";
+                    case 3 -> dag = "Onsdag";
+                    case 4 -> dag = "Torsdag";
+                    case 5 -> dag = "Fredag";
+                    case 6 -> dag = "Lördag";
+                }
+                return (dag + " " + date.getDate() + "/" + (date.getMonth() + 1) + (date.toString().substring(10,16)));
+            }
+        }
+        return "";
+    }
+
     /**
      * Shuts down the data handler.
      */
@@ -445,5 +478,9 @@ public class Model {
 
     public String getCurrentSearchTerm() {
         return currentSearchTerm;
+    }
+
+    public void createOrder() {
+        placeOrder();
     }
 }

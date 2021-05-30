@@ -75,6 +75,9 @@ public class MainController implements Initializable, ShoppingCartListener {
     private Pane categoryCenterPanel;
     private Pane searchPane;
 
+    private Pane orderLeftPanel;
+    private Pane orderCenterPanel;
+
     public String getSelectedProfileOption() {
         return profileList.getSelectionModel().getSelectedItem();
     }
@@ -84,7 +87,8 @@ public class MainController implements Initializable, ShoppingCartListener {
         Pane view = new Pane();
         switch (getSelectedProfileOption()) {
             case "Orderhistorik":
-                lastLoadedPane = view = fxmlLoader.getPage("Orders");
+                lastLoadedPane = view = fxmlLoader.getPage("orderhistory/OrderCenterPanel");
+                showOrderHistory();
                 break;
             /*
             case "Dolda varor":
@@ -181,15 +185,26 @@ public class MainController implements Initializable, ShoppingCartListener {
         overlayPane.setCenter(wizardPane);
     }
 
-    private void showCategories() {
+    public void showCategories() {
         categoryLeftPanel = fxmlLoader.getPage("categories/CategoryLeftPanel");
         homePagePane.setLeft(categoryLeftPanel);
+    }
+
+    private void showOrderHistory() {
+        orderLeftPanel = fxmlLoader.getPage("orderhistory/OrderLeftPanel");
+        homePagePane.setLeft(orderLeftPanel);
     }
 
     public void showCategoryCenterView() {
         searchField.clear();
         categoryCenterPanel = fxmlLoader.getPage("categories/CategoryCenterPanel");
         homePagePane.setCenter(categoryCenterPanel);
+    }
+
+    public void showOrderCenterView() {
+        searchField.clear();
+        orderCenterPanel = fxmlLoader.getPage("orderhistory/OrderCenterPanel");
+        homePagePane.setCenter(orderCenterPanel);
     }
 
     // Todo fix and remove this

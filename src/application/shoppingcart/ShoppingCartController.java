@@ -32,6 +32,7 @@ public class ShoppingCartController implements Initializable, ShoppingCartListen
     List<Pane> shoppingCartViews = new ArrayList<>();
     List<Circle> shoppingPaneCircleGuides = new ArrayList<>();
     private MainController mainController = MainController.getInstance();
+    private Model model = Model.getInstance();
 
     @FXML private BorderPane shoppingCartBorderPane;
     @FXML private Circle shoppingPaneCircleGuide1;
@@ -175,6 +176,7 @@ public class ShoppingCartController implements Initializable, ShoppingCartListen
         if (thisPanelIndex > shoppingCartViews.size()-3) {
             hideNavigation();
             closeButton.setVisible(true);
+            createOrder();
         }
         if (thisPanelIndex < shoppingCartViews.size()-1) {
             // The last shopping pane are not selected.
@@ -219,5 +221,9 @@ public class ShoppingCartController implements Initializable, ShoppingCartListen
 
     public void disableNextButton(boolean b) {
         nextButton.setDisable(b);
+    }
+
+    public void createOrder() {
+        model.createOrder();
     }
 }
