@@ -51,23 +51,9 @@ public class OrderCenterPanelController implements Initializable {
     @FXML
     public void addToCart() {
         for (int i = 0; i < order.getItems().size(); i++) {
-            /*/
-            for (int j = 0; j < model.getShoppingCart().getItems().size(); j++) {
-                if (model.getShoppingCart().getItems().get(j).getProduct().getName().equals(order.getItems().get(i).getProduct().getName())) {
-                    System.out.println("finns redan!!");
-                    int newAmount = (int) model.getShoppingCart().getItems().get(j).getAmount() + (int) order.getItems().get(i).getAmount();
-                    ShoppingItem item = model.getShoppingCart().getItems().get(j);
-                    model.getShoppingCart().removeItem(j);
-                    order.getItems().remove(i);
-                    item.setAmount(newAmount);
-                    model.getShoppingCart().addItem(item);
-                } else {
-                    model.getShoppingCart().addItem(order.getItems().get(i));
-                }
+            for (int j = 0; j < (order.getItems().get(i).getAmount()); j++) {
+                model.addToShoppingCart(order.getItems().get(i).getProduct());
             }
-             */
-            model.getShoppingCart().addItem(order.getItems().get(i));
         }
-        // add confirmation pop up
     }
 }
