@@ -192,6 +192,18 @@ public class Model {
         System.out.println("trying to remove item that doesnt exit in shoppingcart");
     }
 
+    public void changeProductAmount(Product p, int amount) {
+        ShoppingCart shoppingCart = iMatDataHandler.getShoppingCart();
+        for (int i = 0; i < shoppingCart.getItems().size(); i++) {
+            if (shoppingCart.getItems().get(i).getProduct().getName().equals(p.getName())) {
+                shoppingCart.getItems().get(i).setAmount(amount);
+                shoppingCart.fireShoppingCartChanged(shoppingCart.getItems().get(i),true);
+                return;
+            }
+        }
+        System.out.println("Trying to change amount of product not in cart");
+    }
+
     // TODO: Fix methods.
     /* This methods will be useful later.
     /**
