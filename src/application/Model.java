@@ -59,6 +59,8 @@ public class Model {
     private void init() {
         iMatDataHandler = IMatDataHandler.getInstance();
         initCategories();
+        iMatDataHandler.reset();
+        iMatDataHandler.getOrders().removeAll(iMatDataHandler.getOrders());
     }
 
     private void initCategories() {
@@ -188,11 +190,28 @@ public class Model {
         for (int i = 0; i < shoppingCart.getItems().size(); i++) {
             if (shoppingCart.getItems().get(i).getProduct().getName().equals(p.getName())) {
                 shoppingCart.getItems().get(i).setAmount(shoppingCart.getItems().get(i).getAmount() + 1);
+                shoppingCart.fireShoppingCartChanged(shoppingCart.getItems().get(i),true);
                 return;
             }
         }
         ShoppingItem item = new ShoppingItem(p);
         Model.getInstance().getShoppingCart().addItem(item);
+        shoppingCart.fireShoppingCartChanged(item,true);
+    }
+
+    public void removeFromShoppingCart(Product p) {
+        ShoppingCart shoppingCart = iMatDataHandler.getShoppingCart();
+        for (int i = 0; i < shoppingCart.getItems().size(); i++) {
+            if (shoppingCart.getItems().get(i).getProduct().getName().equals(p.getName())) {
+                if (shoppingCart.getItems().get(i).getAmount() == 1) {
+                    shoppingCart.removeItem(i);
+                }
+                shoppingCart.getItems().get(i).setAmount(shoppingCart.getItems().get(i).getAmount() - 1);
+                shoppingCart.fireShoppingCartChanged(shoppingCart.getItems().get(i),true);
+                return;
+            }
+        }
+        System.out.println("trying to remove item that doesnt exit in shoppingcart");
     }
 
     // TODO: Fix methods.
@@ -482,5 +501,6 @@ public class Model {
 
     public void createOrder() {
         placeOrder();
+        model.getShoppingCart().fireShoppingCartChanged(new ShoppingItem(new Product()), false);
     }
 }

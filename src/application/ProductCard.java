@@ -194,7 +194,7 @@ public class ProductCard extends AnchorPane implements ShoppingCartListener {
     @FXML
     public void handleAddAction(ActionEvent event) {
         selectButtonPanel(amountPanel);
-        model.getShoppingCart().addItem(shoppingItem);
+        model.addToShoppingCart(product);
     }
 
     @FXML
@@ -255,19 +255,15 @@ public class ProductCard extends AnchorPane implements ShoppingCartListener {
 
     @FXML
     public void incrementAmount() {
-        shoppingItem.setAmount(shoppingItem.getAmount() + 1);
-        model.getShoppingCart().removeItem(shoppingItem);
-        model.getShoppingCart().addItem(shoppingItem);
+        model.addToShoppingCart(product);
         productAmount.setText(Integer.toString((int) shoppingItem.getAmount()));
     }
 
     @FXML
     public void decrementAmount() {
         if (shoppingItem.getAmount() > 1) {
-            shoppingItem.setAmount(shoppingItem.getAmount() - 1);
-            model.getShoppingCart().removeItem(shoppingItem);
-            model.getShoppingCart().addItem(shoppingItem);
-            productAmount.setText(Integer.toString((int) shoppingItem.getAmount()));
+
+            model.removeFromShoppingCart(product);
         } else {
             // The user would like to remove the item.
             deleteItem();
@@ -340,10 +336,22 @@ public class ProductCard extends AnchorPane implements ShoppingCartListener {
         if (productIsInHistoryOrList) {
             //do nothing
         } else {
-            int amount = (int) shoppingItem.getAmount();
-            productAmount.setText(Integer.toString(amount));
-            if (amount == 0) {
-                deleteItem();
+            for (int i = 0; i < model.getShoppingCart().getItems().size(); i++) {
+                if (model.getShoppingCart().getItems().get(i).getProduct() == product) {
+                    int amount = (int) model.getShoppingCart().getItems().get(i).getAmount();
+                    productAmount.setText(Integer.toString(amount));
+                    shoppingItem.setAmount(amount);
+                    if (amount > 0) {
+                        selectButtonPanel(amountPanel);
+                    }
+                    if (amount == 0) {
+                        deleteItem();
+                        selectButtonPanel(buttonAdd);
+                    }
+                }
+            }
+            if (model.getShoppingCart().getItems().size() == 0) {
+                selectButtonPanel(buttonAdd);
             }
         }
     }
