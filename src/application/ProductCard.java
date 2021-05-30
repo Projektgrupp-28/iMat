@@ -179,11 +179,10 @@ public class ProductCard extends AnchorPane implements ShoppingCartListener {
 
         if (amount == 0) {
             deleteItem();
+            selectButtonPanel(buttonAdd);
         } else {
-            shoppingItem.setAmount(amount);
-            model.getShoppingCart().removeItem(shoppingItem);
-            model.getShoppingCart().addItem(shoppingItem);
-            productAmount.setText(Integer.toString((int) shoppingItem.getAmount()));
+            model.changeProductAmount(product, amount);
+            productAmount.setText(String.valueOf(amount));
         }
     }
 
@@ -262,19 +261,19 @@ public class ProductCard extends AnchorPane implements ShoppingCartListener {
     @FXML
     public void decrementAmount() {
         if (shoppingItem.getAmount() > 1) {
-
             model.removeFromShoppingCart(product);
         } else {
             // The user would like to remove the item.
             deleteItem();
+            selectButtonPanel(buttonAdd);
         }
     }
 
     @FXML
     public void deleteItem() {
-        shoppingItem.setAmount(1);
-        model.getShoppingCart().removeItem(shoppingItem);
-        productAmount.setText(Integer.toString((int) shoppingItem.getAmount()));
+        //shoppingItem.setAmount(1);
+        model.removeFromShoppingCart(product);
+        //productAmount.setText(Integer.toString((int) shoppingItem.getAmount()));
         selectButtonPanel(buttonAdd);
     }
 

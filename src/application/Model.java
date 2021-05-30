@@ -182,13 +182,26 @@ public class Model {
             if (shoppingCart.getItems().get(i).getProduct().getName().equals(p.getName())) {
                 if (shoppingCart.getItems().get(i).getAmount() == 1) {
                     shoppingCart.removeItem(i);
+                } else {
+                    shoppingCart.getItems().get(i).setAmount(shoppingCart.getItems().get(i).getAmount() - 1);
+                    shoppingCart.fireShoppingCartChanged(shoppingCart.getItems().get(i),true);
                 }
-                shoppingCart.getItems().get(i).setAmount(shoppingCart.getItems().get(i).getAmount() - 1);
-                shoppingCart.fireShoppingCartChanged(shoppingCart.getItems().get(i),true);
                 return;
             }
         }
         System.out.println("trying to remove item that doesnt exit in shoppingcart");
+    }
+
+    public void changeProductAmount(Product p, int amount) {
+        ShoppingCart shoppingCart = iMatDataHandler.getShoppingCart();
+        for (int i = 0; i < shoppingCart.getItems().size(); i++) {
+            if (shoppingCart.getItems().get(i).getProduct().getName().equals(p.getName())) {
+                shoppingCart.getItems().get(i).setAmount(amount);
+                shoppingCart.fireShoppingCartChanged(shoppingCart.getItems().get(i),true);
+                return;
+            }
+        }
+        System.out.println("Trying to change amount of product not in cart");
     }
 
     // TODO: Fix methods.
@@ -388,6 +401,7 @@ public class Model {
     }
 
     public void addProductToList(ShoppingItem shoppingItem) {
+        if (shoppingListList.isEmpty()) { createShoppingList(shoppingItem.getProduct()); }
         currentProduct = shoppingItem.getProduct();
     }
 
