@@ -6,7 +6,7 @@
 
 <AnchorPane xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label alignment="CENTER" layoutX="48.0" layoutY="45.0" text="Tryck här för att söka efter en vara" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="20.0">
+      <Label alignment="CENTER" layoutX="48.0" layoutY="45.0" text="Här kan du söka efter en vara" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="20.0">
          <font>
             <Font name="Lato-Light" size="30.0" />
          </font></Label>

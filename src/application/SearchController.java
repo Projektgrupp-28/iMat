@@ -28,6 +28,7 @@ public class SearchController implements Initializable {
         searchTerm = model.getCurrentSearchTerm();
         header.setText(model.findProducts(searchTerm).size() + " resultat för " + searchTerm + " hittades");
         loadFlowPane(model.findProducts(searchTerm));
+
     }
 
     private void loadFlowPane(List<Product> productList) {

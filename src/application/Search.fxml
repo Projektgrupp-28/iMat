@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@../styling/styling.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SearchController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@../styling/styling.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SearchController">
    <children>
       <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" layoutX="30.0" layoutY="190.0" stylesheets="@../styling/scrollpane.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <content>
@@ -19,7 +19,7 @@
                <children>
                   <Label fx:id="header" styleClass="font-larger" text="Search results" />
                   <FlowPane id="flowPane" fx:id="flowPane" hgap="10.0" rowValignment="TOP" styleClass="flow-pane" stylesheets="@../styling/flowpane.css" vgap="10.0" VBox.vgrow="ALWAYS" />
-                  <Button mnemonicParsing="false" onAction="#returnHome" style="-fx-border-radius: 25; -fx-border-color: black; -fx-border-width: 2;" stylesheets="@../styling/button.css" text="Tilllbaka">
+                  <Button mnemonicParsing="false" onAction="#returnHome" style="-fx-border-radius: 25; -fx-border-color: black; -fx-border-width: 2; -fx-background-color: white;" stylesheets="@../styling/button.css" text="Tilllbaka">
                      <graphic>
                         <ImageView fitWidth="8.0" pickOnBounds="true" preserveRatio="true">
                            <image>

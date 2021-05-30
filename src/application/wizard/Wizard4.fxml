@@ -6,7 +6,7 @@
 
 <AnchorPane xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label layoutX="43.0" layoutY="14.0" text="Tryck här för att komma till kundvagnen och för att genomföra ditt köp" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="20.0">
+      <Label layoutX="43.0" layoutY="14.0" text="Här trycker du för att komma till kundvagnen och för att genomföra ditt köp" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="20.0">
          <font>
             <Font name="Lato-Light" size="30.0" />
          </font></Label>
